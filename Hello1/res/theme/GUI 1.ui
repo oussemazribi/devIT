@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="GUI 1" cloudDestinationProperty="GUI 1" focusable="false" scrollableX="false" layout="FlowLayout" flowLayoutFillRows="false" flowLayoutAlign="4" flowLayoutValign="4" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="BorderLayout" borderLayoutAbsoluteCenter="true" >
+    <component type="TextField" name="tf1" cloudBoundProperty="text" cloudDestinationProperty="tf1" text="Oussema" >
+      <layoutConstraint value="North" />
+    </component>
+    <component type="Button" name="btn" cloudDestinationProperty="btn" text="Valider" >
+      <layoutConstraint value="South" />
+    </component>
+  </component>
+</component>
