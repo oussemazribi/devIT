@@ -5,22 +5,17 @@
  */
 package tungottalent.IService;
 
+
 import java.sql.SQLException;
 import java.util.List;
-import tungottalent.Entite.CommentaireAnnonce;
 
 /**
  *
- * @author ousse
+ * @author HPENVY
  */
-public interface IServiceCommentaireAnnonce<T> {
-
+public interface IServiceUser<T> {
     void ajouter(T t) throws SQLException;
-
-    boolean delete(T t) throws SQLException;
-
-    boolean update(String Contenue, CommentaireAnnonce c) throws SQLException;
-
+    boolean delete(T u) throws SQLException;
+    public boolean update(String Nom ,String Prenom,String Email ,String Login ,String MotDePasse , String Sexe ,String DateNaissance ,int NumTelephone ,String TypeCompte , String TypeTalent , String ImgUser,int idUser) throws SQLException;
     List<T> readAll() throws SQLException;
-
 }

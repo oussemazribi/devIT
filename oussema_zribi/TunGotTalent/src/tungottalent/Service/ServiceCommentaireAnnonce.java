@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tungottalent.Entite.Annonce;
 import tungottalent.Entite.CommentaireAnnonce;
+import tungottalent.Entite.User;
 import tungottalent.IService.IServiceCommentaireAnnonce;
 import tungottalent.Utils.DataBase;
 
@@ -34,7 +35,7 @@ public class ServiceCommentaireAnnonce implements IServiceCommentaireAnnonce<Com
     @Override
     public void ajouter(CommentaireAnnonce t) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `tunisiangottalent`.`commentaireannonce` (`idCommentaire`,`idUser`, `idAnnonce`, `contenue`, `date`) VALUES (NULL, '" + t.getIdUser() + "','" + t.getIdAnnonce() + "','" + t.getContenue() + "','" + t.getDate() + "');";
+        String requeteInsert = "INSERT INTO `tunisiangottalent`.`commentaireannonce` (`idCommentaire`,`idUser`, `idAnnonce`, `contenue`, `date`) VALUES (NULL, '" + t.getUser().getIdUser()+ "','" + t.getAnnonce().getIdAnnonce() + "','" + t.getContenue() + "','" + t.getDate() + "');";
         ste.executeUpdate(requeteInsert);
     }
 
@@ -59,15 +60,13 @@ public class ServiceCommentaireAnnonce implements IServiceCommentaireAnnonce<Com
     }
 
     @Override
-    public boolean update(int IdUser, int IdAnnonce, String Contenue, String Date, CommentaireAnnonce c) throws SQLException {
+    public boolean update( String Contenue,CommentaireAnnonce c) throws SQLException {
         String sql = "UPDATE commentaireannonce SET idUser=?, idAnnonce=?, contenue=? , date=? WHERE idCommentaire=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setInt(1, IdUser);
-        statement.setInt(2, IdAnnonce);
+
         statement.setString(3, Contenue);
-        statement.setString(4, Date);
-        statement.setInt(5, c.getIdCommentaire());
+        statement.setInt(5,c.getIdCommentaire());
 
         int rowsUpdated = statement.executeUpdate();
         if (rowsUpdated > 0) {
@@ -87,7 +86,7 @@ public class ServiceCommentaireAnnonce implements IServiceCommentaireAnnonce<Com
             int IdAnnonce = rs.getInt(3);
             String Contenue = rs.getString(4);
             String Date = rs.getString(5);
-            CommentaireAnnonce c = new CommentaireAnnonce(IdCommentaire,IdUser,IdAnnonce,Contenue,Date);
+            CommentaireAnnonce c = new CommentaireAnnonce(IdCommentaire,User.class.cast(IdUser),Annonce.class.cast(IdAnnonce),Contenue,Date);
             arr.add(c);
         }
         return arr;

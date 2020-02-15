@@ -14,21 +14,41 @@ import java.util.Date;
 public class CommentaireAnnonce {
 
     private int IdCommentaire;
-    private int IdUser;
-    private int IdAnnonce;
+    private User user;
+    private Annonce  annonce;
     private String Contenue;
     private String Date;
+
+    public CommentaireAnnonce(User user, Annonce annonce, String Contenue, String Date) {
+        this.user = user;
+        this.annonce = annonce;
+        this.Contenue = Contenue;
+        this.Date = Date;
+    }
+
+    public CommentaireAnnonce(int IdCommentaire, User user, Annonce annonce, String Contenue, String Date) {
+        this.IdCommentaire = IdCommentaire;
+        this.user = user;
+        this.annonce = annonce;
+        this.Contenue = Contenue;
+        this.Date = Date;
+    }
+
+    @Override
+    public String toString() {
+        return "CommentaireAnnonce{" + "IdCommentaire=" + IdCommentaire + ", user=" + user + ", annonce=" + annonce + ", Contenue=" + Contenue + ", Date=" + Date + '}';
+    }
 
     public void setIdCommentaire(int IdCommentaire) {
         this.IdCommentaire = IdCommentaire;
     }
 
-    public void setIdUser(int IdUser) {
-        this.IdUser = IdUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setIdAnnonce(int IdAnnonce) {
-        this.IdAnnonce = IdAnnonce;
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
     }
 
     public void setContenue(String Contenue) {
@@ -43,12 +63,12 @@ public class CommentaireAnnonce {
         return IdCommentaire;
     }
 
-    public int getIdUser() {
-        return IdUser;
+    public User getUser() {
+        return user;
     }
 
-    public int getIdAnnonce() {
-        return IdAnnonce;
+    public Annonce getAnnonce() {
+        return annonce;
     }
 
     public String getContenue() {
@@ -59,24 +79,5 @@ public class CommentaireAnnonce {
         return Date;
     }
 
-    public CommentaireAnnonce(int IdCommentaire, int IdUser, int IdAnnonce, String Contenue, String Date) {
-        this.IdCommentaire = IdCommentaire;
-        this.IdUser = IdUser;
-        this.IdAnnonce = IdAnnonce;
-        this.Contenue = Contenue;
-        this.Date = Date;
-    }
-
-    public CommentaireAnnonce(int IdUser, int IdAnnonce, String Contenue, String Date) {
-        this.IdUser = IdUser;
-        this.IdAnnonce = IdAnnonce;
-        this.Contenue = Contenue;
-        this.Date = Date;
-    }
-
-    @Override
-    public String toString() {
-        return "CommentaireAnnonce{" + "IdCommentaire=" + IdCommentaire + ", IdUser=" + IdUser + ", IdAnnonce=" + IdAnnonce + ", Contenue=" + Contenue + ", Date=" + Date + '}';
-    }
 
 }

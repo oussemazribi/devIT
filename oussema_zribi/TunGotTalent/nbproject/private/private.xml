@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/fx/gui/Annonce.fxml</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Service/ServiceAnnonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Entite/Publicite.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/IService/IServicePublicite.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Service/ServiceCommentaireAnnonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/test/Test.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Service/ServiceUser.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Entite/CommentaireAnnonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/IService/IServiceUser.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/IService/IServiceCommentaireAnnonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/IService/IServiceAnnonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Entite/Annonce.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/fx/gui/AnnonceController.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Entite/User.java</file>
+            <file>file:/C:/Users/ousse/OneDrive/Bureau/TunGotTalent/src/tungottalent/Service/ServicePublicite.java</file>
+        </group>
+    </open-files>
+</project-private>

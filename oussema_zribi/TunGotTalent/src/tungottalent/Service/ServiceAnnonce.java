@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import tungottalent.Entite.Annonce;
+import tungottalent.Entite.User;
 import tungottalent.Utils.DataBase;
 import tungottalent.IService.IServiceAnnonce;
 
@@ -26,7 +26,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
     @Override
     public void ajouter(Annonce t) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `tunisiangottalent`.`annonce` (`idAnnonce`, `idUser`, `Nom`, `Description`,`Prix`,`Etat`) VALUES (NULL, '" + t.getIdUser() + "', '" + t.getNom() + "','" + t.getDescription() + "','" + t.getPrix() + "','" + t.getEtat() + "');";
+        String requeteInsert = "INSERT INTO `tunisiangottalent`.`annonce` (`idAnnonce`, `idUser`, `Nom`, `Description`,`Prix`,`Etat`) VALUES (NULL, '" + t.getUser().getIdUser() + "', '" + t.getNom() + "','" + t.getDescription() + "','" + t.getPrix() + "','" + t.getEtat() + "');";
         ste.executeUpdate(requeteInsert);
     }
 
@@ -50,7 +50,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
         return true;    }
 
     @Override
-    public boolean update(String Nom, String Description, int Prix,String Etat, Annonce a) throws SQLException {
+    public boolean update(String Nom, String Description, int Prix,String Etat, int idAnnonce) throws SQLException {
         String sql = "UPDATE personne SET Nom=?, Description=?, Prix=? , Etat=? WHERE Nom=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
         statement.setString(2, Description);
         statement.setDouble(3, Prix);
         statement.setString(4, Etat);
-        statement.setString(5, a.getNom());
+        statement.setInt(5,idAnnonce);
 
         int rowsUpdated = statement.executeUpdate();
         if (rowsUpdated > 0) {
@@ -78,7 +78,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
             String Description = rs.getString(4);
             double Prix = rs.getDouble(5);
             String Etat = rs.getString(6);
-            Annonce p = new Annonce(idAnnonce, idUser, Nom, Description, Prix, Etat);
+            Annonce p = new Annonce(idAnnonce, User.class.cast(idUser) , Nom, Description, Prix, Etat);
             arr.add(p);
         }
         return arr;
