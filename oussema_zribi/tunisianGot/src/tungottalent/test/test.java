@@ -28,7 +28,7 @@ public class test {
 
         User u1 = new User(6, "montasser", "sellami", "aaaa", "montinho", "aaaa", "homme", "1996", 10101010, "Administrateur", "Dance", "null");
         Annonce a1 = new Annonce(11, u1, "Guitarre", "Desctiption", 654, "Vendu");
-        Publicite p1 = new Publicite(a1, u1, "date", "date1", "true", 500);
+     //   Publicite p1 = new Publicite(a1, u1, "date", "date1", "true", 500);
 
                List<Annonce> list;
         try {

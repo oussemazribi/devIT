@@ -5,6 +5,8 @@
  */
 package tungottalent.Entite;
 
+import java.util.Date;
+
 
 
 /**
@@ -15,47 +17,45 @@ public class Publicite {
 
     private Annonce annonce;
     private  User user;
-    private String DateDebut;
-    private String DateFin;
+    private Date DateDebut;
+    private Date DateFin;
     private String Etat;
-    private float Prix;
+    private String Pack;
+    private Float Prix;
 
-    public Publicite(Annonce annonce, User user, String DateDebut, String DateFin, String Etat, float Prix) {
+    public void setPrix(Float Prix) {
+        this.Prix = Prix;
+    }
+
+    public Float getPrix() {
+        return Prix;
+    }
+    public Publicite(Annonce annonce, User user, Date DateDebut, Date DateFin, String Etat, String Pack, Float Prix) {
         this.annonce = annonce;
         this.user = user;
         this.DateDebut = DateDebut;
         this.DateFin = DateFin;
         this.Etat = Etat;
+        this.Pack = Pack;
         this.Prix = Prix;
     }
 
-    @Override
-    public String toString() {
-        return "Publicite{" + "annonce=" + annonce + ", user=" + user + ", DateDebut=" + DateDebut + ", DateFin=" + DateFin + ", Etat=" + Etat + ", Prix=" + Prix + '}';
-    }
 
-    public void setAnnonce(Annonce annonce) {
+    public Publicite(Annonce annonce, User user, Date DateDebut, Date DateFin, String Etat, String Pack) {
         this.annonce = annonce;
-    }
-
-    public void setUser(User user) {
         this.user = user;
-    }
-
-    public void setDateDebut(String DateDebut) {
         this.DateDebut = DateDebut;
-    }
-
-    public void setDateFin(String DateFin) {
         this.DateFin = DateFin;
-    }
-
-    public void setEtat(String Etat) {
         this.Etat = Etat;
+        this.Pack = Pack;
     }
 
-    public void setPrix(float Prix) {
-        this.Prix = Prix;
+    public Publicite(Annonce annonce, Date DateDebut, Date DateFin, String Etat, String Pack) {
+        this.annonce = annonce;
+        this.DateDebut = DateDebut;
+        this.DateFin = DateFin;
+        this.Etat = Etat;
+        this.Pack = Pack;
     }
 
     public Annonce getAnnonce() {
@@ -66,11 +66,11 @@ public class Publicite {
         return user;
     }
 
-    public String getDateDebut() {
+    public Date getDateDebut() {
         return DateDebut;
     }
 
-    public String getDateFin() {
+    public Date getDateFin() {
         return DateFin;
     }
 
@@ -78,17 +78,41 @@ public class Publicite {
         return Etat;
     }
 
-    public float getPrix() {
-        return Prix;
+    public String getPack() {
+        return Pack;
     }
 
-    public Publicite(Annonce annonce, String DateDebut, String DateFin, String Etat, float Prix) {
+    public void setAnnonce(Annonce annonce) {
         this.annonce = annonce;
-        this.DateDebut = DateDebut;
-        this.DateFin = DateFin;
-        this.Etat = Etat;
-        this.Prix = Prix;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setDateDebut(Date DateDebut) {
+        this.DateDebut = DateDebut;
+    }
+
+    public void setDateFin(Date DateFin) {
+        this.DateFin = DateFin;
+    }
+
+    public void setEtat(String Etat) {
+        this.Etat = Etat;
+    }
+
+    public void setPack(String Pack) {
+        this.Pack = Pack;
+    }
+
+    @Override
+    public String toString() {
+        return "Publicite{" + "annonce=" + annonce + ", user=" + user + ", DateDebut=" + DateDebut + ", DateFin=" + DateFin + ", Etat=" + Etat + ", Pack=" + Pack + '}';
+    }
+    
+
+
 
 
 }

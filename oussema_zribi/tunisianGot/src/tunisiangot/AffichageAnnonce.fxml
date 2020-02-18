@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -10,17 +11,17 @@
    <children>
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="plus" layoutX="371.0" layoutY="512.0" mnemonicParsing="false" onAction="#ajout" text="+">
+            <Button fx:id="plus" layoutX="133.0" layoutY="510.0" mnemonicParsing="false" onAction="#ajout" text="+">
                <font>
                   <Font name="MV Boli" size="30.0" />
                </font>
             </Button>
-            <Button layoutX="30.0" layoutY="510.0" mnemonicParsing="false" onAction="#btnRefresh" prefHeight="72.0" prefWidth="57.0" text="Back" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="713.0" AnchorPane.topAnchor="510.0">
+            <Button layoutX="30.0" layoutY="510.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="57.0" text="Back" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="713.0" AnchorPane.topAnchor="510.0">
                <font>
                   <Font name="MV Boli" size="16.0" />
                </font>
             </Button>
-            <Button layoutX="713.0" layoutY="510.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="57.0" text="Pub">
+            <Button fx:id="Pub" layoutX="343.0" layoutY="510.0" mnemonicParsing="false" onAction="#Pub" prefHeight="72.0" prefWidth="57.0" text="Pub">
                <font>
                   <Font name="MV Boli" size="16.0" />
                </font>
@@ -33,6 +34,10 @@
                   <TableColumn fx:id="ColumnPrix" prefWidth="100.0" text="Prix" />
               </columns>
             </TableView>
+            <Button fx:id="btnQuitter" layoutX="231.0" layoutY="506.0" maxHeight="80.0" maxWidth="66.0" mnemonicParsing="false" onAction="#btnSupprimerAction" prefHeight="72.0" prefWidth="66.0">
+               <graphic>
+                  <ImageView fx:id="quitter" fitHeight="72.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic></Button>
          </children>
       </AnchorPane>
    </children>
