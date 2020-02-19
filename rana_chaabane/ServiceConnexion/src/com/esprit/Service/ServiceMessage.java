@@ -7,6 +7,7 @@ package com.esprit.Service;
 
 import com.esprit.Entite.Message;
 import com.esprit.IService.IService;
+import com.esprit.Entite.User;
 import java.sql.SQLException;
 import java.util.List;
 import java.sql.*;
@@ -32,12 +33,21 @@ public class ServiceMessage implements IService<Message> {
 
     }
 
-    @Override
+ @Override
     public void ajouter(Message t) throws SQLException {
+        System.err.println(t.getContenu());
         ste = con.createStatement();
         String requeteInsert = "INSERT INTO `dev-it`.`message`  (`id_Message`,`id_Sender`, `id_Receiver`, `Contenu`, `Etat`, `Date_Message`, `id_Conversation`) VALUES (NULL, '" + t.getId_Sender()+ "', '" + t.getId_Receiver()+ "', '" + t.getContenu()+ "', '" + t.getEtat()+ "', NOW() ,'" + t.getId_Conversation()+ "');";
         ste.executeUpdate(requeteInsert);
     }
+    /*
+      public void ajouter(Message t) throws SQLException {
+        System.err.println(t.getContenu());
+        ste = con.createStatement();
+        String requeteInsert = "INSERT INTO `message` (`id_Message`, `id_Sender`, `id_Receiver`, `Contenu`, `Etat`, `Date_Message`, `id_Conversation`) VALUES (NULL, '1', '2', '"+t.getContenu()+"', 'Not_Seen', NOW(), '28');";
+        ste.executeUpdate(requeteInsert);
+    }
+    */
 
    /* public void ajouter1(Message p) throws SQLException {
         PreparedStatement pre = con.prepareStatement("INSERT INTO `esprit1`.`personne` ( `nom`, `prenom`, `age`) VALUES ( ?, ?, ?);");
@@ -80,13 +90,13 @@ public class ServiceMessage implements IService<Message> {
     }
     
     
-     public boolean SeenMessage(int id_Message ,String etat ) throws SQLException {
+     public boolean SeenMessage(int id_Message ) throws SQLException {
         
              
         String sql = "UPDATE message SET etat=? WHERE id_Message=?";
        
         PreparedStatement statement = con.prepareStatement(sql);
-      
+       String etat = "Now_Seen" ;
         statement.setString(1, etat);
         statement.setInt(2, id_Message);
        
@@ -116,6 +126,44 @@ public class ServiceMessage implements IService<Message> {
         }
         return arr;
     }
+        public List<Message> recherche(String recherche) throws SQLException {
+        
+ ArrayList <Message> tab = new ArrayList (); 
+        
+  
+        try {
+            
+            PreparedStatement statement = con.prepareStatement("select Contenu.* from message where Contenu=?  ");
+            
+            statement.setString(1, recherche);
+          
+      
+            ResultSet rs =statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                
+                
+                int id_sender = rs.getInt(2);
+                int id_Receiver = rs.getInt(3);
+                String contenu = rs.getString(4);
+                String etat = rs.getString(5);
+                Timestamp Date_Message = rs.getTimestamp(6);
+                int id_Conversation = rs.getInt(7);
+                Message m = new Message(id, id_sender, id_Receiver, contenu ,etat,Date_Message,id_Conversation);
+                
+                 tab.add(m);
+                System.err.println(m);
+                
+            }
+        } catch (SQLException ex) {
+         
+        }
+               return tab; 
+    }
+  
+    
+    
+    
     public List<Message> readorder() throws SQLException {
         List<Message> arr = new ArrayList<>();
         ste = con.createStatement();
@@ -133,4 +181,77 @@ public class ServiceMessage implements IService<Message> {
         }
         return arr;
     }
+
+
+     public List<Message> messageenvoyees(User u )  throws SQLException{
+         int iduser = u.getIdUser();
+ ArrayList <Message> tab = new ArrayList (); 
+        
+  
+        try {
+            
+            PreparedStatement statement = con.prepareStatement("select * from message where id_Sender=? or id_Receiver =?  ");
+            
+            statement.setInt(1, iduser);
+               statement.setInt(2, iduser);
+      
+            ResultSet rs =statement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                
+                
+                int id_sender = rs.getInt(2);
+                int id_Receiver = rs.getInt(3);
+                String contenu = rs.getString(4);
+                String etat = rs.getString(5);
+                Timestamp Date_Message = rs.getTimestamp(6);
+                int id_Conversation = rs.getInt(7);
+                Message m = new Message(id, id_sender, id_Receiver, contenu ,etat,Date_Message,id_Conversation);
+                
+                 tab.add(m);
+                System.err.println(m);
+                
+            }
+        } catch (SQLException ex) {
+         
+        }
+               return tab; 
+    }
+  
+     
+     
+     
+      public long countNbUnreadConversations(int iduser) throws SQLException
+    {
+        long x=0;
+        String sql ="SELECT COUNT(*) FROM message WHERE id_Sender=? or id_Receiver=?  " ;
+               
+               
+
+         try {
+          
+        PreparedStatement statement = con.prepareStatement(sql);
+
+        statement.setInt(1, iduser);
+         statement.setInt(2, iduser);
+   
+             
+            
+             ResultSet res = statement.executeQuery();
+     
+             while(res.next())  
+             {
+               
+                 x=res.getLong(1);
+                
+             }
+         } catch (SQLException ex) {
+           
+         }
+        
+   System.err.println(x);
+        
+        return x ;
+    }
+    
 }
