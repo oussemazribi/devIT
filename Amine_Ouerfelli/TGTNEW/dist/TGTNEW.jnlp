@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="TGTNEW.jnlp">
+  <information>
+    <title>TGTNEW</title>
+    <vendor>asus</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="TGTNEW.jar" size="65138" download="eager" />
+    <jar href="lib\mysql-connector-java-6.0.4.jar" size="1938273" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="TGTNEW" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="tgtnew.TGTNEW"  name="TGTNEW" />
+  <update check="always"/>
+</jnlp>
