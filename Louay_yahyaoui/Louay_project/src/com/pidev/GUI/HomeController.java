@@ -73,7 +73,15 @@ public class HomeController implements Initializable {
         
        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("VerifTicket.fxml"));
         Parent root = LOADER.load();
-         button3.getScene().setRoot(root);
+         //button3.getScene().setRoot(root);^
+         
+          Scene scene = new Scene(root, 430, 290);
+//        
+         Stage primaryStage = new Stage();
+         primaryStage.setScene(scene);
+        primaryStage.show();
+            
+         
         
         
         

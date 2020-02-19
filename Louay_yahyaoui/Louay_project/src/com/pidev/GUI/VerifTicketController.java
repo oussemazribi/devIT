@@ -12,6 +12,8 @@ import com.pidev.Service.ServiceCompetition;
 import com.pidev.Service.ServiceTicket;
 import com.pidev.Service.ServiceUser;
 import com.sun.javafx.scene.control.skin.ButtonSkin;
+import com.twilio.rest.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -26,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -39,7 +42,7 @@ public class VerifTicketController implements Initializable {
     public ComboBox<String> comboTitre;
     
     @FXML
-    public TextField mdp;
+    public PasswordField mdp;
     
     
     
@@ -57,9 +60,29 @@ public class VerifTicketController implements Initializable {
         
     }
     
+//    public void SMS()
+//     {
+//   
+//
+//           
+//    
+//        Twilio.init("AC8fc62d0cb544b63cfaa31f5d26e51d04", "5dccfaca0e25cf8c6b1e78bbc7f11a67");
+//        Message message = Message.creator(
+//                new com.twilio.type.PhoneNumber("+21623422387"),
+//                new com.twilio.type.PhoneNumber("+16504377051"),
+//                "Participation avec succes ! ").create();
+//            
+//            
+//
+//        System.out.println(message.getSid());
+//        System.out.println("louay");
+//         
+//     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Afficher();
+        //Twilio.init("AC8fc62d0cb544b63cfaa31f5d26e51d04", "5dccfaca0e25cf8c6b1e78bbc7f11a67");
     }    
     
     public void VerifTicket()
@@ -94,6 +117,9 @@ public class VerifTicketController implements Initializable {
                         Alert alert=new Alert(Alert.AlertType.CONFIRMATION, "je vous souhaite la bienvenue !", ButtonType.OK);
                         alert.show();
                         
+                        
+                        
+                        
                         System.out.println("je vous souhaite la bienvenue ! ");
                         
                     } else {
@@ -116,5 +142,7 @@ public class VerifTicketController implements Initializable {
         
         
     }
+    
+    
     
 }

@@ -37,6 +37,8 @@ import com.pidev.Service.ServiceTicket;
 import com.pidev.Service.ServiceUser;
 import com.sun.javafx.scene.control.skin.ButtonSkin;
 import com.sun.scenario.effect.ImageData;
+import com.twilio.rest.Twilio;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -67,6 +69,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javax.swing.text.StyleConstants.FontConstants;
+
+import com.twilio.rest.api.v2010.account.Message;
+
+import com.twilio.type.PhoneNumber;
+import com.twilio.exception.AuthenticationException;
+
+import java.net.URI;
+import java.util.Arrays;
+import java.net.URISyntaxException;
 
 /**
  * FXML Controller class
@@ -102,10 +113,12 @@ public class AffichageUserController implements Initializable {
     @FXML
     private TableView<Competition> tableCompetition1;
     
+   
+    
 
     public void AfficherCombo() throws SQLException {
 
-        User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+        User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
         ServiceParticipation service1 = new ServiceParticipation();
 
         
@@ -156,7 +169,7 @@ public class AffichageUserController implements Initializable {
     }
     
     public void btnPDF() throws IOException, SQLException {
-          User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+          User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
 //        ServiceCompetition service = new ServiceCompetition();
 //        ServiceParticipation service1 = new ServiceParticipation();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -175,7 +188,7 @@ public class AffichageUserController implements Initializable {
     }
     
      public void btnPDF2() throws IOException, SQLException {
-          User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+          User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
 //        ServiceCompetition service = new ServiceCompetition();
 //        ServiceParticipation service1 = new ServiceParticipation();
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -192,12 +205,14 @@ public class AffichageUserController implements Initializable {
 
         }
     }
+     
+     
 
     public void Participer() throws SQLException {
         Competition comp = tableCompetition.getSelectionModel().getSelectedItem();
         ServiceParticipation ser = new ServiceParticipation();
         ServiceUser ser1 = new ServiceUser();
-        User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+        User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
 
         //Competition c = new Competition(103, user, "maysa", "event", "BeatBox","2020-02-18","2020-02-28",650);
         String titre = tableCompetition.getSelectionModel().getSelectedItem().getTitre();
@@ -214,6 +229,7 @@ public class AffichageUserController implements Initializable {
             if (userTest.getNbDiament() > comp.getCout()) {
 
                 ser.ParticiperCompetition(comp, userTest);
+                
                 System.out.println(motDePasse);
                 try {
                     //                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Participation avec succés ! ", ButtonType.OK);
@@ -254,6 +270,7 @@ public class AffichageUserController implements Initializable {
                     ex.getMessage();
                 }
                 qrView.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+                
 
             } else {
                 this.AfficherCombo();
@@ -309,7 +326,7 @@ btnPDF2();
     
     
      public void btnSupprimerPart(ActionEvent event) throws IOException, SQLException {
-          User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+          User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
         ServiceCompetition service = new ServiceCompetition();
         ServiceParticipation service1 = new ServiceParticipation();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -340,7 +357,7 @@ btnPDF2();
     void setFILES() {
         try {
 
-            User userTest = new User(102, "oussema", "zribi", "zribi@esprit.tn", "zribi", "oussema", "femme", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+            User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
             String titre = tableCompetition.getSelectionModel().getSelectedItem().getTitre();
             String description = tableCompetition.getSelectionModel().getSelectedItem().getDescription();
             ServiceTicket ser = new ServiceTicket();
@@ -448,4 +465,6 @@ btnPDF2();
         
        
     }
+     
+     
 }

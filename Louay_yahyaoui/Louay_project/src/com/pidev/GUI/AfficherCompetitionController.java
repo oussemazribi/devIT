@@ -168,12 +168,16 @@ AfficherTous();
         ServiceCompetition ser1 = new ServiceCompetition();
         //boolean test = false;
         //ser1.ajouter1(c1);
-        if (ser1.findBy(c1) == false) {
+        if ((ser1.findBy(c1) == false) ) {
             ser1.ajouter(c1);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ajout de --"+c1.getTitre()+"-- effectué avec succées", ButtonType.OK);
             alert.show();
             this.AfficherTous();
-        } else {
+        
+        
+           
+        }
+        else {
             Alert alert1 = new Alert(Alert.AlertType.ERROR, "Cette Competition existe deja ! ", ButtonType.OK);
             alert1.show();
             this.AfficherTous();
@@ -264,5 +268,9 @@ AfficherTous();
         
        
     }
+     
+    
+     
+     
 
 }
