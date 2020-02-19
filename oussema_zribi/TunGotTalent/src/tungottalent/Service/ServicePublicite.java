@@ -11,10 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import tungottalent.Entite.Annonce;
 import tungottalent.Entite.Publicite;
+import tungottalent.Entite.User;
 import tungottalent.IService.IServicePublicite;
 import tungottalent.Utils.DataBase;
 
@@ -35,7 +35,7 @@ public class ServicePublicite implements IServicePublicite<Publicite> {
     @Override
     public void ajouter(Publicite p) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `tunisiangottalent`.`publicite` ( `idAnnonce`, `idUser`, `DateDebut`,`DateFin`,`Etat`,`prix`) VALUES ('" + p.getIdAnnonce() + "', '" + p.getIdUser() + "','" + p.getDateDebut() + "','" + p.getDateFin()+ "','" + p.getEtat() + "','" + p.getPrix()+ "');";
+        String requeteInsert = "INSERT INTO `tunisiangottalent`.`publicite` ( `idAnnonce`, `idUser`, `DateDebut`,`DateFin`,`Etat`,`prix`) VALUES ('" + p.getAnnonce().getIdAnnonce() + "', '" + p.getUser().getIdUser()+ "','" + p.getDateDebut() + "','" + p.getDateFin()+ "','" + p.getEtat() + "','" + p.getPrix()+ "');";
         ste.executeUpdate(requeteInsert);
         
 //        PreparedStatement pre = con.prepareStatement("INSERT INTO `tunisiangottalent`.`publicite` ( `idAnnonce`, `idUser`, `DateDebut`,`DateFin`,`Etat`,`Cout`) VALUES ( ?, ?, ?, ?, ?, ?);");
@@ -51,7 +51,7 @@ public class ServicePublicite implements IServicePublicite<Publicite> {
     @Override
     public boolean delete(Publicite p) throws SQLException {
         PreparedStatement pre = con.prepareStatement("DELETE FROM `tunisiangottalent`.`publicite` where idAnnonce =?");
-        pre.setInt(1, p.getIdAnnonce());
+        pre.setInt(1, p.getAnnonce().getIdAnnonce());
         pre.executeUpdate();
         int rowsDeleted = pre.executeUpdate();
         if (rowsDeleted > 0) {
@@ -61,15 +61,15 @@ public class ServicePublicite implements IServicePublicite<Publicite> {
     }
 
     @Override
-    public boolean update(Date DateDebut, Date DateFin, String Etat, float Prix, Publicite p) throws SQLException {
+    public boolean update(String DateDebut, String DateFin, String Etat, float Prix, Publicite p) throws SQLException {
         String sql = "UPDATE personne SET DateDebut=?, DateFin=?, Etat=? , Prix=? WHERE idAnnonce=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
-        statement.setDate(1, (java.sql.Date) DateDebut);
-        statement.setDate(2, (java.sql.Date) DateFin);
+        statement.setString(1,DateDebut);
+        statement.setString(2,DateFin);
         statement.setString(3, Etat);
         statement.setFloat(4, Prix);
-        statement.setInt(5, p.getIdAnnonce());
+        statement.setInt(5, p.getAnnonce().getIdAnnonce());
 
         int rowsUpdated = statement.executeUpdate();
         if (rowsUpdated > 0) {
@@ -90,7 +90,7 @@ public class ServicePublicite implements IServicePublicite<Publicite> {
             String DateFin = rs.getString(4);
             String Etat = rs.getString(5);
             float Prix = rs.getFloat(6);
-            Publicite p = new Publicite(idAnnonce, idUser, DateDebut, DateFin, Etat ,Prix);
+            Publicite p = new Publicite(Annonce.class.cast(idAnnonce), User.class.cast(idUser), DateDebut, DateFin, Etat ,Prix);
             arr.add(p);
         }
         return arr;
