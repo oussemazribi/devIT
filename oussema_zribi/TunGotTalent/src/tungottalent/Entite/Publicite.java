@@ -5,7 +5,7 @@
  */
 package tungottalent.Entite;
 
-import java.util.Date;
+
 
 /**
  *
@@ -13,33 +13,33 @@ import java.util.Date;
  */
 public class Publicite {
 
-    private int idAnnonce;
-    private int idUser;
+    private Annonce annonce;
+    private  User user;
     private String DateDebut;
     private String DateFin;
     private String Etat;
     private float Prix;
 
-    public Publicite(int idAnnonce, int idUser, String DateDebut, String DateFin, String Etat, float Prix) {
-        this.idAnnonce = idAnnonce;
-        this.idUser = idUser;
+    public Publicite(Annonce annonce, User user, String DateDebut, String DateFin, String Etat, float Prix) {
+        this.annonce = annonce;
+        this.user = user;
         this.DateDebut = DateDebut;
         this.DateFin = DateFin;
         this.Etat = Etat;
         this.Prix = Prix;
     }
 
-    public void setIdAnnonce(int idAnnonce) {
-        this.idAnnonce = idAnnonce;
-    }
-
     @Override
     public String toString() {
-        return "Publicite{" + "idAnnonce=" + idAnnonce + ", idUser=" + idUser + ", DateDebut=" + DateDebut + ", DateFin=" + DateFin + ", Etat=" + Etat + ", Prix=" + Prix + '}';
+        return "Publicite{" + "annonce=" + annonce + ", user=" + user + ", DateDebut=" + DateDebut + ", DateFin=" + DateFin + ", Etat=" + Etat + ", Prix=" + Prix + '}';
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setAnnonce(Annonce annonce) {
+        this.annonce = annonce;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setDateDebut(String DateDebut) {
@@ -54,16 +54,16 @@ public class Publicite {
         this.Etat = Etat;
     }
 
-    public void setCout(float Prix) {
+    public void setPrix(float Prix) {
         this.Prix = Prix;
     }
 
-    public int getIdAnnonce() {
-        return idAnnonce;
+    public Annonce getAnnonce() {
+        return annonce;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public User getUser() {
+        return user;
     }
 
     public String getDateDebut() {
@@ -81,5 +81,14 @@ public class Publicite {
     public float getPrix() {
         return Prix;
     }
+
+    public Publicite(Annonce annonce, String DateDebut, String DateFin, String Etat, float Prix) {
+        this.annonce = annonce;
+        this.DateDebut = DateDebut;
+        this.DateFin = DateFin;
+        this.Etat = Etat;
+        this.Prix = Prix;
+    }
+
 
 }
