@@ -229,11 +229,14 @@ public class AffichageUserController implements Initializable {
             if (userTest.getNbDiament() > comp.getCout()) {
 
                 ser.ParticiperCompetition(comp, userTest);
+//                    TwilioSms twilio = new TwilioSms();
+//                    twilio.sendSms("Participation avec succés Mr--"+nom+" "+prenom);
                 
                 System.out.println(motDePasse);
                 try {
-                    //                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Participation avec succés ! ", ButtonType.OK);
-//                alert.show();
+                  Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Participation avec succés ! ", ButtonType.OK);
+                  alert.show();
+
                    btnPDF();
                     this.AfficherCombo();
                 } catch (IOException ex) {

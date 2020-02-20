@@ -234,7 +234,7 @@ AfficherTous();
         String TypeTalent = typetalent.getValue();
         int Cout = Integer.parseInt(cout.getText());
         ServiceCompetition ser = new ServiceCompetition();
-        ser.update(Titre, Description, TypeTalent, DateD, DateFe, Cout, titre1);
+        //ser.update(Titre, Description, TypeTalent, DateD, DateFe, Cout, titre1);
 
         this.AfficherTous();
         

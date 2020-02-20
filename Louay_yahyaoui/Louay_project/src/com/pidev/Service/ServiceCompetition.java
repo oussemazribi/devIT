@@ -36,7 +36,7 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
     @Override
     public void ajouter(Competition t) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `tunisiangottalent`.`competition` (`idCompetition` , `idUser`, `titre`, `Description` , `TypeDeTalent` , `DateDebut` , `DateFin` , `Cout`) VALUES (NULL, '" + t.getUser().getIdUser() + "', '" + t.getTitre() + "', '" + t.getDescription() + "' , '" + t.getTypeDeTalent() + "' , '" + t.getDateDebut() + "', '" + t.getDateFin() + "', '" + t.getCout() + "');";
+        String requeteInsert = "INSERT INTO `tunisiangottalent`.`competition` (`idCompetition` , `idUser`, `titre`, `Description` , `TypeDeTalent` , `DateDebut` , `DateFin` , `Cout`, `imageC`) VALUES (NULL, '" + t.getUser().getIdUser() + "', '" + t.getTitre() + "', '" + t.getDescription() + "' , '" + t.getTypeDeTalent() + "' , '" + t.getDateDebut() + "', '" + t.getDateFin() + "', '" + t.getCout() + "', '" + t.getImageC() + "');";
         ste.executeUpdate(requeteInsert);
     }
 
@@ -54,7 +54,7 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
     }
 
     @Override
-    public boolean update(String Titre, String Description, String TypeDeTalent, String DateDebut, String DateFin, int Cout, String titre) throws SQLException {
+    public boolean update(String Titre, String Description, String TypeDeTalent, String DateDebut, String DateFin, int Cout,String imageC, String titre) throws SQLException {
 //        String sql = "UPDATE competition SET Titre=?, Description=?, DateDebut=?, DateFin=?, Cout=? WHERE Titre=?";
 //
 //        PreparedStatement statement = con.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
 //            System.out.println("An existing Competition was updated successfully!");
 //        }
 //        return true;
-        String sql = "UPDATE competition SET Titre=?, Description=?, TypeDeTalent=?, DateDebut=?, DateFin=?, Cout=? WHERE Titre=?";
+        String sql = "UPDATE competition SET Titre=?, Description=?, TypeDeTalent=?, DateDebut=?, DateFin=?, Cout=?,imageC=? WHERE Titre=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
         statement.setString(1, Titre);
@@ -81,59 +81,60 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
         statement.setString(4, DateDebut);
         statement.setString(5, DateFin);
         statement.setInt(6, Cout);
-        statement.setString(7, titre);
+        statement.setString(7, imageC);
+        statement.setString(8, titre);
 
         int rowsUpdated = statement.executeUpdate();
         if (rowsUpdated > 0) {
-            System.out.println("An existing user was updated successfully!");
+            System.out.println("An existing Competition was updated successfully!");
         }
         return true;
     }
 
-    @Override
-    public Map<User,Competition> readAll() throws SQLException {
-        List<Competition> arr = new ArrayList<>();
-        List<User> arr2 = new ArrayList<>();
-        Map<User,Competition> map = new HashMap<>();
-        
-        ste = con.createStatement();
-        ResultSet rs = ste.executeQuery("SELECT * \n"
-                + "FROM competition INNER JOIN user \n"
-                + "ON competition.idUser = user.idUser;");
-        while (rs.next()) {
-            int idCompetition = rs.getInt("idCompetition");
-            int idUser1 = rs.getInt("idUser");
-
-            String Titre = rs.getString("Titre");
-            String Description = rs.getString("Description");
-            String TypeDeTalent = rs.getString("TypeDeTalent");
-            String DateDebut = rs.getString("DateDebut");
-            String DateFin = rs.getString("DateFin");
-            int Cout = rs.getInt("Cout");
-            
-            int idUser = rs.getInt("idUser");
-            String Nom = rs.getString("Nom");
-            String Prenom = rs.getString("Prenom");
-            String Email = rs.getString("Email");
-            String Login = rs.getString("Login");
-            String MotDePasse = rs.getString("MotDePasse");
-            String Sexe = rs.getString("Sexe");
-            String DateNaissance = rs.getString("DateNaissance");
-            int NumTelephone = rs.getInt("NumTelephone");
-            String TypeCompte = rs.getString("TypeCompte");
-            String TypeTalent = rs.getString("TypeTalent");
-            String Imguser = rs.getString("Imguser");
-            ServiceUser service = new ServiceUser();
-            User user = service.findById(idUser);
-            Competition c = new Competition(idCompetition,user , Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout);
-            User u = new User(idUser, Nom, Prenom, Email, Login, MotDePasse, Sexe, DateNaissance, NumTelephone, TypeCompte, TypeTalent, Imguser);
-            arr.add(c);
-            arr2.add(u);
-            map.put(u,c);
-        }
-        
-            return map;
-        }
+//    @Override
+//    public Map<User,Competition> readAll() throws SQLException {
+//        List<Competition> arr = new ArrayList<>();
+//        List<User> arr2 = new ArrayList<>();
+//        Map<User,Competition> map = new HashMap<>();
+//        
+//        ste = con.createStatement();
+//        ResultSet rs = ste.executeQuery("SELECT * \n"
+//                + "FROM competition INNER JOIN user \n"
+//                + "ON competition.idUser = user.idUser;");
+//        while (rs.next()) {
+//            int idCompetition = rs.getInt("idCompetition");
+//            int idUser1 = rs.getInt("idUser");
+//
+//            String Titre = rs.getString("Titre");
+//            String Description = rs.getString("Description");
+//            String TypeDeTalent = rs.getString("TypeDeTalent");
+//            String DateDebut = rs.getString("DateDebut");
+//            String DateFin = rs.getString("DateFin");
+//            int Cout = rs.getInt("Cout");
+//            
+//            int idUser = rs.getInt("idUser");
+//            String Nom = rs.getString("Nom");
+//            String Prenom = rs.getString("Prenom");
+//            String Email = rs.getString("Email");
+//            String Login = rs.getString("Login");
+//            String MotDePasse = rs.getString("MotDePasse");
+//            String Sexe = rs.getString("Sexe");
+//            String DateNaissance = rs.getString("DateNaissance");
+//            int NumTelephone = rs.getInt("NumTelephone");
+//            String TypeCompte = rs.getString("TypeCompte");
+//            String TypeTalent = rs.getString("TypeTalent");
+//            String Imguser = rs.getString("Imguser");
+//            ServiceUser service = new ServiceUser();
+//            User user = service.findById(idUser);
+//            Competition c = new Competition(idCompetition,user , Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout);
+//            User u = new User(idUser, Nom, Prenom, Email, Login, MotDePasse, Sexe, DateNaissance, NumTelephone, TypeCompte, TypeTalent, Imguser);
+//            arr.add(c);
+//            arr2.add(u);
+//            map.put(u,c);
+//        }
+//        
+//            return map;
+//        }
 
         @Override
         public Competition findByComp(Competition c) throws SQLException {
@@ -148,7 +149,7 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
                 int idUser = resultSet.getInt(2);
                 ServiceUser ser = new ServiceUser();
                 User u=ser.findById(idUser);
-                    competition = new Competition(resultSet.getInt(1),u, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8));
+                    competition = new Competition(resultSet.getInt(1),u, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8),resultSet.getString(9));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -168,7 +169,7 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
                 int idUser = resultSet.getInt(2);
                 ServiceUser ser = new ServiceUser();
                 User u=ser.findById(idUser);
-                    competition = new Competition(resultSet.getInt(1),u, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8));
+                    competition = new Competition(resultSet.getInt(1),u, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8),resultSet.getString(9));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -218,8 +219,9 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
             String DateDebut = rs.getString("DateDebut");
             String DateFin = rs.getString("DateFin");
             int Cout = rs.getInt("Cout");
+            String image=rs.getString("imageC");
      
-            Competition c = new Competition(idCompetition,u,Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout);
+            Competition c = new Competition(idCompetition,u,Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout,image);
 
             arr.add(c);
 
@@ -266,7 +268,8 @@ public class ServiceCompetition implements IServiceCompetition<Competition> {
                     String DateDebut = rs.getString("DateDebut");
                     String DateFin = rs.getString("DateFin");
                     int Cout = rs.getInt("Cout");
-                    Competition c = new Competition(idCompetition, User.class.cast(idUser), Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout);
+                    String image=rs.getString("imageC");
+                    Competition c = new Competition(idCompetition, User.class.cast(idUser), Titre, Description, TypeDeTalent, DateDebut, DateFin, Cout,image);
                     arr1.add(c);
                 }
 

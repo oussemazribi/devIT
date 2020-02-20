@@ -19,8 +19,8 @@ public interface IServiceCompetition<T> {
     
     void ajouter(T t) throws SQLException;
     boolean delete(T t) throws SQLException;
-    boolean update(String Titre, String Description,String TypeDeTalent,String DateDebut,String DateFin, int Cout,  String titre) throws SQLException;
-    public Map<User,Competition> readAll() throws SQLException;
+    boolean update(String Titre, String Description,String TypeDeTalent,String DateDebut,String DateFin, int Cout,String ImageC,  String titre) throws SQLException;
+     public List<Competition> readAll1() throws SQLException;
     public Competition findByComp(Competition c) throws SQLException;
     public List<Competition> findByTalent(String Talents) throws SQLException;
     

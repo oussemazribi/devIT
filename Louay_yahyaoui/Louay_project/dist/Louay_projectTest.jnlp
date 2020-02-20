@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Louay_projectTest.jar" size="2168959" download="eager" />
+    <jar href="Louay_projectTest.jar" size="2244040" download="eager" />
     <jar href="lib\GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib\TrayTester.jar" size="52070" download="eager" />
     <jar href="lib\commons-io-2.6-javadoc.jar" size="833601" download="eager" />

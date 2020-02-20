@@ -73,37 +73,37 @@ public class ServiceParticipation implements IServiceParticipation<Participation
         return true;
     }
 
-    @Override
-    public Map<User, Competition> readAll() throws SQLException {
-        List<Competition> arr = new ArrayList<>();
-        List<User> arr2 = new ArrayList<>();
-        Map<User, Competition> map = new HashMap<>();
-
-        ste = con.createStatement();
-        ResultSet rs = ste.executeQuery("SELECT * \n"
-                + "FROM competition INNER JOIN user \n"
-                + "ON competition.idUser = user.idUser;");
-        while (rs.next()) {
-            int idCompetition = rs.getInt("idCompetition");
-            int idUser1 = rs.getInt("idUser");
-
-            String Titre = rs.getString("Titre");
-            String Description = rs.getString("Description");
-            String TypeDeTalent = rs.getString("TypeDeTalent");
-            String Nom = rs.getString("Nom");
-            String Prenom = rs.getString("Prenom");
-            String Imguser = rs.getString("Imguser");
-            ServiceUser service = new ServiceUser();
-            User user = service.findById(idUser1);
-            Competition c = new Competition(idCompetition, user, Titre, Description, TypeDeTalent);
-            User u = new User(Nom, Prenom, Imguser);
-            arr.add(c);
-            arr2.add(u);
-            map.put(u, c);
-        }
-
-        return map;
-    }
+//    @Override
+//    public Map<User, Competition> readAll() throws SQLException {
+//        List<Competition> arr = new ArrayList<>();
+//        List<User> arr2 = new ArrayList<>();
+//        Map<User, Competition> map = new HashMap<>();
+//
+//        ste = con.createStatement();
+//        ResultSet rs = ste.executeQuery("SELECT * \n"
+//                + "FROM competition INNER JOIN user \n"
+//                + "ON competition.idUser = user.idUser;");
+//        while (rs.next()) {
+//            int idCompetition = rs.getInt("idCompetition");
+//            int idUser1 = rs.getInt("idUser");
+//
+//            String Titre = rs.getString("Titre");
+//            String Description = rs.getString("Description");
+//            String TypeDeTalent = rs.getString("TypeDeTalent");
+//            String Nom = rs.getString("Nom");
+//            String Prenom = rs.getString("Prenom");
+//            String Imguser = rs.getString("Imguser");
+//            ServiceUser service = new ServiceUser();
+//            User user = service.findById(idUser1);
+//            Competition c = new Competition(idCompetition, user, Titre, Description, TypeDeTalent);
+//            User u = new User(Nom, Prenom, Imguser);
+//            arr.add(c);
+//            arr2.add(u);
+//            map.put(u, c);
+//        }
+//
+//        return map;
+//    }
 
     public List<Competition> findByIdUser(User user) throws SQLException {
         List<Competition> arr = new ArrayList<>();
@@ -118,7 +118,7 @@ public class ServiceParticipation implements IServiceParticipation<Participation
             User user1 = service.findById(id);
             int idUser1 = resultSet.getInt(2);
             if (resultSet.next()) {
-                competition = new Competition(user1, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8));
+                competition = new Competition(resultSet.getInt(1),user1, resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getString(9));
                 arr.add(competition);
             }
         } catch (Exception e) {
