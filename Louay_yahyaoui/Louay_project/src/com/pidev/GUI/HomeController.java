@@ -59,9 +59,15 @@ public class HomeController implements Initializable {
     public void startUser(ActionEvent event) throws IOException {
         
         
-       FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageUser.fxml"));
+       FXMLLoader LOADER = new FXMLLoader(getClass().getResource("UserInterface.fxml"));
         Parent rootUser = LOADER.load();
-         button2.getScene().setRoot(rootUser);
+          Scene scene = new Scene(rootUser,800,600);
+         // button2.getScene().setRoot(rootUser);
+        
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
         
         
         

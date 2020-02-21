@@ -12,8 +12,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -69,7 +72,7 @@ import javax.swing.filechooser.FileSystemView;
  * @author loume78
  */
 public class IntChasseurController implements Initializable {
-
+    private String ImageComp;
     @FXML
     private TextField recherche;
     @FXML
@@ -83,7 +86,8 @@ public class IntChasseurController implements Initializable {
     private TextField desc;
     @FXML
     private TextField cout;
-    
+   
+
     @FXML
     private ComboBox<String> talent;
     @FXML
@@ -92,7 +96,12 @@ public class IntChasseurController implements Initializable {
     private DatePicker date_fin;
     @FXML
     private Button ajoutComp;
-    ;
+    @FXML
+    private Button browse;
+    @FXML
+
+    private ImageView imageC;
+    
 
     ObservableList<String> list = FXCollections.observableArrayList("Dance", "BeatBox", "Musique", "Comedie");
 //    
@@ -103,8 +112,6 @@ public class IntChasseurController implements Initializable {
 //        
 //        imageC.setText(fc.getCurrentDirectory();
 //    }
-    
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -119,8 +126,6 @@ public class IntChasseurController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
 
     private void affichageUS() throws SQLException {
 
@@ -143,12 +148,12 @@ public class IntChasseurController implements Initializable {
 
             VBox VBoxComp = new VBox();
 
-            VBoxComp.setSpacing(5);
+            VBoxComp.setSpacing(7);
             VBoxComp.setStyle("-fx-background-color : #FFFFFF;");
-            VBoxComp.setStyle("-fx-border-color : #2B48E8;");
+            //VBoxComp.setStyle("-fx-border-color : #2B48E8;");
             VBoxComp.setAlignment(Pos.CENTER);
-            VBoxComp.setPrefHeight(262);
-            VBoxComp.setPrefWidth(170);
+            VBoxComp.setPrefHeight(265);
+            VBoxComp.setPrefWidth(230);
             HBox panne = new HBox();
             panne.setSpacing(5);
             panne.setStyle("-fx-background-color : #FFFFFF;");
@@ -157,13 +162,13 @@ public class IntChasseurController implements Initializable {
             panne.setPrefHeight(30);
             panne.setPrefWidth(80);
 
-            Rectangle c = new Rectangle(190, 150);
+            Rectangle c = new Rectangle(230, 180);
 
 //                ImageView img = new ImageView(new Image(new FileInputStream("C:\\Users\\loume78\\Desktop\\Mon_cv\\loume.png")));
 //                img.setFitHeight(10);
 //                img.setFitWidth(20);
             try {
-                c.setFill(new ImagePattern(new Image(new FileInputStream(listComp.get(i).getImageC()))));
+                c.setFill(new ImagePattern(new Image(new FileInputStream("C:/wamp64/www/PI_DEV_Image/" + listComp.get(i).getImageC()))));
             } catch (FileNotFoundException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -183,6 +188,8 @@ public class IntChasseurController implements Initializable {
             Button btnSupp = new Button("Supprimer");
             btnSupp.setTextOverrun(OverrunStyle.CLIP);
             btnSupp.setStyle("-fx-background-color : #E82B34;");
+            
+            //btnSupp.setDisable(true);
             btnSupp.setOnAction(new EventHandler<ActionEvent>() {
 
                 @Override
@@ -221,7 +228,7 @@ public class IntChasseurController implements Initializable {
                 public void handle(ActionEvent event) {
 
                     try {
-                       
+
                         ServiceCompetition serC = new ServiceCompetition();
                         Competition c1 = serC.findById(idComp);
                         titre.setText(c1.getTitre());
@@ -229,10 +236,11 @@ public class IntChasseurController implements Initializable {
                         cout.setText(String.valueOf(c1.getCout()));
                         date_debut.setValue(LocalDate.parse(c1.getDateDebut()));
                         date_fin.setValue(LocalDate.parse(c1.getDateFin()));
-                        //imageC.setText(c1.getImageC());
-                       
-                        
-                        
+                        talent.setValue(c1.getTypeDeTalent());
+                        File file = new File("C:/wamp64/www/PI_DEV_Image/" + c1.getImageC());
+//            System.out.println(file.toURI().toString());
+                        imageC.setImage(new Image(file.toURI().toString()));
+                        //imageC.setImage(new Image("C:/wamp64/www/PI_DEV_Image/"+c1.getImageC()));
 
                     } catch (SQLException ex) {
                         Logger.getLogger(IntChasseurController.class.getName()).log(Level.SEVERE, null, ex);
@@ -247,7 +255,7 @@ public class IntChasseurController implements Initializable {
             modif.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    try {
+                   
                         LocalDate DateDe = date_debut.getValue();
 
                         String DateD = DateDe.toString();
@@ -259,22 +267,26 @@ public class IntChasseurController implements Initializable {
 
                         String TypeTalent = talent.getValue();
                         int Cout = Integer.parseInt(cout.getText());
-                        String image ="";
-
-                        // ser.update(Titre, Description, TypeTalent, DateD, DateFe, Cout,modif );
-                        if (ser.update(Titre, louay, TypeTalent, DateD, DateFe, Cout,image, modifbtn) == true) {
+                        String image;
+                        try {
+                            
+                            if (ser.update(Titre, louay, TypeTalent, DateD, DateFe, Cout, ImageComp, modifbtn) == true) {
                             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Modification avec succés !", ButtonType.OK);
                             alert.show();
                             flowPaneComp.getChildren().clear();
                             affichageUS();
 
                         } else {
-                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Modification avec succés !", ButtonType.OK);
+                            Alert alert = new Alert(Alert.AlertType.ERROR, "Echec de modification  !", ButtonType.OK);
                             alert.show();
                             flowPaneComp.getChildren().clear();
                             affichageUS();
 
                         }
+                       
+
+                        // ser.update(Titre, Description, TypeTalent, DateD, DateFe, Cout,modif );
+                        
 
                     } catch (SQLException ex) {
                         Logger.getLogger(IntChasseurController.class.getName()).log(Level.SEVERE, null, ex);
@@ -358,7 +370,7 @@ public class IntChasseurController implements Initializable {
             }
         }
     }
-    
+
 //    public  void getInputPath() {
 //  JFileChooser file = new JFileChooser();
 //      file.setMultiSelectionEnabled(true);
@@ -369,19 +381,56 @@ public class IntChasseurController implements Initializable {
 //         System.err.println(f.getPath());
 //      }
 //}
-    
-    public String handle1() {
+//    public String handle1() {
+//
+//                   
+//                       
+//                        JFileChooser chooser = new JFileChooser();
+//                        chooser.showOpenDialog(null);
+//                        File f =chooser.getSelectedFile();
+//                        String path =f.getAbsolutePath();
+//                        System.out.println(pathe);
+//                        return path;
+//
+//          
+    public void ChoiceImage() throws FileNotFoundException, IOException {
+        FileChooser fc = new FileChooser();
+        //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Images", listFichier));
+        File f = fc.showOpenDialog(null);
+        if (f != null) {
 
-                   
-                       
-                        JFileChooser chooser = new JFileChooser();
-                        chooser.showOpenDialog(null);
-                        File f =chooser.getSelectedFile();
-                        String path =f.getAbsolutePath();
-                        System.out.println(path);
-                        return path;
-
+            //Commentaire.setText("Image selectionnée" + f.getAbsolutePath());
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = new FileInputStream(new File(f.getAbsolutePath()));
+//             
+                os = new FileOutputStream(new File("C:/wamp64/www/PI_DEV_Image/" + f.getName()));
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
                 }
+                System.out.println("louay");
+
+            } finally {
+                is.close();
+                os.close();
+
+            }
+
+            File file = new File("C:/wamp64/www/PI_DEV_Image/" + f.getName());
+//            System.out.println(file.toURI().toString());
+            imageC.setImage(new Image(file.toURI().toString()));
+             ImageComp = f.getName();
+            System.out.println(ImageComp);
+        } else if (f == null) {
+            //Commentaire.setText("Erreur chargement de l'image");
+            System.out.println("Erreur !");
+        }
+         
+
+    }
 
     public void getInformation() throws SQLException {
         User userTest = new User(101, "maysa", "habbachi", "hahaha", "hahaha", "haahha", "haha", "589", 2345, "Administrateur", "Dance", "jajaja", 20);
@@ -396,33 +445,30 @@ public class IntChasseurController implements Initializable {
         String Description = desc.getText();
         String TypeTalent = talent.getValue();
         int Cout = Integer.parseInt(cout.getText());
-        String
+
         
+            
+
+            Competition c1 = new Competition(userTest, Titre, Description, TypeTalent, DateD, DateFe, Cout, ImageComp);
+            ServiceCompetition ser1 = new ServiceCompetition();
+            //boolean test = false;
+            //ser1.ajouter1(c1);
+            if ((ser1.findBy(c1) == false)) {
+                ser1.ajouter(c1);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ajout de --" + c1.getTitre() + "-- effectué avec succées", ButtonType.OK);
+                alert.show();
+                flowPaneComp.getChildren().clear();
+                affichageUS();
+
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR, "Cette Competition existe deja ! ", ButtonType.OK);
+                alert1.show();
+                //this.affichageUS();
+                flowPaneComp.getChildren().clear();
+                affichageUS();
+
+            }
         
-       
-       
-
-                     
-
-        Competition c1 = new Competition(userTest, Titre, Description, TypeTalent, DateD, DateFe, Cout,path);
-        ServiceCompetition ser1 = new ServiceCompetition();
-        //boolean test = false;
-        //ser1.ajouter1(c1);
-        if ((ser1.findBy(c1) == false)) {
-            ser1.ajouter(c1);
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ajout de --" + c1.getTitre() + "-- effectué avec succées", ButtonType.OK);
-            alert.show();
-            flowPaneComp.getChildren().clear();
-            affichageUS();
-
-        } else {
-            Alert alert1 = new Alert(Alert.AlertType.ERROR, "Cette Competition existe deja ! ", ButtonType.OK);
-            alert1.show();
-            //this.affichageUS();
-            flowPaneComp.getChildren().clear();
-            affichageUS();
-
-        }
 
     }
 
@@ -434,8 +480,8 @@ public class IntChasseurController implements Initializable {
 //
 //        System.out.println("We're right here for now ");
 //
-//        //tableAssociation.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-//        //tableAssociation.setTableMenuButtonVisible(true);
+//        tableAssociation.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+//        tableAssociation.setTableMenuButtonVisible(true);
 //        ColumnTitre.setCellValueFactory(new PropertyValueFactory<Competition, String>("Titre"));
 //        ColumnDescription.setCellValueFactory(new PropertyValueFactory<Competition, String>("Description"));
 //        ColumnTalent.setCellValueFactory(new PropertyValueFactory<Competition, String>("TypeDeTalent"));
