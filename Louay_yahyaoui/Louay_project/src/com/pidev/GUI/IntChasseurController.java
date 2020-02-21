@@ -99,8 +99,9 @@ public class IntChasseurController implements Initializable {
     @FXML
     private Button browse;
     @FXML
-
     private ImageView imageC;
+    @FXML
+    private Button btnBack;
     
 
     ObservableList<String> list = FXCollections.observableArrayList("Dance", "BeatBox", "Musique", "Comedie");
@@ -267,7 +268,7 @@ public class IntChasseurController implements Initializable {
 
                         String TypeTalent = talent.getValue();
                         int Cout = Integer.parseInt(cout.getText());
-                        String image;
+                        ImageComp=c1.getImageC();
                         try {
                             
                             if (ser.update(Titre, louay, TypeTalent, DateD, DateFe, Cout, ImageComp, modifbtn) == true) {
@@ -445,6 +446,7 @@ public class IntChasseurController implements Initializable {
         String Description = desc.getText();
         String TypeTalent = talent.getValue();
         int Cout = Integer.parseInt(cout.getText());
+        
 
         
             
@@ -511,4 +513,16 @@ public class IntChasseurController implements Initializable {
 //       
 //  
 //  }
+    
+    public void Back(ActionEvent event) throws IOException {
+        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Home.fxml"));
+        Parent rootChasseur = LOADER.load();
+        btnBack.getScene().setRoot(rootChasseur);
+
+            
+        
+        
+        
+       
+    }
 }

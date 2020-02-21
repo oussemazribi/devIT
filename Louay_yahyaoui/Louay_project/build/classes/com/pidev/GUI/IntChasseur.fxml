@@ -33,6 +33,15 @@
                               <Font name="Berlin Sans FB Demi Bold" size="24.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btnBack" layoutY="8.0" mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="24.0" style="-fx-background-color: #F5F5F5;">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../affiches/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </Pane>
                   <Separator prefHeight="0.0" prefWidth="806.0" />

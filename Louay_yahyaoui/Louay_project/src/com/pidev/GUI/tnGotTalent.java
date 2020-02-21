@@ -28,7 +28,7 @@ public class tnGotTalent extends Application {
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         
-        Scene scene = new Scene(root,765,470);
+        Scene scene = new Scene(root,800,600);
         
         
         
