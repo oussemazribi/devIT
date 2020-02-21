@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.IntUserController">
+   <children>
+      <FlowPane layoutY="64.0" prefHeight="533.0" prefWidth="800.0">
+         <children>
+            <ScrollPane prefHeight="383.0" prefWidth="399.0">
+               <content>
+                  <FlowPane fx:id="flowpaneC" prefHeight="386.0" prefWidth="405.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </FlowPane>
+      <ImageView fx:id="qrViewer" fitHeight="144.0" fitWidth="181.0" layoutX="174.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="127.0" layoutY="14.0" prefHeight="48.0" prefWidth="217.0" text="Particper Ici">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="487.0" layoutY="14.0" prefHeight="48.0" prefWidth="217.0" text="Mes participations">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
