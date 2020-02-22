@@ -12,9 +12,9 @@ public class Annonce {
     private String Description ;
     private double Prix;
     private String Etat;
-    private Image images;
+    private String images;
 
-    public Annonce(int idAnnonce, User user, String Nom, String Description, double Prix, String Etat, Image images) {
+    public Annonce(int idAnnonce, User user, String Nom, String Description, double Prix, String Etat, String images) {
         this.idAnnonce = idAnnonce;
         this.user = user;
         this.Nom = Nom;
@@ -24,7 +24,7 @@ public class Annonce {
         this.images = images;
     }
 
-    public Annonce(User user, String Nom, String Description, double Prix, String Etat, Image images) {
+    public Annonce(User user, String Nom, String Description, double Prix, String Etat, String images) {
         this.user = user;
         this.Nom = Nom;
         this.Description = Description;
@@ -74,7 +74,7 @@ public class Annonce {
         return Etat;
     }
 
-    public Image getImages() {
+    public String getImages() {
         return images;
     }
 
@@ -102,7 +102,7 @@ public class Annonce {
         this.Etat = Etat;
     }
 
-    public void setImages(Image images) {
+    public void setImages(String images) {
         this.images = images;
     }
 

@@ -7,7 +7,6 @@
 <?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.TilePane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunisiangot.AjoutAnnonceController">
    <children>
@@ -20,15 +19,17 @@
                   <ImageInput />
                </effect>
             </ImageView>
-            <TextArea fx:id="description" layoutX="100.0" layoutY="135.0" prefHeight="200.0" prefWidth="425.0" promptText="Description" />
-            <TextField fx:id="nom" layoutX="100.0" layoutY="65.0" prefWidth="200.0" promptText="Nom" />
-            <Label layoutX="103.0" layoutY="100.0" prefHeight="20.0" prefWidth="65.0" text="Description:" />
-            <Label layoutX="103.0" layoutY="30.0" prefHeight="20.0" prefWidth="30.0" text="Nom:" />
-            <Label layoutX="103.0" layoutY="350.0" text="Prix:" />
-            <TextField fx:id="prix" layoutX="100.0" layoutY="384.0" prefWidth="200.0" promptText="prix" />
-            <Label layoutX="103.0" layoutY="438.0" text="images:" />
-            <Button layoutX="100.0" layoutY="470.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="100.0" text="Ajouter images" />
-            <TilePane fx:id="tilePane" layoutX="545.0" layoutY="70.0" prefHeight="400.0" prefWidth="230.0" />
+            <TextArea fx:id="description" layoutX="100.0" layoutY="175.0" prefHeight="200.0" prefWidth="350.0" promptText="Description" />
+            <TextField fx:id="nom" layoutX="100.0" layoutY="105.0" prefWidth="200.0" promptText="Nom" />
+            <Label layoutX="103.0" layoutY="140.0" prefHeight="20.0" prefWidth="65.0" text="Description:" />
+            <Label layoutX="103.0" layoutY="70.0" prefHeight="20.0" prefWidth="30.0" text="Nom:" />
+            <Label layoutX="103.0" layoutY="390.0" text="Prix:" />
+            <TextField fx:id="prix" layoutX="100.0" layoutY="425.0" prefWidth="200.0" promptText="prix" />
+            <Label layoutX="550.0" layoutY="69.0" text="images:" />
+            <Button fx:id="LoadImage" layoutX="630.0" layoutY="65.0" mnemonicParsing="false" onAction="#ChoiceImage" prefHeight="25.0" prefWidth="41.0" text="...." />
+            <ImageView fx:id="imageC" fitHeight="150.0" fitWidth="200.0" layoutX="550.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="550.0" layoutY="292.0" text="Indiquer votre position:" />
+            <Button layoutX="556.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Open map" />
          </children>
       </AnchorPane>
    </children>
