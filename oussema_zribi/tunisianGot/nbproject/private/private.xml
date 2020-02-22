@@ -5,13 +5,13 @@
         <group>
             <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/Service/ServiceAnnonce.java</file>
             <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/Entite/Publicite.java</file>
-            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/TunisianGot.java</file>
-            <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/IService/IServicePublicite.java</file>
-            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/AdminPubliciteController.java</file>
+            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/AjoutpubliciteController.java</file>
+            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/MapController.java</file>
+            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/Ajoutpublicite.fxml</file>
             <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/AffichageAnnonceController.java</file>
+            <file>file:/C:/Users/ousse/tunisianGot/src/tunisiangot/AjoutAnnonceController.java</file>
             <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/test/test.java</file>
             <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/Service/ServicePublicite.java</file>
-            <file>file:/C:/Users/ousse/tunisianGot/src/tungottalent/Service/ServiceUser.java</file>
         </group>
     </open-files>
 </project-private>

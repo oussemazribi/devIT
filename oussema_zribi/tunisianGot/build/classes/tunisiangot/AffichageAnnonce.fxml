@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -11,22 +13,29 @@
    <children>
       <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button fx:id="plus" layoutX="133.0" layoutY="510.0" mnemonicParsing="false" onAction="#ajout" text="+">
+            <Button fx:id="plus" layoutX="39.0" layoutY="510.0" maxHeight="60.0" minHeight="60.0" mnemonicParsing="false" onAction="#ajout" prefHeight="60.0" prefWidth="125.0" style="-fx-background-color: #5cd65c;">
                <font>
                   <Font name="MV Boli" size="30.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="63.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../768px-OOjs_UI_icon_add.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button layoutX="30.0" layoutY="510.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="57.0" text="Back" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="713.0" AnchorPane.topAnchor="510.0">
+            <Button layoutX="235.0" layoutY="510.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="125.0" style="-fx-background-color: #FFFF00;" text="Modifier" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="440.0" AnchorPane.topAnchor="510.0">
                <font>
                   <Font name="MV Boli" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="Pub" layoutX="343.0" layoutY="510.0" mnemonicParsing="false" onAction="#Pub" prefHeight="72.0" prefWidth="57.0" text="Pub">
+            <Button fx:id="Pub" layoutX="630.0" layoutY="510.0" mnemonicParsing="false" onAction="#Pub" prefHeight="60.0" prefWidth="125.0" text="Publiée">
                <font>
                   <Font name="MV Boli" size="16.0" />
                </font>
             </Button>
-            <TableView fx:id="tableAnnonce" layoutX="10.0" layoutY="10.0" onSort="#AfficherAnnonce" prefHeight="450.0" prefWidth="780.0">
+            <TableView fx:id="tableAnnonce" layoutX="10.0" layoutY="49.0" onSort="#AfficherAnnonce" prefHeight="450.0" prefWidth="780.0">
               <columns>
                 <TableColumn fx:id="ColumnNom" prefWidth="100.0" text="Nom" />
                   <TableColumn fx:id="ColumnProduit" prefWidth="100.0" text="Produit" />
@@ -34,10 +43,22 @@
                   <TableColumn fx:id="ColumnPrix" prefWidth="100.0" text="Prix" />
               </columns>
             </TableView>
-            <Button fx:id="btnQuitter" layoutX="231.0" layoutY="506.0" maxHeight="80.0" maxWidth="66.0" mnemonicParsing="false" onAction="#btnSupprimerAction" prefHeight="72.0" prefWidth="66.0">
+            <Button layoutX="428.0" layoutY="510.0" mnemonicParsing="false" onAction="#btnSupprimerAction" prefHeight="60.0" prefWidth="125.0" style="-fx-background-color: #b0f2b6;">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font>
                <graphic>
-                  <ImageView fx:id="quitter" fitHeight="72.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="45.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pngtree-trash-vector-icon-png-image_3730760.jpg" />
+                     </image>
+                  </ImageView>
                </graphic></Button>
+            <Label layoutX="25.0" layoutY="-9.0" text="Annonce">
+               <font>
+                  <Font name="MV Boli" size="34.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -92,6 +92,7 @@ public class AffichageAnnonceController implements Initializable {
 
         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AjoutAnnonce.fxml"));
         Parent root1 = LOADER.load();
+        
         plus.getScene().setRoot(root1);
 
     }
