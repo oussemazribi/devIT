@@ -1,4 +1,3 @@
-
 package TunGotTalent.gui;
 
 import TunGotTalent.Service.ServiceUser;
@@ -33,10 +32,8 @@ import javafx.stage.FileChooser;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
-
-public class RegistrationController implements Initializable {
-
-    @FXML
+public class AdministrateurController implements Initializable {
+  @FXML
     private Label label;
     @FXML
     private TextField txtNom;
@@ -69,18 +66,16 @@ public class RegistrationController implements Initializable {
 @FXML
      ComboBox <String> combo_typeTalent ;
 ObservableList<String> talent = FXCollections.observableArrayList("Dance","Chant","StandUP","Dessin");    
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-     combo_typeCompte.setItems(compte);
+        combo_typeCompte.setItems(compte);
      combo_typeTalent.setItems(talent);
-    }
-  
+    } 
     @FXML
-    
-    private void ajouter(ActionEvent event) throws IOException{
+ private void ajouter(ActionEvent event) throws IOException{
         
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Registration2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Administrateur(ajout).fxml"));
 
         try {
             Parent root = loader.load();
@@ -171,12 +166,11 @@ ObservableList<String> talent = FXCollections.observableArrayList("Dance","Chant
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            lblResultat.setText("Inscription valide !!");}
+            lblResultat.setText("utilisateur "+txtLogin.getText()+"ajouté avec succes");}
         //}
 
     } 
-
-public void btnParcourir(ActionEvent event) throws IOException{
+ public void btnParcourir(ActionEvent event) throws IOException{
 
 		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
@@ -189,7 +183,5 @@ public void btnParcourir(ActionEvent event) throws IOException{
 		}
 
 	}
-}
-
     
-
+}

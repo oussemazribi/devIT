@@ -6,6 +6,7 @@
 package TunGotTalent.IService;
 
 
+import TunGotTalent.entities.User;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,6 +17,6 @@ import java.util.List;
 public interface IServiceUser<T> {
     void ajouter(T t) throws SQLException;
     boolean delete(T u) throws SQLException;
-    public boolean update(String Nom ,String Prenom,String Email ,String Login ,String MotDePasse , String Sexe ,String DateNaissance ,int NumTelephone ,String TypeCompte , String TypeTalent , String ImgUser,int idUser) throws SQLException;
+    public User update(String Nom ,String Prenom,String Email ,String Login ,String MotDePasse , String Sexe ,String DateNaissance ,int NumTelephone ,String TypeCompte , String TypeTalent , String ImgUser,int NbDiament,int idUser) throws SQLException;
     List<T> readAll() throws SQLException;
 }

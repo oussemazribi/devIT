@@ -33,17 +33,17 @@ public class HomePage extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-           // Parent root = FXMLLoader.load(getClass().getResource("Inscription.fxml"));
-            Parent root1 = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+          
+            Parent root1 = FXMLLoader.load(getClass().getResource("Modifier_utlisateur.fxml"));
             
             Scene scene = new Scene(root1);
                     this.stage = primaryStage;
-        //parent = FXMLLoader.load(getClass().getResource("/TunGotTalent/gui/Registration.fxml"));
+    //    parent = FXMLLoader.load(getClass().getResource("/TunGotTalent/gui/Authentification.fxml"));
         
         primaryStage.setScene(scene);
         primaryStage.show();
             
-            primaryStage.setTitle("Authentification");
+            primaryStage.setTitle("");
             
      
             

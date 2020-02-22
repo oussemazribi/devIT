@@ -52,29 +52,29 @@ public class test  {
 
      public static void main(String[] args) throws MessagingException, Exception{
      ServiceUser ser = new  ServiceUser ();
-     User u1 = new User("montasser", "sellami", "montinho1996@gmail.com", "montinho", "aaaa","homme", "1996", 10101010 ,"Administrateur" ,"Dance", "null");
+     User u1 = new User("montasser", "sellami", "montinho1996@gmail.com", "montinho", "lion","homme", "1996", 10101010 ,"Administrateur" ,"Dance", "null");
      User u2 = new User("mehdi", "sellami", "montinho1996@gmail.com", "mehdi", "aaaa","homme", "1996", 22336665 ,"Administrateur" ,"Dance", "null");
      
      try {
-    // ser.ajouter(u1);
+       
        
       
    
       
      // ser.delete(u1);
-     ser.update("amin", "null", "null", "null", "null", "null", "null",22488637, "Administrateur", "Dance", "null", 26);
+    // ser.update("amin", "null", "null", "null", "null", "null", "null",22488637, "Administrateur", "Dance", "null", 26);
      List<User> list = ser.readAll();
      System.out.println(list);
             
      //ser.Recherche_parID(99);
             
      //  ser.Authentification ("montinho","aaaa");
-     System.out.println(ser.Recherche_parLogin("montinho")); 
+     //System.out.println(ser.Recherche_parLogin("montinho")); 
          
        
-             Mailing.mailing(u1.getEmail());
+       //      Mailing.mailing(u1.getEmail());
            
-       
+         System.out.println(ser.Recherche_parID(122));
      } catch (SQLException ex) {
      Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
      }

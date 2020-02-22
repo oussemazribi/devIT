@@ -17,7 +17,7 @@ public class GeneratePDF {
     public static void main (String[] args){
       try {  
     
-    String nom_fichier ="C:\\Users\\HPENVY\\Documents\\NetBeansProjects\\GeneratePDF\\infoBD1.pdf";
+    String nom_fichier ="C:\\Users\\HPENVY\\Documents\\NetBeansProjects\\GeneratePDF\\infoBD6.pdf";
     Document doc =  new Document() ;
         PdfWriter.getInstance(doc, new FileOutputStream(nom_fichier));
         doc.open();
