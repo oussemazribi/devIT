@@ -12,13 +12,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import TunGotTalent.entities.User ;
 
 public class GeneratePDF {
     public static void main (String[] args){
       try {  
     
-    String nom_fichier ="C:\\Users\\HPENVY\\Documents\\NetBeansProjects\\GeneratePDF\\test6.pdf";
+    String nom_fichier ="C:\\Users\\HPENVY\\Documents\\NetBeansProjects\\GeneratePDF\\infoBD1.pdf";
     Document doc =  new Document() ;
         PdfWriter.getInstance(doc, new FileOutputStream(nom_fichier));
         doc.open();
@@ -30,7 +29,7 @@ public class GeneratePDF {
         ps=connection.prepareStatement(sql);
         rs =ps.executeQuery();
         while (rs.next()){
-        Paragraph p =new Paragraph(rs.getShort(1)+"  "+rs.getString(2)+" "+rs.getString(3) );
+        Paragraph p =new Paragraph(rs.getShort(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(6)+" "+rs.getString(7)+"  "+rs.getString(8)+"  "+rs.getInt(9)+" "+rs.getString(10)+" "+rs.getString(11)+" "+rs.getString(12)+" ");
         doc.add(p);
         }  
         doc.close();

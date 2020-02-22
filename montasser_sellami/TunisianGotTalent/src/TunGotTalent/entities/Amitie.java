@@ -6,15 +6,8 @@
 package TunGotTalent.entities;
 
 public class Amitie {
-private int idAmitie ;
 
-    public void setIdAmitie(int idAmitie) {
-        this.idAmitie = idAmitie;
-    }
-
-    public int getIdAmitie() {
-        return idAmitie;
-    }
+    
 private int idUser1 ;
 private int idUser2 ;
 private String Etat ;
@@ -61,8 +54,8 @@ private int BlockId ;
         return BlockId;
     }
 
-    public Amitie(int idAmitie ,int idUser1, int idUser2, String Etat, int SenderId, int BlockId) {
-        this.idAmitie = idAmitie ;
+    public Amitie(int idUser1, int idUser2, String Etat, int SenderId, int BlockId) {
+       
         this.idUser1 = idUser1;
         this.idUser2 = idUser2;
         this.Etat = Etat;
@@ -72,6 +65,6 @@ private int BlockId ;
 
     @Override
     public String toString() {
-        return "Amitie{"+ "+idAmitie=" + idAmitie + "idUser1=" + idUser1 + ", idUser2=" + idUser2 + ", Etat=" + Etat + ", SenderId=" + SenderId + ", BlockId=" + BlockId + '}';
+        return "Amitie{"+ " idUser1=" + idUser1 + ", idUser2=" + idUser2 + ", Etat=" + Etat + ", SenderId=" + SenderId + ", BlockId=" + BlockId + '}';
     }
 }

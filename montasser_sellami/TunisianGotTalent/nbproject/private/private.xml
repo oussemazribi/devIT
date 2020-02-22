@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/Service/GeneratePDF.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/Service/Mailing.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/entities/Amitie.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/Service/ServiceUser.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/test/test.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/Service/DemandeAmitie.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/NetBeansProjects/TunisianGotTalent/src/TunGotTalent/gui/AuthentificationController.java</file>
+        </group>
     </open-files>
 </project-private>

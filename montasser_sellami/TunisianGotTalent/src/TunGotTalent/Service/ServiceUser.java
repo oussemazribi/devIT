@@ -31,7 +31,8 @@ public class ServiceUser implements IServiceUser<User> {
     @Override
     public void ajouter(User t) throws SQLException {
       ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `user`(`idUser`, `Nom` , `Prenom`, `Email` ,`Login`,`MotDePasse`,`Sexe`,`DateNaissance`,`NumTelephone`,`TypeCompte`,`TypeTalent`,`ImgUser`)  "
+        String requeteInsert = "INSERT INTO `user`(`idUser`, `Nom` , `Prenom`, `Email` ,`Login`,`MotDePasse`,`Sexe`,`DateNaissance`,`NumTelephone`,"
+                + "`TypeCompte`,`TypeTalent`,`ImgUser`)  "
                 + "VALUES (NULL, '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getEmail() + "','" +t.getLogin()+"','" +t.getMotDePasse()+"','" +t.getSexe()+"','" +t.getDateNaissance()+"','"+t.getNumTelephone()+"','"+
                 t.getTypeCompte()+"','"+t.getTypeTalent()+"','"+t.getImguser()+ "');";
         ste.executeUpdate(requeteInsert);
@@ -101,7 +102,7 @@ public class ServiceUser implements IServiceUser<User> {
     }
     
     
-    public void authentication( String Login, String MotDePasse) {
+    public User Authentification( String Login, String MotDePasse) {
       
           
        User u= new User ();   
@@ -113,11 +114,11 @@ public class ServiceUser implements IServiceUser<User> {
             ResultSet rs=  ps.executeQuery(sql);            
             if(rs.next()==true) {
                 
-//                u.setIdUser(rs.getInt(1));
-//                u.setNom(rs.getString(2));
-//                u.setPrenom(rs.getString(3));
-//                u.setLogin(rs.getString(5));
-//                u.setMotDePasse(rs.getString("MotDePasse"));
+               u.setIdUser(rs.getInt(1));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setLogin(rs.getString(5));
+                u.setMotDePasse(rs.getString("MotDePasse"));
                 System.out.println("user  authentifié");                                           
             }
            else System.out.println("non trouvé");
@@ -126,7 +127,7 @@ public class ServiceUser implements IServiceUser<User> {
         } catch (SQLException ex) {            
             Logger.getLogger(IServiceUser.class.getName()).log(Level.SEVERE, null, ex);
         }
-   
+   return u ;
     }
     public User Recherche_parID(int idUser) {
         User u = new User (); 
@@ -145,6 +146,25 @@ public class ServiceUser implements IServiceUser<User> {
         }
     return u ;
     }
+    
+     public boolean Recherche_parLogin(String text) {
+         boolean b=false;
+        try {
+            String query = "SELECT * FROM user WHERE user.login ='"+text+"'" ;
+            PreparedStatement ps = con.prepareStatement(query);
+            ResultSet rs=  ps.executeQuery(query);
+
+            while (rs.next()) {
+                b=true;
+                
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return b;
+    }
+
 
     }
 
