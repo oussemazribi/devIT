@@ -28,6 +28,7 @@ public class User {
     private String TypeCompte;
     private String TypeTalent;
     private String Imguser;
+    private int NbDiament;
     
     public User (){
                 
@@ -37,6 +38,46 @@ public class User {
         this.Nom = Nom;
         this.Login = Login;
     }
+
+    public User(String Nom, String Prenom, String Email, String Login, String MotDePasse, String Sexe, String DateNaissance, int NumTelephone, String TypeCompte, String TypeTalent, String Imguser, int NbDiament) {
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.Email = Email;
+        this.Login = Login;
+        this.MotDePasse = MotDePasse;
+        this.Sexe = Sexe;
+        this.DateNaissance = DateNaissance;
+        this.NumTelephone = NumTelephone;
+        this.TypeCompte = TypeCompte;
+        this.TypeTalent = TypeTalent;
+        this.Imguser = Imguser;
+        this.NbDiament = 0;
+    }
+
+    public User(int idUser, String Nom, String Prenom, String Email, String Login, String MotDePasse, String Sexe, String DateNaissance, int NumTelephone, String TypeCompte, String TypeTalent, String Imguser, int NbDiament) {
+        this.idUser = idUser;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.Email = Email;
+        this.Login = Login;
+        this.MotDePasse = MotDePasse;
+        this.Sexe = Sexe;
+        this.DateNaissance = DateNaissance;
+        this.NumTelephone = NumTelephone;
+        this.TypeCompte = TypeCompte;
+        this.TypeTalent = TypeTalent;
+        this.Imguser = Imguser;
+        this.NbDiament = 0;
+    }
+
+    public int getNbDiament() {
+        return NbDiament;
+    }
+
+    public void setNbDiament(int NbDiament) {
+        this.NbDiament = NbDiament;
+    }
+    
     
 
     public User(String Nom, String Prenom, String Email, String Login, String MotDePasse, String Sexe, String DateNaissance, int NumTelephone, String TypeCompte, String TypeTalent, String Imguser) {
@@ -71,8 +112,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "idUser=" + idUser + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Email=" + Email + ", Login=" + Login + ", MotDePasse=" + MotDePasse + ", Sexe=" + Sexe + ", DateNaissance=" + DateNaissance + ", NumTelephone=" + NumTelephone + ", TypeCompte=" + TypeCompte + ", TypeTalent=" + TypeTalent + ", Imguser=" + Imguser + '}';
+        return "User{" + "idUser=" + idUser + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Email=" + Email + ", Login=" + Login + ", MotDePasse=" + MotDePasse + ", Sexe=" + Sexe + ", DateNaissance=" + DateNaissance + ", NumTelephone=" + NumTelephone + ", TypeCompte=" + TypeCompte + ", TypeTalent=" + TypeTalent + ", Imguser=" + Imguser + ", NbDiament=" + NbDiament + '}';
     }
+
+    
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
@@ -168,6 +211,10 @@ public class User {
 
     public String getImguser() {
         return Imguser;
+    }
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

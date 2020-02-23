@@ -49,7 +49,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
 
     @Override
     public boolean update(String Nom, String Description, int Prix, String Etat, int idAnnonce) throws SQLException {
-        String sql = "UPDATE annonce SET Nom=?, Description=?, Prix=? , Etat=? WHERE Nom=?";
+        String sql = "UPDATE annonce SET Nom=?, Description=?, Prix=? , Etat=? , images=? WHERE idAnnonce=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
         statement.setString(1, Nom);
@@ -77,9 +77,10 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
             String Description = rs.getString(4);
             double Prix = rs.getDouble(5);
             String Etat = rs.getString(6);
+            String Image = rs.getString(7);
             ServiceUser service = new ServiceUser();
             User user = service.findById(idUser);
-            Annonce p = new Annonce(idAnnonce, user, Nom, Description, Prix, Etat);
+            Annonce p = new Annonce(idAnnonce, user, Nom, Description, Prix, Etat,Image);
             arr.add(p);
         }
         return arr;
@@ -97,7 +98,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
                 ServiceUser ser = new ServiceUser();
                 User u = ser.findById(idUser);
 
-                annonce = new Annonce(idAnnonce, u, resultSet.getString(3), resultSet.getString(4), resultSet.getDouble(5), resultSet.getString(6));
+                annonce = new Annonce(idAnnonce, u, resultSet.getString(3), resultSet.getString(4), resultSet.getDouble(5), resultSet.getString(6),resultSet.getString(7));
 
             }
         } catch (Exception e) {

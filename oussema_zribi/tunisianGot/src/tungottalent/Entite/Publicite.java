@@ -5,6 +5,7 @@
  */
 package tungottalent.Entite;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -23,6 +24,11 @@ public class Publicite {
     private String Pack;
     private Float Prix;
 
+    public Publicite(Annonce a1, User u2, LocalDate DateDebut, LocalDate Datefin, String publiée, String Pack) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
     public void setPrix(Float Prix) {
         this.Prix = Prix;
     }

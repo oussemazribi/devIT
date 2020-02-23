@@ -38,7 +38,7 @@ public class ServicePublicite implements IServicePublicite<Publicite> {
     @Override
     public void ajouter(Publicite p) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `tunisiangottalent`.`publicite` ( `idAnnonce`, `idUser`, `DateDebut`,`DateFin`,`Etat`,`pack`) VALUES ('" + p.getAnnonce().getIdAnnonce() + "', '" + p.getUser().getIdUser() + "','" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "','" + p.getDateFin() + "','" + p.getEtat() + "','" + p.getPack() + "');";
+        String requeteInsert = "INSERT INTO `tunisiangottalent`.`publicite` ( `idAnnonce`, `idUser`, `DateDebut`,`DateFin`,`Etat`,`pack`) VALUES ('" + p.getAnnonce().getIdAnnonce() + "', '" + p.getUser().getIdUser() + "','" + p.getDateDebut() + "','" + p.getDateFin() + "','" + p.getEtat() + "','" + p.getPack() + "');";
         ste.executeUpdate(requeteInsert);
 
     }
