@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TunGotTalent.gui.Modifier_utlisateurController">
+   <children>
+      <Label layoutX="321.0" layoutY="24.0" prefHeight="35.0" prefWidth="321.0" text="ESPACE ADMINISTRATEUR" textAlignment="CENTER" textFill="#4c8de9" underline="true">
+         <font>
+            <Font name="Calibri Bold" size="29.0" />
+         </font>
+      </Label>
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="188.0" style="-fx-background-color: #4C8DE9;" />
+      <Label layoutX="206.0" layoutY="94.0" prefHeight="27.0" prefWidth="455.0" text="Modifier les données d'un Utilisateur" textFill="#4c8de9">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="206.0" layoutY="154.0" prefHeight="17.0" prefWidth="145.0" text="ID Utilisateur" textFill="#4c8de9">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtID" layoutX="312.0" layoutY="151.0" prefHeight="25.0" prefWidth="212.0" promptText="ID" />
+      <Button fx:id="btnChercher" layoutX="567.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnChercher" prefHeight="25.0" prefWidth="89.0" text="Chercher" textFill="#2c2c54" />
+      <Button fx:id="btnReset" cancelButton="true" layoutX="688.0" layoutY="151.0" mnemonicParsing="false" onAction="#btnReset" prefHeight="25.0" prefWidth="83.0" text="Réinitilaiser" textFill="#2c2c54" />
+      <RadioButton fx:id="rbFemme" layoutX="312.0" layoutY="501.0" mnemonicParsing="false" text="Femme" textFill="#4c8de9">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbHomme" layoutX="217.0" layoutY="501.0" mnemonicParsing="false" text="Homme" textFill="#4c8de9">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="txtEmail" layoutX="235.0" layoutY="310.0" prefHeight="32.0" prefWidth="169.0" promptText="Email" />
+      <ComboBox fx:id="combo_typeCompte" layoutX="543.0" layoutY="326.0" prefHeight="40.0" prefWidth="198.0" promptText="Type_Compte&#10;&#10;" style="-fx-background-image: #4C8DE9;" visibleRowCount="3" />
+      <PasswordField fx:id="txtPassword" layoutX="235.0" layoutY="446.0" prefHeight="32.0" prefWidth="169.0" promptText="Password" />
+      <TextField fx:id="txtLogin" layoutX="235.0" layoutY="375.0" prefHeight="32.0" prefWidth="169.0" promptText="Login" />
+      <TextField fx:id="txtPrenom" layoutX="235.0" layoutY="255.0" prefHeight="32.0" prefWidth="169.0" promptText="Prenom" />
+      <TextField fx:id="txtNom" layoutX="235.0" layoutY="197.0" prefHeight="32.0" prefWidth="169.0" promptText="Nom" />
+      <TextField fx:id="txtTelephone" layoutX="543.0" layoutY="197.0" prefHeight="32.0" prefWidth="198.0" promptText="Telephone" />
+      <ComboBox fx:id="combo_typeTalent" layoutX="543.0" layoutY="395.0" prefHeight="40.0" prefWidth="198.0" promptText="Type_Talent&#10;&#10;&#10;" visibleRowCount="3" />
+      <Button fx:id="btnAppliquer" layoutX="465.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnAppliquer" prefHeight="53.0" prefWidth="137.0" text="Appliquer Modifications" textFill="#2c2c54" />
+      <Label fx:id="l1" layoutX="434.0" layoutY="213.0" prefHeight="17.0" prefWidth="83.0" text="Label" />
+      <Button fx:id="btnSupprimer" layoutX="626.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnSupprimer" prefHeight="53.0" prefWidth="145.0" text="Supprimer Utilisateur" textFill="#2c2c54" />
+      <Label fx:id="date" layoutX="547.0" layoutY="263.0" prefHeight="35.0" prefWidth="188.0" text="Date De Naissance">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

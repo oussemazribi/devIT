@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TunGotTalent.gui.Afficher_utilisateurController">
+   <children>
+      <TabPane fx:id="Tabpane" layoutY="-63.0" prefHeight="663.0" prefWidth="874.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="List USER">
+               <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: blanc;">
+                     <children>
+                        <TableView layoutY="-4.0" prefHeight="607.0" prefWidth="874.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="42.0" text="ID" />
+                            <TableColumn fx:id="nom" prefWidth="61.0" text="NOM" />
+                              <TableColumn fx:id="prenom" prefWidth="82.0" text="Prenom" />
+                              <TableColumn fx:id="email" prefWidth="83.0" text="Email" />
+                              <TableColumn fx:id="login" prefWidth="78.0" text="Login" />
+                              <TableColumn fx:id="Mdp" text="Mot De Passe" />
+                              <TableColumn fx:id="sexe" prefWidth="57.0" text="Sexe" />
+                              <TableColumn fx:id="date" prefWidth="63.0" text="Date_Naissance" />
+                              <TableColumn fx:id="num" prefWidth="78.0" text="Telephone" />
+                              <TableColumn fx:id="compte" prefWidth="88.0" text="Type_compte" />
+                              <TableColumn fx:id="talent" prefWidth="95.0" text="Type_Talent" />
+                              <TableColumn fx:id="nbd" prefWidth="62.0" text="NBdiament" />
+                              <TableColumn prefWidth="110.0" text="Telephone" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btnGenerer_list" layoutY="603.0" mnemonicParsing="false" onAction="#btnGenerer_list" prefHeight="34.0" prefWidth="874.0" text="GenererList" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
