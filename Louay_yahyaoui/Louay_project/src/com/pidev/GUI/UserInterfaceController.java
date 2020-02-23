@@ -16,6 +16,7 @@ import com.pidev.Entite.Competition;
 import com.pidev.Entite.Participation;
 import com.pidev.Entite.Ticket;
 import com.pidev.Entite.User;
+import static com.pidev.GUI.tnGotTalent.Userconnected;
 import com.pidev.Service.ServiceCompetition;
 import com.pidev.Service.ServiceParticipation;
 import com.pidev.Service.ServiceTicket;
@@ -48,6 +49,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -57,11 +59,13 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -160,7 +164,7 @@ public class UserInterfaceController implements Initializable {
     }
 
     public void btnPDF(String Body, String Body1, String Body2, String Body3) throws IOException, SQLException {
-        User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+        //User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         Button button2 = new Button();
         button2.setStyle("-fx-background-color: #00ff00");
@@ -177,7 +181,7 @@ public class UserInterfaceController implements Initializable {
 
     private void affichageCompetition() throws SQLException {
 
-        User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+      
         ServiceCompetition serC = new ServiceCompetition();
 
         ObservableList<Competition> listComp = FXCollections.observableArrayList(serC.readAll1());
@@ -222,10 +226,45 @@ public class UserInterfaceController implements Initializable {
             VBoxComp.getChildren().add(c);
 
             Label titreComp = new Label("Titre : " + listComp.get(i).getTitre());
-            Label description = new Label("Description: " + listComp.get(i).getDescription());
+            Label description = new Label("Cout: " + listComp.get(i).getCout());
 
             int idCompetition = listComp.get(i).getIdCompetition();
             Competition c1 = serC.findById(idCompetition);
+
+            String Titre1 = c1.getTitre();
+            String Description1 = c1.getDescription();
+            String Image1 = c1.getImageC();
+            String DateD1 = c1.getDateDebut();
+            String DateF1 = c1.getDateFin();
+            String Type1=c1.getTypeDeTalent();
+            int Cout1=c1.getCout();
+            Button btnDetail = new Button("Detail");
+            btnDetail.setTextOverrun(OverrunStyle.CLIP);
+            btnDetail.setStyle("-fx-background-color : #E4E0E0;");
+            btnDetail.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+
+                    try {
+
+                        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Details.fxml"));
+                        Parent rootDetails = LOADER.load();
+                        DetailsController louay = LOADER.getController();
+                        louay.setDetails(Titre1, Description1, Image1, DateD1, DateF1,Type1,Cout1);
+
+                        Scene scene = new Scene(rootDetails, 600, 400);
+
+                        Stage primaryStage = new Stage();
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+
+                    } catch (IOException ex) {
+
+                    }
+
+                }
+            });
 
             Button btnPart = new Button("Participer");
             btnPart.setTextOverrun(OverrunStyle.CLIP);
@@ -233,7 +272,7 @@ public class UserInterfaceController implements Initializable {
             String titre = listComp.get(i).getTitre();
 
             ServiceParticipation serviceP = new ServiceParticipation();
-            if (serviceP.findById(c1, userTest) == true) {
+            if (serviceP.findById(c1, Userconnected) == true) {
                 btnPart.setDisable(true);
             } else {
                 btnPart.setOnAction(new EventHandler<ActionEvent>() {
@@ -244,17 +283,17 @@ public class UserInterfaceController implements Initializable {
                         try {
 
                             ServiceTicket service = new ServiceTicket();
-                            Ticket tik = service.findBy(c1, userTest);
+                            Ticket tik = service.findBy(c1, Userconnected);
                             String motDePasse = tik.getMotDePasse();
 
-                            String nom = userTest.getNom();
-                            String prenom = userTest.getPrenom();
+                            String nom = Userconnected.getNom();
+                            String prenom = Userconnected.getPrenom();
                             ServiceParticipation serP = new ServiceParticipation();
 
-                            if (serP.findById(c1, userTest) == false) {
-                                if (userTest.getNbDiament() > c1.getCout()) {
+                            if (serP.findById(c1, Userconnected) == false) {
+                                if (Userconnected.getNbDiament() > c1.getCout()) {
 
-                                    serP.ParticiperCompetition(c1, userTest);
+                                    serP.ParticiperCompetition(c1, Userconnected);
                                     String Body = "Bonjour Mr  --" + nom + " " + prenom + "-- je vous souhaite la bienvenue ";
                                     String Body1 = "Au sein de notre Competition sous le Titre --" + titre + "--";
                                     String Body2 = "Voici votre Mot de passe pour accédé à --" + titre + "--";
@@ -305,6 +344,7 @@ public class UserInterfaceController implements Initializable {
             }
 
             panne.getChildren().add(btnPart);
+            panne.getChildren().add(btnDetail);
             VBoxComp.getChildren().add(panne);
             VBoxComp.getChildren().add(titreComp);
             VBoxComp.getChildren().add(description);
@@ -330,9 +370,9 @@ public class UserInterfaceController implements Initializable {
 
     private void AfficherParticipation() throws SQLException {
 
-        User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
+        //User userTest = new User(102, "Louay", "Yahyaoui", "louay@esprit.tn", "louay", "oussema", "male", "28-08-1992", 234223878, "SimpleUtilisateur", "Comedie", "hahaha", 5000);
         ServiceParticipation service1 = new ServiceParticipation();
-        ObservableList<Competition> MyList = FXCollections.observableArrayList(service1.findByRechercher(userTest));
+        ObservableList<Competition> MyList = FXCollections.observableArrayList(service1.findByRechercher(Userconnected));
 
         System.out.println("We're right here for now ");
         ArrayList<Separator> as = new ArrayList<>();
@@ -374,7 +414,7 @@ public class UserInterfaceController implements Initializable {
             VBoxComp.getChildren().add(c);
 
             Label titreComp = new Label("Titre : " + MyList.get(i).getTitre());
-            Label dateF = new Label("Description: " + MyList.get(i).getDateFin());
+            Label dateF = new Label("Cout: " + MyList.get(i).getCout());
             int idCompetition = MyList.get(i).getIdCompetition();
             ServiceCompetition serC = new ServiceCompetition();
             Competition c1 = serC.findById(idCompetition);
@@ -394,7 +434,7 @@ public class UserInterfaceController implements Initializable {
                         alert.setContentText("Voulez-vous vraiment supprimer cette Competition ?");
                         Optional<ButtonType> result = alert.showAndWait();
                         if (result.get() == ButtonType.OK) {
-                            Participation p = new Participation(c1, userTest);
+                            Participation p = new Participation(c1, Userconnected);
                             ServiceParticipation ser = new ServiceParticipation();
                             ser.delete(p);
                             qrviewer.setImage(null);
@@ -427,11 +467,11 @@ public class UserInterfaceController implements Initializable {
 
                     try {
                         ServiceTicket service = new ServiceTicket();
-                        Ticket tik = service.findBy(c1, userTest);
+                        Ticket tik = service.findBy(c1, Userconnected);
                         String motDePasse = tik.getMotDePasse();
                         String titre = c1.getTitre();
-                        String nom = userTest.getNom();
-                        String prenom = userTest.getPrenom();
+                        String nom = Userconnected.getNom();
+                        String prenom = Userconnected.getPrenom();
                         ServiceParticipation serP = new ServiceParticipation();
                         System.out.println(motDePasse);
 
@@ -474,17 +514,21 @@ public class UserInterfaceController implements Initializable {
         }
 
     }
-    
+
+    @FXML
     public void Back(ActionEvent event) throws IOException {
         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Home.fxml"));
         Parent rootChasseur = LOADER.load();
         btnBack.getScene().setRoot(rootChasseur);
 
-            
-        
-        
-        
-       
+    }
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
     }
 
 }
