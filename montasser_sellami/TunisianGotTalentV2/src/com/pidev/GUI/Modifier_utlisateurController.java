@@ -34,6 +34,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javax.mail.Service;
 
 
@@ -70,8 +71,6 @@ private TextField txtID;
     private Button btnAppliquer;
     @FXML
     private Button btnSupprimer;
-    @FXML
-    private Label l1 ;
      @FXML
              
      ComboBox <String> combo_typeCompte ;
@@ -89,6 +88,7 @@ User u = new User();
      combo_typeTalent.setItems(talent);
     }    
     
+    @FXML
     public void btnChercher (ActionEvent event)throws IOException, SQLException{
     FXMLLoader loader = new FXMLLoader(getClass().getResource("Modifier_utlisateur.fxml"));
     
@@ -135,6 +135,7 @@ User u = new User();
        
          }
 
+    @FXML
  public void btnReset (ActionEvent event)throws IOException, SQLException
  {
  
@@ -156,6 +157,7 @@ User u = new User();
         combo_typeCompte.setItems(null);
         combo_typeTalent.setItems(null);
  }
+    @FXML
  public void btnSupprimer (ActionEvent event)throws IOException, SQLException{  
     // User u = new User();
        int num = Integer.parseInt(txtID.getText());
@@ -182,6 +184,7 @@ User u = new User();
     
     
  }}
+    @FXML
   public void btnAppliquer (ActionEvent event)throws IOException, SQLException{
    //  User u = new User();
      int num = Integer.parseInt(txtID.getText());
@@ -199,7 +202,16 @@ User u = new User();
       
     }
 
-}}
+}
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
+    }
+}
         
             
        

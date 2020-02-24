@@ -35,11 +35,12 @@ public class User {
                 
     }
 
-    public User(String Nom, String Login) {
+    public User(String Nom, String Prenom) {
         this.Nom = Nom;
-        this.Login = Login;
+        this.Prenom = Prenom;
     }
-
+    
+    
     public User(String Nom, String Prenom, String Email, String Login, String MotDePasse, String Sexe, String DateNaissance, int NumTelephone, String TypeCompte, String TypeTalent, String Imguser, int NbDiament) {
         this.Nom = Nom;
         this.Prenom = Prenom;

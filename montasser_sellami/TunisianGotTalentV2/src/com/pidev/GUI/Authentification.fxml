@@ -12,7 +12,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TunGotTalent.gui.AuthentificationController">
+<Pane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.AuthentificationController">
    <children>
       <Pane layoutX="-8.0" prefHeight="600.0" prefWidth="514.0" style="-fx-background-color: #4C8DE9;">
          <children>
@@ -53,19 +53,19 @@
             <Font size="15.0" />
          </font>
       </Hyperlink>
-      <ImageView fx:id="login" layoutX="744.0" layoutY="49.0">
+      <ImageView fx:id="login" fitHeight="64.0" fitWidth="78.0" layoutX="727.0" layoutY="41.0">
          <image>
-            <Image url="@../../img/icon.png" />
+            <Image url="@../Images/icon.png" />
          </image>
       </ImageView>
       <ImageView fx:id="mdp" fitHeight="36.0" fitWidth="37.0" layoutX="650.0" layoutY="261.0">
          <image>
-            <Image url="@../../img/pwd.png" />
+            <Image url="@../Images/passe.png" />
          </image>
       </ImageView>
       <ImageView fx:id="text" fitHeight="31.0" fitWidth="47.0" layoutX="645.0" layoutY="201.0">
          <image>
-            <Image url="@../../img/user.png" />
+            <Image url="@../Images/user.png" />
          </image>
       </ImageView>
    </children>

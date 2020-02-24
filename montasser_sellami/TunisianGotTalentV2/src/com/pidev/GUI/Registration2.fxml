@@ -12,7 +12,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4C8DE9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TunGotTalent.gui.RegistrationController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4C8DE9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.RegistrationController">
    <children>
       <Button fx:id="btnvalider" alignment="CENTER" contentDisplay="CENTER" layoutX="419.0" layoutY="485.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="211.0" text="Valider" textAlignment="CENTER" textFill="#10011e">
          <font>
@@ -53,6 +53,5 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="7.0" layoutY="95.0" prefHeight="367.0" prefWidth="525.0" style="-fx-border-width: 0px  5px 0px 0px; -fx-border-color: white;" />
    </children>
 </AnchorPane>

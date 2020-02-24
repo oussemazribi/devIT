@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.pidev.Test;
-
 import com.pidev.Service.DemandeAmitie;
 import com.pidev.Service.GeneratePDF;
 import com.pidev.Service.Mailing;
@@ -30,7 +29,7 @@ import javax.mail.MessagingException;
  * @author HPENVY
  */
 public class test  {
-
+static User Userconnected = new User ();
     private Stage stage;
     private Parent parent;
 
@@ -53,11 +52,13 @@ public class test  {
 //    }
 
      public static void main(String[] args) throws MessagingException, Exception{
+         
      ServiceUser ser = new  ServiceUser ();
      DemandeAmitie dm = new DemandeAmitie();
      User u1 = new User("montasser", "sellami", "montinho1996@gmail.com", "montinho", "lion","homme", "1996", 10101010 ,"Administrateur" ,"Dance", "null");
      User u2 = new User("mehdi", "sellami", "montinho1996@gmail.com", "mehdi", "aaaa","homme", "1996", 22336665 ,"Administrateur" ,"Dance", "null");
      Amitie a1 = new Amitie(163, 164, "0", 163, 0);
+     Amitie a2 = new Amitie(164, 166, "0", 163, 0);
      
      try {
        
@@ -78,14 +79,15 @@ public class test  {
        
        //      Mailing.mailing(u1.getEmail());
            
-         System.out.println(ser.Recherche_parID(122));
+        // System.out.println(ser.Recherche_parID(122));
      } catch (SQLException ex) {
      Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
      }
-     //dm.ajouterD(a1);
-          
-         dm.acceptDemande(a1);
-         System.out.println(dm.getAll());
+    // dm.ajouterD(a1);
+       // dm.ajouterD(a2);
+      //  dm.acceptDemande(a1);
+        
+         System.out.println(dm.getAll(Userconnected.getIdUser()));
      }
      
 }

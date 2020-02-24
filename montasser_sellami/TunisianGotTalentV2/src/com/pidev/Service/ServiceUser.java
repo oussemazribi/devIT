@@ -23,6 +23,7 @@ import javafx.scene.control.ButtonType;
 import com.pidev.GUI.Modifier_utlisateurController;
 import java.util.Random;
 
+
 public class ServiceUser implements IServiceUser<User> {
  private Connection con;
     private Statement ste;
@@ -144,12 +145,12 @@ public class ServiceUser implements IServiceUser<User> {
             int NbDiament = rs.getInt(13);
             u = new User(idUser, Nom, Prenom,Email,Login,MotDePasse,Sexe,DateNaissance,NumTelephone,TypeCompte,TypeTalent,Img,NbDiament);
                 System.out.println("user  authentifié"); 
-                  Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Authentification avec succes !!!", ButtonType.OK);
-            alert.show();
+                 // Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Authentification avec succes !!!", ButtonType.OK);
+            //alert.show();
             }
            else System.out.println("non trouvé");
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Login ou Password invalide !!!", ButtonType.OK);
-            alert.show();
+           // Alert alert = new Alert(Alert.AlertType.ERROR, "Login ou Password invalide !!!", ButtonType.OK);
+          //  alert.show();
           
 
         } catch (SQLException ex) {            

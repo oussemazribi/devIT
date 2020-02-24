@@ -40,8 +40,6 @@ public class RegistrationController implements Initializable {
 
     String path;
     @FXML
-    private Label label;
-    @FXML
     private TextField txtNom;
     @FXML
     private TextField txtPrenom;
@@ -181,6 +179,7 @@ public class RegistrationController implements Initializable {
 
     }
 
+    @FXML
     public void btnParcourir(ActionEvent event) throws IOException {
 
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());

@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.AdministrateurController">
    <children>
-      <Label layoutX="411.0" layoutY="14.0" prefHeight="35.0" prefWidth="321.0" text="ESPACE ADMINISTRATEUR" textAlignment="CENTER" textFill="#2c2c54" underline="true">
+      <Label layoutX="411.0" layoutY="14.0" prefHeight="35.0" prefWidth="321.0" text="ESPACE ADMINISTRATEUR" textAlignment="CENTER" textFill="#c44569" underline="true">
          <font>
             <Font name="Calibri Bold" size="29.0" />
          </font>
@@ -106,14 +106,14 @@
                               <Insets left="10.0" right="8.0" />
                            </HBox.margin>
                         </FontAwesomeIcon>
-                        <Label styleClass="sidebar-btn-text" text="RECLAMATION" textFill="WHITE">
+                        <Label prefHeight="25.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="RECLAMATION" textFill="WHITE">
                            <font>
                               <Font name="Calibri Bold" size="13.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="338.0" prefHeight="17.0" prefWidth="59.0" styleClass="sidebar-btn-text" text="LOGOUT" textFill="#2e2929">
+                  <Label alignment="TOP_CENTER" layoutX="42.0" layoutY="371.0" prefHeight="17.0" prefWidth="59.0" styleClass="sidebar-btn-text" text="LOGOUT" textFill="#2e2929">
                      <font>
                         <Font name="Calibri Bold" size="13.0" />
                      </font>
@@ -134,7 +134,7 @@
       <TextField fx:id="txtNom" layoutX="326.0" layoutY="146.0" prefHeight="32.0" prefWidth="169.0" promptText="Nom" />
       <TextField fx:id="txtPrenom" layoutX="326.0" layoutY="204.0" prefHeight="32.0" prefWidth="169.0" promptText="Prenom" />
       <TextField fx:id="txtLogin" layoutX="326.0" layoutY="324.0" prefHeight="32.0" prefWidth="169.0" promptText="Login" />
-      <PasswordField fx:id="txtPassword" layoutX="326.0" layoutY="395.0" prefHeight="32.0" prefWidth="169.0" promptText="Password" />
+      <PasswordField fx:id="txtPassword" layoutX="325.0" layoutY="393.0" prefHeight="32.0" prefWidth="169.0" promptText="Password" />
       <ComboBox fx:id="combo_typeCompte" layoutX="634.0" layoutY="275.0" prefHeight="40.0" prefWidth="198.0" promptText="Type_Compte&#10;&#10;" visibleRowCount="3" />
       <TextField fx:id="txtEmail" layoutX="326.0" layoutY="259.0" prefHeight="32.0" prefWidth="169.0" promptText="Email" />
       <RadioButton fx:id="rbHomme" layoutX="313.0" layoutY="459.0" mnemonicParsing="false" text="Homme" textFill="#2c2c54">
@@ -157,5 +157,41 @@
             <Image url="@../Images/ajouter.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="146.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="208.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="594.0" layoutY="146.0">
+         <image>
+            <Image url="@../Images/icons8-téléphone-raccroché-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="594.0" layoutY="210.0">
+         <image>
+            <Image url="@../Images/icons8-age-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="298.0" layoutY="259.0">
+         <image>
+            <Image url="@../Images/icons8-email-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="328.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="295.0" layoutY="397.0">
+         <image>
+            <Image url="@../Images/icons8-mot-de-passe-250.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="199.0" layoutY="8.0" orientation="VERTICAL" prefHeight="602.0" prefWidth="10.0" />
    </children>
 </AnchorPane>

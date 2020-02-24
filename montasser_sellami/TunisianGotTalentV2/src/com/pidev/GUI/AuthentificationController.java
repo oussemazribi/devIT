@@ -34,7 +34,7 @@ import javafx.stage.Stage;
  * @author HPENVY
  */
 public class AuthentificationController implements Initializable {
-    ImageView img1 = new ImageView();
+   
     
     
     @FXML
@@ -50,13 +50,12 @@ public class AuthentificationController implements Initializable {
     @FXML
     private PasswordField txtPassword;
     @FXML
-    private Label lblerror;
-    @FXML
     private Button btn1;
     
 
     User user =new User();
     
+    @FXML
     public void btnValider(ActionEvent event) throws IOException {
 
         ServiceUser service = new ServiceUser();
@@ -67,7 +66,9 @@ public class AuthentificationController implements Initializable {
                       alert.show();  
           
         } 
-        else {
+        else  
+        { Alert alert=new Alert(Alert.AlertType.CONFIRMATION, "Bienvenue Mr(s)"+user.getNom()+"", ButtonType.OK);
+                      alert.show();
             if ("Administrateur".equals(user.getTypeCompte())) 
             {
                 Stage stage = new Stage();
@@ -96,7 +97,8 @@ public class AuthentificationController implements Initializable {
      * @param event
      * @throws java.io.IOException
      */
-public void btnIns(ActionEvent event) throws IOException{
+    @FXML
+    public void btnIns(ActionEvent event) throws IOException{
  Stage stage = new Stage();
                 Parent root = FXMLLoader.load(getClass().getResource("Registration2.fxml"));
                 Scene scene = new Scene(root);

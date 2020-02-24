@@ -7,13 +7,15 @@ package com.pidev.Entite;
 
 public class Amitie {
 
-    
-private int idUser1 ;
-private int idUser2 ;
-private String Etat ;
-private int SenderId ;
-private int BlockId ;
-public Amitie(){}
+    private int idAmitie;
+    private int idUser1;
+    private int idUser2;
+    private String Etat;
+    private int SenderId;
+    private int BlockId;
+
+    public Amitie() {
+    }
 
     public void setIdUser1(int idUser1) {
         this.idUser1 = idUser1;
@@ -56,7 +58,7 @@ public Amitie(){}
     }
 
     public Amitie(int idUser1, int idUser2, String Etat, int SenderId, int BlockId) {
-       
+
         this.idUser1 = idUser1;
         this.idUser2 = idUser2;
         this.Etat = Etat;
@@ -64,8 +66,27 @@ public Amitie(){}
         this.BlockId = BlockId;
     }
 
+    public Amitie(int idAmitie, int idUser1, int idUser2, String Etat, int SenderId, int BlockId) {
+        this.idAmitie = idAmitie;
+        this.idUser1 = idUser1;
+        this.idUser2 = idUser2;
+        this.Etat = Etat;
+        this.SenderId = SenderId;
+        this.BlockId = BlockId;
+    }
+
+    public int getIdAmitie() {
+        return idAmitie;
+    }
+
+    public void setIdAmitie(int idAmitie) {
+        this.idAmitie = idAmitie;
+    }
+
     @Override
     public String toString() {
-        return "Amitie{"+ " idUser1=" + idUser1 + ", idUser2=" + idUser2 + ", Etat=" + Etat + ", SenderId=" + SenderId + ", BlockId=" + BlockId + '}';
+        return "Amitie{" + "idAmitie=" + idAmitie + ", idUser1=" + idUser1 + ", idUser2=" + idUser2 + ", Etat=" + Etat + ", SenderId=" + SenderId + ", BlockId=" + BlockId + '}';
     }
+
+   
 }

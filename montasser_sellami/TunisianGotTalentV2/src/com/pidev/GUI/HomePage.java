@@ -5,6 +5,9 @@
  */
 package com.pidev.GUI;
 
+import static com.pidev.GUI.HomePage.Userconnected ;
+
+import com.pidev.Entite.User;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -29,12 +32,14 @@ import javafx.stage.StageStyle;
 public class HomePage extends Application {
         private Stage stage;
     private Parent parent;
+    static User Userconnected = new User();
     
     @Override
     public void start(Stage primaryStage) {
         try {
+            
           
-            Parent root1 = FXMLLoader.load(getClass().getResource("Administrateur(ajout)1.fxml"));
+            Parent root1 = FXMLLoader.load(getClass().getResource("listAmis.fxml"));
             primaryStage.setTitle("Authentification");
             Scene scene = new Scene(root1);
                     this.stage = primaryStage;

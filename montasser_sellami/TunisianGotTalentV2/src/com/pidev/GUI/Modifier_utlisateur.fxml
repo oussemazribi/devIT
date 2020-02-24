@@ -12,7 +12,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TunGotTalent.gui.Modifier_utlisateurController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.Modifier_utlisateurController">
    <children>
       <Label layoutX="434.0" layoutY="29.0" prefHeight="35.0" prefWidth="321.0" text="ESPACE ADMINISTRATEUR" textAlignment="CENTER" textFill="#c44569" underline="true">
          <font>
