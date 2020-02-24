@@ -5,6 +5,7 @@
  */
 package com.pidev.GUI;
 
+import com.pidev.Entite.User;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import java.io.IOException;
@@ -23,12 +24,12 @@ import javafx.stage.Stage;
  * @author loume78
  */
 public class tnGotTalent extends Application {
-    
+        static User Userconnected=new User();
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
         
-        Scene scene = new Scene(root,765,470);
+        Scene scene = new Scene(root);
         
         
         

@@ -7,7 +7,9 @@ package com.pidev.GUI;
 
 import com.pidev.Entite.Competition;
 import com.pidev.Entite.User;
+import static com.pidev.GUI.tnGotTalent.Userconnected;
 import com.pidev.Service.ServiceCompetition;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,10 +19,15 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -30,6 +37,7 @@ import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,6 +60,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.ImageInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -62,9 +71,13 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+import org.bouncycastle.asn1.DERNumericString;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -72,13 +85,10 @@ import javax.swing.filechooser.FileSystemView;
  * @author loume78
  */
 public class IntChasseurController implements Initializable {
+
     private String ImageComp;
     @FXML
-    private TextField recherche;
-    @FXML
     private FlowPane flowPaneComp;
-    @FXML
-    private FlowPane paneAjout;
 
     @FXML
     private TextField titre;
@@ -86,7 +96,6 @@ public class IntChasseurController implements Initializable {
     private TextField desc;
     @FXML
     private TextField cout;
-   
 
     @FXML
     private ComboBox<String> talent;
@@ -99,9 +108,21 @@ public class IntChasseurController implements Initializable {
     @FXML
     private Button browse;
     @FXML
-
     private ImageView imageC;
-    
+    @FXML
+    private Button btnBack;
+    @FXML
+    private ImageView titreCheck;
+    @FXML
+    private ImageView descriptionCheck;
+    @FXML
+    private ImageView debCheck;
+    @FXML
+    private ImageView finCheck;
+    @FXML
+    private ImageView coutCheck;
+    @FXML
+    private ImageView talentChecker;
 
     ObservableList<String> list = FXCollections.observableArrayList("Dance", "BeatBox", "Musique", "Comedie");
 //    
@@ -188,7 +209,7 @@ public class IntChasseurController implements Initializable {
             Button btnSupp = new Button("Supprimer");
             btnSupp.setTextOverrun(OverrunStyle.CLIP);
             btnSupp.setStyle("-fx-background-color : #E82B34;");
-            
+
             //btnSupp.setDisable(true);
             btnSupp.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -255,22 +276,22 @@ public class IntChasseurController implements Initializable {
             modif.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                   
-                        LocalDate DateDe = date_debut.getValue();
 
-                        String DateD = DateDe.toString();
+                    LocalDate DateDe = date_debut.getValue();
 
-                        LocalDate DateFin = date_fin.getValue();
-                        String DateFe = DateFin.toString();
-                        String Titre = titre.getText();
-                        String louay = desc.getText();
+                    String DateD = DateDe.toString();
 
-                        String TypeTalent = talent.getValue();
-                        int Cout = Integer.parseInt(cout.getText());
-                        String image;
-                        try {
-                            
-                            if (ser.update(Titre, louay, TypeTalent, DateD, DateFe, Cout, ImageComp, modifbtn) == true) {
+                    LocalDate DateFin = date_fin.getValue();
+                    String DateFe = DateFin.toString();
+                    String Titre = titre.getText();
+                    String louay = desc.getText();
+
+                    String TypeTalent = talent.getValue();
+                    int Cout = Integer.parseInt(cout.getText());
+
+                    try {
+
+                        if (ser.update(Titre, louay, TypeTalent, DateD, DateFe, Cout, ImageComp, modifbtn) == true) {
                             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Modification avec succés !", ButtonType.OK);
                             alert.show();
                             flowPaneComp.getChildren().clear();
@@ -283,11 +304,8 @@ public class IntChasseurController implements Initializable {
                             affichageUS();
 
                         }
-                       
 
                         // ser.update(Titre, Description, TypeTalent, DateD, DateFe, Cout,modif );
-                        
-
                     } catch (SQLException ex) {
                         Logger.getLogger(IntChasseurController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -393,6 +411,7 @@ public class IntChasseurController implements Initializable {
 //                        return path;
 //
 //          
+    @FXML
     public void ChoiceImage() throws FileNotFoundException, IOException {
         FileChooser fc = new FileChooser();
         //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Images", listFichier));
@@ -422,18 +441,18 @@ public class IntChasseurController implements Initializable {
             File file = new File("C:/wamp64/www/PI_DEV_Image/" + f.getName());
 //            System.out.println(file.toURI().toString());
             imageC.setImage(new Image(file.toURI().toString()));
-             ImageComp = f.getName();
+            ImageComp = f.getName();
             System.out.println(ImageComp);
         } else if (f == null) {
             //Commentaire.setText("Erreur chargement de l'image");
             System.out.println("Erreur !");
         }
-         
 
     }
 
+    @FXML
     public void getInformation() throws SQLException {
-        User userTest = new User(101, "maysa", "habbachi", "hahaha", "hahaha", "haahha", "haha", "589", 2345, "Administrateur", "Dance", "jajaja", 20);
+        //User userTest = new User(101, "maysa", "habbachi", "hahaha", "hahaha", "haahha", "haha", "589", 2345, "Administrateur", "Dance", "jajaja", 20);
 
         LocalDate DateDe = date_debut.getValue();
 
@@ -446,29 +465,50 @@ public class IntChasseurController implements Initializable {
         String TypeTalent = talent.getValue();
         int Cout = Integer.parseInt(cout.getText());
 
-        
-            
-
-            Competition c1 = new Competition(userTest, Titre, Description, TypeTalent, DateD, DateFe, Cout, ImageComp);
-            ServiceCompetition ser1 = new ServiceCompetition();
-            //boolean test = false;
-            //ser1.ajouter1(c1);
-            if ((ser1.findBy(c1) == false)) {
+        Competition c1 = new Competition(Userconnected, Titre, Description, TypeTalent, DateD, DateFe, Cout, ImageComp);
+        ServiceCompetition ser1 = new ServiceCompetition();
+        //boolean test = false;
+        //ser1.ajouter1(c1);
+        if (ser1.findBy(c1) == false) {
+            if (testSaisie() == true) {
+//                if (testDateFin() == true) {
+//                    if ((!cout.getText().isEmpty()) && (!titre.getText().isEmpty())) {
+//                        if (testCout() == true) {
                 ser1.ajouter(c1);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ajout de --" + c1.getTitre() + "-- effectué avec succées", ButtonType.OK);
                 alert.show();
                 flowPaneComp.getChildren().clear();
                 affichageUS();
-
-            } else {
-                Alert alert1 = new Alert(Alert.AlertType.ERROR, "Cette Competition existe deja ! ", ButtonType.OK);
-                alert1.show();
-                //this.affichageUS();
-                flowPaneComp.getChildren().clear();
-                affichageUS();
-
             }
-        
+//                        } else {
+//                            Alert alert = new Alert(Alert.AlertType.ERROR, "Verifier que vous avez entrer un entier dans le Cout !", ButtonType.OK);
+//                            alert.show();
+//
+//                        }
+//                    } else {
+//                        Alert alert = new Alert(Alert.AlertType.ERROR, "Verifier que vous avez remlir toutes les champs !", ButtonType.OK);
+//                        alert.show();
+//
+//                    }
+//                } else {
+//                    Alert alert = new Alert(Alert.AlertType.ERROR, "Verifier que la date de debut est inferieure a la date fin", ButtonType.OK);
+//                    alert.show();
+//
+//                }
+//            } else {
+//                Alert alert = new Alert(Alert.AlertType.ERROR, "Verifier que la date de debut est supeieur a la date courante", ButtonType.OK);
+//                alert.show();
+//
+//            }
+
+        } else {
+            Alert alert1 = new Alert(Alert.AlertType.ERROR, "Cette Competition existe deja ! ", ButtonType.OK);
+            alert1.show();
+            //this.affichageUS();
+            flowPaneComp.getChildren().clear();
+            affichageUS();
+
+        }
 
     }
 
@@ -511,4 +551,254 @@ public class IntChasseurController implements Initializable {
 //       
 //  
 //  }
+    @FXML
+    public void Back(ActionEvent event) throws IOException {
+        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Home.fxml"));
+        Parent rootChasseur = LOADER.load();
+        btnBack.getScene().setRoot(rootChasseur);
+
+    }
+
+    private Boolean testSaisie() {
+
+        if (!testTitre()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que vous avez saisir le Titre !", ButtonType.OK);
+            alert.show();
+        }
+        if (!testDescription()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que vous avez saisir la Description !", ButtonType.OK);
+            alert.show();
+        }
+        if (!testTalent()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que vous avez selectionner le type de talent !", ButtonType.OK);
+            alert.show();
+        }
+
+        if (!testDateDebut()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que la date debut est superieure a la date courante !", ButtonType.OK);
+            alert.show();
+        }
+        if (!testDateFin()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que la date fin est superieure a la date debut !", ButtonType.OK);
+            alert.show();
+        }
+
+        if (!testCout()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "verifier que vous avez saisie des entier dans le Cout !", ButtonType.OK);
+            alert.show();
+        }
+
+        return testTitre() && testDescription() && testTalent() && testDateDebut() && testDateFin() && testCout();
+    }
+
+    private Boolean testTalent() {
+
+        if (!talent.getSelectionModel().selectedItemProperty().equals("")) {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            talentChecker.setImage(new Image(file.toURI().toString()));
+            return true;
+        } else {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+            talentChecker.setImage(new Image(file.toURI().toString()));
+
+            return false;
+
+        }
+    }
+
+    private Boolean testDescription() {
+        int nbNonChar = 0;
+        for (int i = 1; i < desc.getText().trim().length(); i++) {
+            char ch = desc.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && desc.getText().trim().length() >= 3) {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            descriptionCheck.setImage(new Image(file.toURI().toString()));
+            return true;
+        } else {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+            descriptionCheck.setImage(new Image(file.toURI().toString()));
+            return false;
+
+        }
+
+    }
+
+    private Boolean testTitre() {
+        int nbNonChar = 0;
+        for (int i = 1; i < titre.getText().trim().length(); i++) {
+            char ch = titre.getText().charAt(i);
+            if (!Character.isLetter(ch)) {
+                nbNonChar++;
+            }
+        }
+
+        if (nbNonChar == 0 && titre.getText().trim().length() >= 3) {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            titreCheck.setImage(new Image(file.toURI().toString()));
+            return true;
+        } else {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+            titreCheck.setImage(new Image(file.toURI().toString()));
+            return false;
+
+        }
+
+    }
+
+    private Boolean testDateDebut() {
+        //java.sql.Timestamp today_date = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+        ChronoLocalDate dt
+                = LocalDate.now();
+        if (date_debut.getValue() != null && date_debut.getValue().isAfter(dt)) {
+
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            debCheck.setImage(new Image(file.toURI().toString()));
+            System.out.println("yes");
+            return true;
+
+        } else {
+
+            File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+            debCheck.setImage(new Image(file.toURI().toString()));
+            System.out.println("yes");
+            System.out.println("no");
+
+            return false;
+
+        }
+
+    }
+
+//     @FXML
+//    private Boolean testNom() {
+//        int nbNonChar = 0;
+//        for (int i = 1; i < NomTXFLD.getText().trim().length(); i++) {
+//            char ch = NomTXFLD.getText().charAt(i);
+//            if (!Character.isLetter(ch)) {
+//                nbNonChar++;
+//            }
+//        }
+//
+//        if (nbNonChar == 0 && NomTXFLD.getText().trim().length() >= 3) {
+//            nomCheckMark.setImage(new Image("Images/checkMark.png"));
+//            return true;
+//        } else {
+//            nomCheckMark.setImage(new Image("Images/erreurcheckMark.png"));
+////                erreur = erreur + ("Pas de caractere permit dans le telephone\n");
+//            return false;
+//
+//        }
+//
+//    }
+    private Boolean testDateFin() {
+//        java.sql.Timestamp today_date = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+        ChronoLocalDate dt
+                = LocalDate.now();
+        if (date_fin.getValue() != null && date_fin.getValue() != null && date_fin.getValue().isAfter(date_debut.getValue())) {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            finCheck.setImage(new Image(file.toURI().toString()));
+            System.out.println("yes");
+            return true;
+
+        } else {
+
+            File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+            finCheck.setImage(new Image(file.toURI().toString()));
+            System.out.println("no");
+            return false;
+        }
+
+    }
+    
+    
+//    @FXML
+//    private void TextFieldKeyTyped( javafx.scene.input.KeyEvent event)
+//    {
+//        EventType c=event.getEventType();
+//        if(!(Character.) || (c==KeyEvent.VK_BACK_SPACE)  || (c==KeyEvent.VK_DELETE))
+//        {
+//            evt.consume();
+//        }
+//    }
+
+    private boolean testCout() {
+        
+    
+    
+        
+       if(cout.getText().matches("([0-9]+(\\.[0-9]+)?)+"))
+       {
+            File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+//            System.out.println(file.toURI().toString());
+            coutCheck.setImage(new Image(file.toURI().toString()));
+            return true;
+        }
+       else
+       {
+        File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+//            System.out.println(file.toURI().toString());
+        coutCheck.setImage(new Image(file.toURI().toString()));
+        return false;
+    }
+    }
+
+//    @FXML
+//    private Boolean testCout() {
+////        java.sql.Timestamp today_date = new java.sql.Timestamp(Calendar.getInstance().getTime().getTime());
+//        File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
+////            System.out.println(file.toURI().toString());
+//        coutCheck.setImage(new Image(file.toURI().toString()));
+//        return true;
+//    }
+//}
+//File file = new File("C:/wamp64/www/PI_DEV_Image/close.png");
+////            System.out.println(file.toURI().toString());
+//            coutCheck.setImage(new Image(file.toURI().toString()));
+//            
+//                    
+//            
+//        
+//        return false;
+//
+//        
+//
+//    }
+
+//    private Boolean testSaisie() {
+//
+//        if (!testDateDebut()) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez verifier que vous avez choisi une date superieur a la date courante \n", ButtonType.CLOSE);
+//            alert.show();
+//        }
+//
+//        if (!testDateFin()) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR, "Veuillez verifier que vous avez choisi une date din superieur a la date debut \n", ButtonType.CLOSE);
+//            alert.show();
+//        }
+//
+//        return testDateDebut() && testDateFin();
+//    }
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
+    }
 }

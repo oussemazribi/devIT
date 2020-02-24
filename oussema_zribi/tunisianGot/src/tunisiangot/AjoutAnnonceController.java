@@ -50,6 +50,8 @@ public class AjoutAnnonceController implements Initializable {
     User u2 = new User(6, "montasser", "sellami", "aaaa", "montinho", "aaaa", "homme", "1996", 10101010, "Administrateur", "Dance", "null");
     @FXML
     private Button LoadImage;
+    @FXML
+    private Button cree;
 
     @FXML
     private Label label;
@@ -69,8 +71,12 @@ public class AjoutAnnonceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        
+        
     }
 
+    
+    
     public void ChoiceImage() throws FileNotFoundException, IOException {
         FileChooser fc = new FileChooser();
         //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Images", listFichier));
@@ -151,7 +157,7 @@ public class AjoutAnnonceController implements Initializable {
 //            }
 //        }
     @FXML
-    private void AjoutOnClick(ActionEvent event) throws SQLException {
+    private void AjoutOnClick(ActionEvent event) throws SQLException, IOException {
 
         ServiceAnnonce sp = new ServiceAnnonce();
 
@@ -162,6 +168,13 @@ public class AjoutAnnonceController implements Initializable {
         Annonce a = new Annonce(u2, Nom, Description, Prix, "disponible", ImageComp);
 
         sp.ajouter(a);
+        
+        
+         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
+        Parent root1 = LOADER.load();
+        
+        cree.getScene().setRoot(root1);
+        
 
     }
 

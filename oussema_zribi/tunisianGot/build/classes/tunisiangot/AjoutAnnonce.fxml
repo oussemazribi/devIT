@@ -7,29 +7,62 @@
 <?import javafx.scene.effect.ImageInput?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tunisiangot.AjoutAnnonceController">
    <children>
       <AnchorPane id="AnchorPane" fx:id="myAnchor" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <Button layoutX="210.0" layoutY="520.0" mnemonicParsing="false" onAction="#AjoutOnClick" prefHeight="40.0" prefWidth="100.0" text="Créer" />
-            <Button fx:id="annuler" layoutX="500.0" layoutY="520.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="40.0" prefWidth="100.0" text="Annuler" />
-            <ImageView fitHeight="232.0" fitWidth="200.0" layoutX="34.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="cree" layoutX="210.0" layoutY="520.0" mnemonicParsing="false" onAction="#AjoutOnClick" prefHeight="40.0" prefWidth="100.0" text="Créer">
+               <font>
+                  <Font name="MV Boli" size="18.0" />
+               </font></Button>
+            <Button fx:id="annuler" layoutX="500.0" layoutY="520.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="40.0" prefWidth="100.0" text="Annuler">
+               <font>
+                  <Font name="MV Boli" size="18.0" />
+               </font></Button>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="34.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <effect>
                   <ImageInput />
                </effect>
             </ImageView>
-            <TextArea fx:id="description" layoutX="100.0" layoutY="175.0" prefHeight="200.0" prefWidth="350.0" promptText="Description" />
-            <TextField fx:id="nom" layoutX="100.0" layoutY="105.0" prefWidth="200.0" promptText="Nom" />
-            <Label layoutX="103.0" layoutY="140.0" prefHeight="20.0" prefWidth="65.0" text="Description:" />
-            <Label layoutX="103.0" layoutY="70.0" prefHeight="20.0" prefWidth="30.0" text="Nom:" />
-            <Label layoutX="103.0" layoutY="390.0" text="Prix:" />
-            <TextField fx:id="prix" layoutX="100.0" layoutY="425.0" prefWidth="200.0" promptText="prix" />
-            <Label layoutX="550.0" layoutY="69.0" text="images:" />
+            <TextArea fx:id="description" layoutX="100.0" layoutY="195.0" prefHeight="200.0" prefWidth="350.0" promptText="Description" />
+            <TextField fx:id="nom" layoutX="100.0" layoutY="125.0" prefWidth="200.0" promptText="Nom" />
+            <Label layoutX="103.0" layoutY="160.0" prefHeight="29.0" prefWidth="133.0" text="Description:">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font></Label>
+            <Label layoutX="103.0" layoutY="90.0" prefHeight="22.0" prefWidth="53.0" text="Nom:">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font></Label>
+            <Label layoutX="103.0" layoutY="410.0" text="Prix:">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font></Label>
+            <TextField fx:id="prix" layoutX="100.0" layoutY="445.0" prefWidth="200.0" promptText="prix" />
+            <Label layoutX="550.0" layoutY="69.0" text="images:">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font></Label>
             <Button fx:id="LoadImage" layoutX="630.0" layoutY="65.0" mnemonicParsing="false" onAction="#ChoiceImage" prefHeight="25.0" prefWidth="41.0" text="...." />
             <ImageView fx:id="imageC" fitHeight="150.0" fitWidth="200.0" layoutX="550.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="550.0" layoutY="292.0" text="Indiquer votre position:" />
-            <Button layoutX="556.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Open map" />
+            <Label layoutX="550.0" layoutY="292.0" text="Indiquer votre position:">
+               <font>
+                  <Font name="MV Boli" size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="556.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Open map">
+               <font>
+                  <Font name="MV Boli" size="11.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="97.0" layoutY="30.0" text="Ajouter une Annonce">
+               <font>
+                  <Font name="MV Boli" size="23.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

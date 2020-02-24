@@ -43,14 +43,14 @@ public class HomeController implements Initializable {
     
     public void startChasseur(ActionEvent event) throws IOException {
         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("IntChasseur.fxml"));
-        Parent rootChasseur = LOADER.load();
-        //button1.getScene().setRoot(rootChasseur);
-        Scene scene = new Scene(rootChasseur,800,600);
-        
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
-            
+        Parent Chasseur = LOADER.load();
+        button1.getScene().setRoot(Chasseur);
+//        Scene scene = new Scene(rootChasseur,800,600);
+//        
+//        Stage primaryStage = new Stage();
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//            
         
         
         
@@ -60,13 +60,13 @@ public class HomeController implements Initializable {
         
         
        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("UserInterface.fxml"));
-        Parent rootUser = LOADER.load();
-          Scene scene = new Scene(rootUser,800,600);
-         // button2.getScene().setRoot(rootUser);
+        Parent User = LOADER.load();
+          
+          button2.getScene().setRoot(User);
         
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+//        Stage primaryStage = new Stage();
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
         
         
         

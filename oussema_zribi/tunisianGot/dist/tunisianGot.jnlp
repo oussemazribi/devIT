@@ -15,7 +15,7 @@
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\opencv-2.4.13-0.jar" size="26617433" download="eager" />
     <jar href="lib\opencv-java-win64-0.10.0.jar" size="11767835" download="eager" />
-    <jar href="tunisianGot.jar" size="142444" download="eager" />
+    <jar href="tunisianGot.jar" size="145257" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="tunisianGot" >
     <param name="requiredFXVersion" value="8.0+"/>
