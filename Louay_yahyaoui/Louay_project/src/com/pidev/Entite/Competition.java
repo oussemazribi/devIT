@@ -21,6 +21,40 @@ public class Competition {
     String DateDebut;
     String DateFin;
     int cout;
+    String imageC;
+
+    public String getImageC() {
+        return imageC;
+    }
+
+    public void setImageC(String imageC) {
+        this.imageC = imageC;
+    }
+
+    public Competition(int idCompetition, User user, String titre, String description, String typeDeTalent, String DateDebut, String DateFin, int cout, String imageC) {
+        this.idCompetition = idCompetition;
+        this.user = user;
+        this.titre = titre;
+        this.description = description;
+        this.typeDeTalent = typeDeTalent;
+        this.DateDebut = DateDebut;
+        this.DateFin = DateFin;
+        this.cout = cout;
+        this.imageC = imageC;
+    }
+
+    public Competition(User user, String titre, String description, String typeDeTalent, String DateDebut, String DateFin, int cout, String imageC) {
+        this.user = user;
+        this.titre = titre;
+        this.description = description;
+        this.typeDeTalent = typeDeTalent;
+        this.DateDebut = DateDebut;
+        this.DateFin = DateFin;
+        this.cout = cout;
+        this.imageC = imageC;
+    }
+    
+    
 
     public Competition(String titre, String description, String typeDeTalent, String DateDebut, String DateFin, int cout) {
         this.titre = titre;

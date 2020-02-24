@@ -12,14 +12,16 @@
     <jar href="lib\GMapsFX-2.10.0.jar" size="154471" download="eager" />
     <jar href="lib\controlsfx-8.40.12.jar" size="996389" download="eager" />
     <jar href="lib\controlsfx-samples-8.40.12.jar" size="665038" download="eager" />
+    <jar href="lib\fontawesomefx-8.1.jar" size="179086" download="eager" />
+    <jar href="lib\jfoenix-1.0.0.jar" size="2186636" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\opencv-2.4.13-0.jar" size="26617433" download="eager" />
     <jar href="lib\opencv-java-win64-0.10.0.jar" size="11767835" download="eager" />
-    <jar href="tunisianGot.jar" size="61414" download="eager" />
+    <jar href="tunisianGot.jar" size="46665805" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="tunisianGot" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="tunisiangot.TunisianGot"  name="tunisianGot" />
+  <jfx:javafx-desc  width="800" height="600" main-class="com.pidev.GUI.TunisianGot"  name="tunisianGot" />
   <update check="always"/>
 </jnlp>

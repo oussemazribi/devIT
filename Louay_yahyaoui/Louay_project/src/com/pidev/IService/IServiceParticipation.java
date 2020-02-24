@@ -21,6 +21,6 @@ public interface IServiceParticipation<T> {
     void ajouter(T t) throws SQLException;
     boolean delete(T t) throws SQLException;
     boolean update(int idCompetition, Participation p) throws SQLException;
-    public Map<User,Competition> readAll() throws SQLException;
+   // public Map<User,Competition> readAll() throws SQLException;
     
 }
