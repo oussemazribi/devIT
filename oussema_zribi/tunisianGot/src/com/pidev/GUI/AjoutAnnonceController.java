@@ -32,6 +32,8 @@ import javafx.stage.FileChooser;
 import com.pidev.Entite.Annonce;
 import com.pidev.Entite.User;
 import com.pidev.Service.ServiceAnnonce;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -54,14 +56,8 @@ public class AjoutAnnonceController implements Initializable {
     private Button cree;
 
     @FXML
-    private Label label;
-
-    @FXML
     private Button annuler;
 
-    @FXML
-    private TilePane tilePane;
-    @FXML
     private String ImageComp;
     @FXML
     ImageView imageC;
@@ -77,6 +73,7 @@ public class AjoutAnnonceController implements Initializable {
 
     
     
+    @FXML
     public void ChoiceImage() throws FileNotFoundException, IOException {
         FileChooser fc = new FileChooser();
         //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Images", listFichier));
@@ -185,5 +182,22 @@ public class AjoutAnnonceController implements Initializable {
         Parent root1 = LOADER.load();
         annuler.getScene().setRoot(root1);
     }
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
+    }
+
+//    @FXML
+//    private void oussema(KeyEvent event) {
+//        char c=event.getCharacter();
+//        if(!Character.isDigit(c))
+//        {
+//            c.consume();
+//        }
+//    }
 
 }

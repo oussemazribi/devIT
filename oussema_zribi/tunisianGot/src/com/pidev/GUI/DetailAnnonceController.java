@@ -23,6 +23,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import com.pidev.Entite.Annonce;
 import com.pidev.Entite.User;
+import com.pidev.Service.ServiceAnnonce;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -46,9 +51,8 @@ public class DetailAnnonceController implements Initializable {
     @FXML
     private ImageView img;
 
+    int idAnn;
     User u2 = new User(6, "montasser", "sellami", "aaaa", "montinho", "aaaa", "homme", "1996", 10101010, "Administrateur", "Dance", "null");
-
-
 
     /**
      * Initializes the controller class.
@@ -64,18 +68,17 @@ public class DetailAnnonceController implements Initializable {
 //        }
 
     }
+        ServiceAnnonce ser = new ServiceAnnonce();
 
-    void DetailAnnonce(String Nom,String Description, int Prix, String Image, User u) throws SQLException {
 
+    void DetailAnnonce(int id,String Nom, String Description, int Prix, String Image, User u) throws SQLException {
+        idAnn=id;
         nom.setText(Nom);
         descr.setText(Description);
         prix.setText(Integer.toString(Prix));
-        File file = new File("C:/wamp64/www/Images_PI/" +Image);
+        File file = new File("C:/wamp64/www/Images_PI/" + Image);
         img.setImage(new Image(file.toURI().toString()));
-        
-        
-        
-        
+
         if (u2.getIdUser() == u.getIdUser()) {
             edit.setVisible(true);
             supp.setVisible(true);
@@ -85,8 +88,6 @@ public class DetailAnnonceController implements Initializable {
             supp.setVisible(false);
         }
 
-        
-
     }
 
     @FXML
@@ -94,6 +95,35 @@ public class DetailAnnonceController implements Initializable {
         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
         Parent root1 = LOADER.load();
         annuler.getScene().setRoot(root1);
+    }
+
+    public void btnSupprimerAction(ActionEvent event) throws IOException, SQLException {
+        ServiceAnnonce ser = new ServiceAnnonce();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+//        quitter = new ImageView(new Image(getClass().getResourceAsStream("/add.png")));
+//        btnQuitter.setGraphic(quitter);
+        alert.setTitle("Suppression ");
+        alert.setContentText("Voulez-vous vraiment supprimer cette Competition ?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ser.delete(ser.findById(idAnn));
+            FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
+        Parent root1 = LOADER.load();
+        supp.getScene().setRoot(root1);
+        } else {
+            FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
+            Parent root1 = LOADER.load();
+
+        }
+    }
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
     }
 
 }

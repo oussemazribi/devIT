@@ -47,6 +47,7 @@ import com.pidev.Entite.Annonce;
 import com.pidev.Entite.User;
 import com.pidev.Service.ServiceAnnonce;
 import com.pidev.Service.ServiceUser;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -149,7 +150,7 @@ int bb;
             
             int idAnnonce = list.get(i).getIdAnnonce();
             a1 = ser.findById(idAnnonce);
-            
+            int id = a1.getIdAnnonce();
             String Nom = a1.getNom();
             String Description = a1.getDescription();
             int Prix = a1.getPrix();
@@ -173,8 +174,9 @@ int bb;
                     FXMLLoader LOADER = new FXMLLoader(getClass().getResource("DetailAnnonce.fxml"));
                      
                     Parent root2 = LOADER.load();
-                  DetailAnnonceController Detail = LOADER.getController();
-                 Detail.DetailAnnonce(Nom, Description, Prix, image, u);
+                      DetailAnnonceController Detail = LOADER.getController();
+                      System.out.println("=== Nom: "+Nom);
+                 Detail.DetailAnnonce(id,Nom, Description, Prix, image, u);
                     // Scene scene = new Scene(root2);
                     VBoxAnnonce.getScene().setRoot(root2);
                    
@@ -251,4 +253,12 @@ int bb;
 //           
 //           
 //       } 
+
+    @FXML
+    private void main(MouseEvent event) {
+    }
+
+    @FXML
+    private void chat1(MouseEvent event) {
+    }
 }
