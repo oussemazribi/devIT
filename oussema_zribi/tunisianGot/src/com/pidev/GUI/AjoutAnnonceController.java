@@ -32,8 +32,10 @@ import javafx.stage.FileChooser;
 import com.pidev.Entite.Annonce;
 import com.pidev.Entite.User;
 import com.pidev.Service.ServiceAnnonce;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -54,6 +56,8 @@ public class AjoutAnnonceController implements Initializable {
     private Button LoadImage;
     @FXML
     private Button cree;
+    @FXML
+    private Button map;
 
     @FXML
     private Button annuler;
@@ -67,12 +71,8 @@ public class AjoutAnnonceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        
-        
     }
 
-    
-    
     @FXML
     public void ChoiceImage() throws FileNotFoundException, IOException {
         FileChooser fc = new FileChooser();
@@ -160,19 +160,32 @@ public class AjoutAnnonceController implements Initializable {
 
         String Nom = nom.getText();
         String Description = description.getText();
-        int Prix =Integer.parseInt(prix.getText());
+        int Prix = Integer.parseInt(prix.getText());
 
         Annonce a = new Annonce(u2, Nom, Description, Prix, "disponible", ImageComp);
 
         sp.ajouter(a);
-        
-        
-         FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
-        Parent root1 = LOADER.load();
-        
-        cree.getScene().setRoot(root1);
-        
 
+        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
+        Parent root1 = LOADER.load();
+
+        cree.getScene().setRoot(root1);
+
+    }
+    @FXML
+    private void openmap (ActionEvent event) throws IOException{
+                Stage window = new Stage();
+
+        // Parent root2;
+        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("mapp.fxml"));
+
+        Parent root2 = LOADER.load();
+
+        Scene scene = new Scene(root2);
+
+        window.setScene(scene);
+
+        window.show();
     }
 
     @FXML
@@ -199,5 +212,4 @@ public class AjoutAnnonceController implements Initializable {
 //            c.consume();
 //        }
 //    }
-
 }

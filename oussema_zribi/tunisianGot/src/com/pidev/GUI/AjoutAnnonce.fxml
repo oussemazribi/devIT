@@ -73,7 +73,7 @@
                   <Font name="MV Boli" size="16.0" />
                </font>
             </Label>
-            <Button layoutX="815.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Open map">
+            <Button fx:id="map" layoutX="815.0" layoutY="340.0" mnemonicParsing="false" onAction="#openmap" prefHeight="25.0" prefWidth="89.0" text="Open map">
                <font>
                   <Font name="MV Boli" size="11.0" />
                </font>

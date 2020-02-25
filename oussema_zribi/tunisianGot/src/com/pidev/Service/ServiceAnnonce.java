@@ -48,7 +48,7 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
     }
 
     @Override
-    public boolean update(String Nom, String Description, int Prix, String Etat, int idAnnonce) throws SQLException {
+    public boolean update(String Nom, String Description, int Prix, String Etat,String Images, int idAnnonce) throws SQLException {
         String sql = "UPDATE annonce SET Nom=?, Description=?, Prix=? , Etat=? , images=? WHERE idAnnonce=?";
 
         PreparedStatement statement = con.prepareStatement(sql);
@@ -56,7 +56,8 @@ public class ServiceAnnonce implements IServiceAnnonce<Annonce> {
         statement.setString(2, Description);
         statement.setInt(3, Prix);
         statement.setString(4, Etat);
-        statement.setInt(5, idAnnonce);
+        statement.setString(5, Images);
+        statement.setInt(6, idAnnonce);
 
         int rowsUpdated = statement.executeUpdate();
         if (rowsUpdated > 0) {

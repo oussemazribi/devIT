@@ -154,6 +154,7 @@ int bb;
             String Nom = a1.getNom();
             String Description = a1.getDescription();
             int Prix = a1.getPrix();
+            String Etatt = a1.getEtat();
             User u = a1.getUser();
             String image = a1.getImages();
             
@@ -176,7 +177,7 @@ int bb;
                     Parent root2 = LOADER.load();
                       DetailAnnonceController Detail = LOADER.getController();
                       System.out.println("=== Nom: "+Nom);
-                 Detail.DetailAnnonce(id,Nom, Description, Prix, image, u);
+                 Detail.DetailAnnonce(id,Nom, Description, Prix, image,Etatt, u);
                     // Scene scene = new Scene(root2);
                     VBoxAnnonce.getScene().setRoot(root2);
                    

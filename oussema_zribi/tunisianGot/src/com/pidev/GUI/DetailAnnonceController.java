@@ -25,9 +25,11 @@ import com.pidev.Entite.Annonce;
 import com.pidev.Entite.User;
 import com.pidev.Service.ServiceAnnonce;
 import java.util.Optional;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -47,12 +49,16 @@ public class DetailAnnonceController implements Initializable {
     @FXML
     private Label nom;
     @FXML
+    private Label etat;
+    @FXML
     private Label descr;
     @FXML
     private ImageView img;
 
+    private String image;
+
     int idAnn;
-    User u2 = new User(6, "montasser", "sellami", "aaaa", "montinho", "aaaa", "homme", "1996", 10101010, "Administrateur", "Dance", "null");
+    User u2 = new User(5, "montasser", "sellami", "aaaa", "montinho", "aaaa", "homme", "1996", 10101010, "Administrateur", "Dance", "null");
 
     /**
      * Initializes the controller class.
@@ -68,12 +74,13 @@ public class DetailAnnonceController implements Initializable {
 //        }
 
     }
-        ServiceAnnonce ser = new ServiceAnnonce();
+    ServiceAnnonce ser = new ServiceAnnonce();
 
-
-    void DetailAnnonce(int id,String Nom, String Description, int Prix, String Image, User u) throws SQLException {
-        idAnn=id;
+    void DetailAnnonce(int id, String Nom, String Description, int Prix, String Image, String Etatt, User u) throws SQLException {
+        image = Image;
+        idAnn = id;
         nom.setText(Nom);
+        etat.setText(Etatt);
         descr.setText(Description);
         prix.setText(Integer.toString(Prix));
         File file = new File("C:/wamp64/www/Images_PI/" + Image);
@@ -97,6 +104,7 @@ public class DetailAnnonceController implements Initializable {
         annuler.getScene().setRoot(root1);
     }
 
+    @FXML
     public void btnSupprimerAction(ActionEvent event) throws IOException, SQLException {
         ServiceAnnonce ser = new ServiceAnnonce();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -109,13 +117,45 @@ public class DetailAnnonceController implements Initializable {
         if (result.get() == ButtonType.OK) {
             ser.delete(ser.findById(idAnn));
             FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
-        Parent root1 = LOADER.load();
-        supp.getScene().setRoot(root1);
+            Parent root1 = LOADER.load();
+            supp.getScene().setRoot(root1);
         } else {
             FXMLLoader LOADER = new FXMLLoader(getClass().getResource("AffichageAnnonce.fxml"));
             Parent root1 = LOADER.load();
 
         }
+    }
+
+    @FXML
+    public void btnModifierAction(ActionEvent event) throws IOException {
+
+        int idd = idAnn;
+        String Nom = nom.getText();
+        String Description = descr.getText();
+        String Etatt = etat.getText();
+        int Prix = Integer.parseInt(prix.getText());
+
+//        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("modifierAnnonce.fxml"));
+//        Parent root2 = LOADER.load();
+//        edit.getScene().setRoot(root2);
+//        ModifierAnnonceController modif = LOADER.getController();
+//                modif.ModifierAnnonce1(idd, Nom, Description, Prix, image);
+        Stage window = new Stage();
+
+        // Parent root2;
+        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("modifierAnnonce.fxml"));
+
+        Parent root2 = LOADER.load();
+        ModifierAnnonceController modif = LOADER.getController();
+        //System.out.println("=== Nom: "+Nom);
+        modif.ModifierAnnonce1(idd, Nom, Description, Prix,Etatt, image);
+        Scene scene = new Scene(root2);
+
+        window.setScene(scene);
+
+        // nom.setText(a1.getNom());
+        window.show();
+
     }
 
     @FXML
