@@ -217,6 +217,27 @@ public class ServiceUser implements IServiceUser<User> {
             }
             return user;
         }
+     
+      public User findByNom(String Nom,String Prenom) throws SQLException {
+            String req = "select * from user where Nom = ? AND Prenom=?";
+            User user = null;
+            try {
+                PreparedStatement ps = con.prepareStatement(req);
+                ps.setString(1, Nom);
+                ps.setString(2, Prenom);
+                ResultSet resultSet = ps.executeQuery();
+                if (resultSet.next()) {
+                    
+                   user = new User(resultSet.getInt(1),resultSet.getString(2), resultSet.getString(3), resultSet.getString(4),
+                           resultSet.getString(5), resultSet.getString(6),resultSet.getString(7)
+                           ,resultSet.getString(8), resultSet.getInt(9),resultSet.getString(10)
+                           ,resultSet.getString(11),resultSet.getString(12),resultSet.getInt(13));
+                    System.out.println(user);}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return user;
+        }
 
 
     }

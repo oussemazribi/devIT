@@ -14,9 +14,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="638.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.ListAmisController">
    <children>
-      <TableView id="table1" fx:id="table1" layoutX="211.0" layoutY="6.0" prefHeight="616.0" prefWidth="790.0">
+      <TableView id="table1" fx:id="table1" layoutX="211.0" layoutY="6.0" prefHeight="586.0" prefWidth="790.0">
         <columns>
-          <TableColumn fx:id="nom" id="nom" prefWidth="385.0" text="nom" />
+          <TableColumn id="nom" fx:id="nom" prefWidth="385.0" text="nom" />
             <TableColumn id="prenom" fx:id="prenom" prefWidth="471.0" text="prenom" />
         </columns>
       </TableView>
@@ -114,5 +114,6 @@
             </Label>
          </children>
       </Pane>
+      <Button fx:id="btnProfil" layoutX="569.0" layoutY="602.0" mnemonicParsing="false" onAction="#goToProfil" text="Go To Profil" />
    </children>
 </AnchorPane>
