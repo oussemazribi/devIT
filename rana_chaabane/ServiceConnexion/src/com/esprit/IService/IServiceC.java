@@ -6,6 +6,7 @@
 package com.esprit.IService;
 import com.esprit.Entite.Conversation;
 import com.esprit.Entite.Message;
+import com.esprit.Entite.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -21,5 +22,11 @@ public interface IServiceC<C> {
     boolean update(String nom,int id_Me,int idU_Friend, int idConversation) throws SQLException;
     public boolean deleteAd(int idConversation )  throws SQLException ;
   //  List<C> readAll() throws SQLException;
-    public Map<Conversation, Message> readMessage() throws SQLException;
+    public Map<Conversation, Message> readMessage( ) throws SQLException;
+    public List<Conversation> messageenvoyees(int iduser )  throws SQLException;
+     public long countNbUnreadConversations(int iduser) throws SQLException ;
+       public String tester(int idUser1  ) throws SQLException;
+       List<Conversation> readorder(int idUser) throws SQLException;
+         public String Nom(int idUser) throws SQLException;
+         public String image(int idUser) throws SQLException ;
 }

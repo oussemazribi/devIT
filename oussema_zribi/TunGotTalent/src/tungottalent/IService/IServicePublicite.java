@@ -6,7 +6,6 @@
 package tungottalent.IService;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 import tungottalent.Entite.Publicite;
 
@@ -18,7 +17,7 @@ import tungottalent.Entite.Publicite;
 public interface IServicePublicite <P>{
         void ajouter(P p) throws SQLException;
     boolean delete(P p) throws SQLException;
-    boolean update(Date DateDebut,Date DateFin,String Etat,float Cout ,Publicite p) throws SQLException;
+    boolean update(String DateDebut,String DateFin,String Etat,float Cout ,Publicite p) throws SQLException;
     List<P> readAll() throws SQLException;
     
 }

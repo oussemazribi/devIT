@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #4C8DE9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.RegistrationController">
+   <children>
+      <Button fx:id="btnvalider" alignment="CENTER" contentDisplay="CENTER" layoutX="419.0" layoutY="485.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="211.0" text="Valider" textAlignment="CENTER" textFill="#10011e">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="rbFemme" layoutX="237.0" layoutY="440.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="98.0" text="Femme" textFill="WHITE">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbHomme" layoutX="125.0" layoutY="440.0" mnemonicParsing="false" text="Homme" textFill="WHITE">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="txtEmail" layoutX="125.0" layoutY="251.0" prefHeight="32.0" prefWidth="229.0" promptText="Email" />
+      <ComboBox fx:id="combo_typeCompte" layoutX="622.0" layoutY="250.0" prefHeight="40.0" prefWidth="236.0" promptText="Type_Compte&#10;&#10;" visibleRowCount="3" />
+      <PasswordField fx:id="txtPassword" layoutX="125.0" layoutY="387.0" prefHeight="32.0" prefWidth="229.0" promptText="Password" />
+      <TextField fx:id="txtLogin" layoutX="125.0" layoutY="320.0" prefHeight="32.0" prefWidth="229.0" promptText="Login" />
+      <TextField fx:id="txtPrenom" layoutX="122.0" layoutY="187.0" prefHeight="32.0" prefWidth="229.0" promptText="Prenom" />
+      <TextField fx:id="txtNom" layoutX="122.0" layoutY="122.0" prefHeight="32.0" prefWidth="229.0" promptText="Nom" />
+      <Label fx:id="lblResultat" layoutX="439.0" layoutY="228.0" prefHeight="71.0" prefWidth="122.0" />
+      <Button fx:id="btnParcourir" layoutX="622.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnParcourir" prefHeight="32.0" prefWidth="236.0" text="Parcourir Image" />
+      <TextField fx:id="txtTelephone" layoutX="624.0" layoutY="122.0" prefHeight="32.0" prefWidth="236.0" promptText="Telephone" />
+      <DatePicker fx:id="date" layoutX="622.0" layoutY="186.0" prefHeight="32.0" prefWidth="236.0" />
+      <ComboBox fx:id="combo_typeTalent" layoutX="622.0" layoutY="327.0" prefHeight="40.0" prefWidth="236.0" promptText="Type_Talent&#10;&#10;&#10;" visibleRowCount="3" />
+      <TitledPane animated="false" layoutX="-1.0" layoutY="-2.0" prefHeight="32.0" prefWidth="1083.0" text="INSCRIPTION" textFill="#303952">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </TitledPane>
+      <Label layoutX="439.0" layoutY="30.0" prefHeight="74.0" prefWidth="185.0" text="Inscription" textFill="WHITE">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

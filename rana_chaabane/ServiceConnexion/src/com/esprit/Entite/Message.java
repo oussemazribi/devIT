@@ -17,8 +17,7 @@ public class Message {
     private int id_Sender;
     private int id_Receiver;
     private String Contenu;
-
-       private String Etat;
+     private String Etat = "Not_Seen";
     private Date Date_Message;
     private int id_Conversation;
 
@@ -31,6 +30,11 @@ public class Message {
         this.Date_Message = Date_Message;
         this.id_Conversation = id_Conversation;
     }
+
+    public Message(int id_Sender, String Contenu) {
+        this.id_Sender = id_Sender;
+        this.Contenu = Contenu;
+    }
     
     
      public Message(int id_Sender, int id_Receiver, String Contenu, String Etat, Date Date_Message, int id_Conversation) {
@@ -42,12 +46,16 @@ public class Message {
         this.id_Conversation = id_Conversation;
     }
 
-    public Message(int id_Sender, int id_Receiver, String Contenu, String Etat, int id_Conversation) {
+    public Message(int id_Sender, int id_Receiver, String Contenu,  int id_Conversation) {
         this.id_Sender = id_Sender;
         this.id_Receiver = id_Receiver;
         this.Contenu = Contenu;
-        this.Etat = Etat;
+       
         this.id_Conversation = id_Conversation;
+    }
+
+    public Message() {
+        
     }
      
 

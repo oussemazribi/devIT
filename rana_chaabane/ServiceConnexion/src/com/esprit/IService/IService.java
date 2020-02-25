@@ -5,8 +5,8 @@
  */
 package com.esprit.IService;
 
-
 import com.esprit.Entite.Message;
+import com.esprit.Entite.User;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
@@ -17,10 +17,27 @@ import java.util.List;
  * @param <T>
  */
 public interface IService<T> {
-    void ajouter(T t) throws SQLException;
-    boolean delete(int id_Message) throws SQLException;
-   boolean transfer(int id_Message ,int id_Conversation ) throws SQLException;
-     public boolean SeenMessage(int id_Message ,String etat ) throws SQLException ;
-    List<T> readAll() throws SQLException;
-}
 
+    void ajouter(T t) throws SQLException;
+
+    boolean delete(int id_Message) throws SQLException;
+
+    boolean transfer(int id_Message, int id_Conversation) throws SQLException;
+
+    public boolean SeenMessage(int id_Message) throws SQLException;
+
+    List<T> readAll() throws SQLException;
+
+    /**
+     *
+     * @param u
+     * @return
+     * @throws SQLException
+     */
+    public List<Message> messageenvoyees(User u) throws SQLException;
+    // public List<Message> Messagerecu(User u )  throws SQLException;
+
+    public long countNbUnreadConversations(int iduser) throws SQLException;
+
+    public List<Message> recherche(String recherche) throws SQLException;
+}
