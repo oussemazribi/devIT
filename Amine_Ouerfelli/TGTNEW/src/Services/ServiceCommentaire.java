@@ -145,6 +145,23 @@ public class ServiceCommentaire implements IServices<Commentaire> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public List<Commentaire> showcommentsbypub(int a) throws SQLException {
+            List<Commentaire> arr=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select * from commentaire where idPublication='"+a+"';");
+     while (rs.next()) {                
+               int id=rs.getInt(1);
+               int id_user=rs.getInt(2);
+               int id_publication=rs.getInt(3);
+               String contenu=rs.getString(4);
+               Date date=rs.getDate(5);
+               Commentaire c=new Commentaire(id,id_user,id_publication,contenu,date);
+     arr.add(c);
+     }
+    return arr;
+    }
+
 
     
 }

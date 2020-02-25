@@ -46,24 +46,24 @@ public class CommentCell extends ListCell<Commentaire>{
     /************************************************/
     String username1="amine";
     private FXMLLoader Loader;
-    private TextField tf=new TextField();
-    private Button bt=new Button();
+    private final TextField tf=new TextField();
+    private final Button bt=new Button();
     ServiceCommentaire serc= new ServiceCommentaire();
     /************************************************/
     @FXML
     public void modifier()
     {
         tf.setLayoutY(61.0);
-        tf.setPrefHeight(101.0);
+        tf.setPrefHeight(50.5);
         tf.setPrefWidth(595.0);
         combody.getChildren().remove(commentbody);
         combody.getChildren().add(tf);
         combody.getChildren().remove(update);
         combody.getChildren().remove(delete);
         bt.setLayoutX(374.0);
-        bt.setLayoutY(162.0);
+        bt.setLayoutY(60.0);
         bt.setText("Completer!");
-        combody.getChildren().add(bt);
+        boolean add = combody.getChildren().add(bt);
     }
     @FXML
     public void supprimer() throws SQLException
@@ -90,7 +90,7 @@ public class CommentCell extends ListCell<Commentaire>{
         combody.getChildren().add(commentbody);
         combody.getChildren().add(update);
         combody.getChildren().add(delete);
-        List l1=serc.readAll();
+        List l1=serc.showcommentsbypub(c.getidpublication());
         this.getListView().getItems().clear();
         this.getListView().getItems().addAll(l1);
         

@@ -18,10 +18,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,9 +33,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import static tgtnew.HomeController.iduser_1;
@@ -110,7 +111,7 @@ public void ajoutercomment() throws SQLException
        
         Commentaire c=new Commentaire(iduser,idpub,contenue);
         serc.ajouter(c);
-        l1=serc.readAll();
+        l1=serc.showcommentsbypub(idpub);
         listecommentaires.getItems().clear();
         listecommentaires.getItems().addAll(l1);
         commentfield.setText("");
@@ -324,6 +325,17 @@ private void loadFXML()
             m=new Media(path);
             mp=new MediaPlayer(m);
             video.setMediaPlayer(mp);
+            this.setOnMousePressed(new EventHandler<MouseEvent>() {
+             @Override
+             public void handle(MouseEvent event) {
+                 
+               if(mp.getStatus().equals(Status.PLAYING))
+                mp.pause();
+             
+             else
+                 mp.play();
+             }});
+            
        
             /****************************************/
                         try {
@@ -332,6 +344,7 @@ private void loadFXML()
                 System.out.println(ex.getMessage());
             }
             listecommentaires.setCellFactory(cf);
+            listecommentaires.getItems().clear();
             listecommentaires.getItems().addAll(l1);
             /*********************************************/
             

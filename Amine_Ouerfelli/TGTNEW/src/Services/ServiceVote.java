@@ -125,6 +125,11 @@ public class ServiceVote implements IServices<Vote> {
     public int calculatedowns(int a) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Vote> showcommentsbypub(int a) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

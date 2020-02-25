@@ -204,6 +204,11 @@ public class ServicePublication implements IServices<Publication> {
         return nbups;
     }
 
+    @Override
+    public List<Publication> showcommentsbypub(int a) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
  
     
 }
