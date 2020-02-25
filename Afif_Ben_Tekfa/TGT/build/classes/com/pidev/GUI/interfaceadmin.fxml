@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="582.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.InterfaceadminController">
+  
+   <children>
+      <Label layoutX="21.0" layoutY="23.0" text="Liste des réclamations" textAlignment="CENTER">
+         <font>
+            
+         </font>
+      </Label>
+      <TableView fx:id="listreclamation" layoutX="2.0" layoutY="87.0" prefHeight="361.0" prefWidth="657.0" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="87.0">
+        <columns>
+          <TableColumn fx:id="iduser" prefWidth="75.0" text="ID User" />
+          <TableColumn fx:id="objet" prefWidth="90.0" text="Objet" />
+            <TableColumn fx:id="descr" prefWidth="157.0" text="Description " />
+            <TableColumn fx:id="photo" prefWidth="95.0" text="Photo" />
+            <TableColumn fx:id="etat" minWidth="1.0" prefWidth="111.0" text="Etat" />
+            <TableColumn fx:id="date" prefWidth="127.0" text="Date Réclamation" />
+        </columns>
+      </TableView>
+      <Button fx:id="traiter" layoutX="38.0" layoutY="466.0" mnemonicParsing="false" onAction="#traiterreclamation" text="Traiter" />
+      <Button fx:id="supprimer" layoutX="98.0" layoutY="466.0" mnemonicParsing="false" onAction="#supprimerr" text="Supprimer" />
+      <Button fx:id="actualiser" layoutX="490.0" layoutY="466.0" mnemonicParsing="false" onAction="#actualiser" text="refresh" />
+   </children>
+
+</AnchorPane>

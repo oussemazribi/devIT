@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.AdministrateurController">
+   <children>
+      <Label layoutX="411.0" layoutY="14.0" prefHeight="35.0" prefWidth="321.0" text="ESPACE ADMINISTRATEUR" textAlignment="CENTER" textFill="#c44569" underline="true">
+         <font>
+            <Font name="Calibri Bold" size="29.0" />
+         </font>
+      </Label>
+      <AnchorPane id="AnchorPane" layoutY="-6.0" prefHeight="620.0" prefWidth="166.0" style="-fx-background-color: whit;">
+         <children>
+            <ImageView fitHeight="214.0" fitWidth="150.0" layoutX="8.0" layoutY="22.0">
+               <image>
+                  <Image url="@../../../img/add.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="-1.0" layoutY="5.0" prefHeight="615.0" prefWidth="200.0" style="-fx-background-color: #C44569;" styleClass="side-bar">
+               <children>
+                  <Circle fill="WHITE" layoutX="74.0" layoutY="67.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                     <effect>
+                        <DropShadow color="#c6c4c4" />
+                     </effect>
+                  </Circle>
+                  <ImageView fitHeight="36.0" fitWidth="35.0" layoutX="57.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/02.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="29.0" layoutY="117.0" text="Rana Chaabane" textFill="#404040">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" layoutX="-4.0" layoutY="146.0" prefHeight="35.0" prefWidth="154.0" styleClass="sidebar-btn">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" iconName="HOME" size="1.3em" styleClass="sidebar-btn-icon">
+                           <HBox.margin>
+                              <Insets left="10.0" right="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label onMouseClicked="#main" prefHeight="17.0" prefWidth="70.0" styleClass="sidebar-btn-text" text="ACCEUIL" textFill="#f5f6f8">
+                           <font>
+                              <Font name="Calibri Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutY="181.0" onMouseClicked="#chat1" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+                     <children>
+                        <FontAwesomeIcon fill="#fefeff" iconName="ENVELOPE" styleClass="sidebar-btn-icon">
+                           <HBox.margin>
+                              <Insets left="10.0" right="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label styleClass="sidebar-btn-text" text="CHAT" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutY="216.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+                     <children>
+                        <FontAwesomeIcon fill="#f7f8fb" iconName="CALENDAR" styleClass="sidebar-btn-icon">
+                           <HBox.margin>
+                              <Insets left="10.0" right="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label styleClass="sidebar-btn-text" text="COMPETITION" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="251.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" iconName="FILE" styleClass="sidebar-btn-icon">
+                           <HBox.margin>
+                              <Insets left="10.0" right="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label prefHeight="17.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="ANNONCES" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="290.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" iconName="GEAR" styleClass="sidebar-btn-icon">
+                           <HBox.margin>
+                              <Insets left="10.0" right="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIcon>
+                        <Label prefHeight="25.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="RECLAMATION" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label alignment="TOP_CENTER" layoutX="42.0" layoutY="371.0" prefHeight="17.0" prefWidth="59.0" styleClass="sidebar-btn-text" text="LOGOUT" textFill="#2e2929">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblResultat" layoutX="326.0" layoutY="66.0" prefHeight="71.0" prefWidth="451.0" text="AJOUTER UN UTILISATEUR" textFill="#2c2c54">
+         <font>
+            <Font name="Calibri" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="combo_typeTalent" layoutX="634.0" layoutY="352.0" prefHeight="32.0" prefWidth="198.0" promptText="Type_Talent&#10;&#10;&#10;" visibleRowCount="3" />
+      <DatePicker fx:id="date" layoutX="634.0" layoutY="211.0" prefHeight="32.0" prefWidth="198.0" />
+      <TextField fx:id="txtTelephone" layoutX="634.0" layoutY="146.0" prefHeight="32.0" prefWidth="198.0" promptText="Telephone" />
+      <Button fx:id="btnParcourir" layoutX="634.0" layoutY="427.0" mnemonicParsing="false" onAction="#btnParcourir" prefHeight="32.0" prefWidth="198.0" text="Parcourir Image" />
+      <TextField fx:id="txtNom" layoutX="326.0" layoutY="146.0" prefHeight="32.0" prefWidth="169.0" promptText="Nom" />
+      <TextField fx:id="txtPrenom" layoutX="326.0" layoutY="204.0" prefHeight="32.0" prefWidth="169.0" promptText="Prenom" />
+      <TextField fx:id="txtLogin" layoutX="326.0" layoutY="324.0" prefHeight="32.0" prefWidth="169.0" promptText="Login" />
+      <PasswordField fx:id="txtPassword" layoutX="325.0" layoutY="393.0" prefHeight="32.0" prefWidth="169.0" promptText="Password" />
+      <ComboBox fx:id="combo_typeCompte" layoutX="634.0" layoutY="275.0" prefHeight="40.0" prefWidth="198.0" promptText="Type_Compte&#10;&#10;" visibleRowCount="3" />
+      <TextField fx:id="txtEmail" layoutX="326.0" layoutY="259.0" prefHeight="32.0" prefWidth="169.0" promptText="Email" />
+      <RadioButton fx:id="rbHomme" layoutX="313.0" layoutY="459.0" mnemonicParsing="false" text="Homme" textFill="#2c2c54">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbFemme" layoutX="417.0" layoutY="459.0" mnemonicParsing="false" text="Femme" textFill="#2c2c54">
+         <font>
+            <Font name="Calibri Light" size="14.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="btnvalider" alignment="CENTER" contentDisplay="CENTER" layoutX="511.0" layoutY="537.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="122.0" text="Valider" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="40.0" fitWidth="44.0" layoutX="269.0" layoutY="82.0">
+         <image>
+            <Image url="@../Images/ajouter.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="146.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="208.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="594.0" layoutY="146.0">
+         <image>
+            <Image url="@../Images/icons8-téléphone-raccroché-100.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="594.0" layoutY="210.0">
+         <image>
+            <Image url="@../Images/icons8-age-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="298.0" layoutY="259.0">
+         <image>
+            <Image url="@../Images/icons8-email-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="298.0" layoutY="328.0">
+         <image>
+            <Image url="@../Images/name.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="295.0" layoutY="397.0">
+         <image>
+            <Image url="@../Images/icons8-mot-de-passe-250.png" />
+         </image>
+      </ImageView>
+      <Separator layoutX="199.0" layoutY="8.0" orientation="VERTICAL" prefHeight="602.0" prefWidth="10.0" />
+   </children>
+</AnchorPane>
