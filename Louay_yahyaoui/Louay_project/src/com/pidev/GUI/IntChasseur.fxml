@@ -61,7 +61,6 @@
                         <ComboBox fx:id="talent" layoutX="87.0" layoutY="185.0" prefHeight="25.0" prefWidth="177.0" promptText="Type de talent" />
                         <DatePicker fx:id="date_debut" layoutX="86.0" layoutY="234.0" prefHeight="25.0" prefWidth="177.0" promptText="Date_Debut" />
                         <DatePicker fx:id="date_fin" layoutX="86.0" layoutY="278.0" prefHeight="25.0" prefWidth="177.0" promptText="Date_Fin" />
-                        <TextField fx:id="cout" layoutX="86.0" layoutY="324.0" prefHeight="30.0" prefWidth="177.0" promptText="Cout" />
                         <Label layoutX="4.0" layoutY="85.0" prefHeight="30.0" prefWidth="67.0" text="Titre">
                            <font>
                               <Font name="Berlin Sans FB Demi Bold" size="14.0" />
@@ -121,6 +120,7 @@
                         <ImageView fx:id="finCheck" fitHeight="25.0" fitWidth="24.0" layoutX="278.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="coutCheck" fitHeight="25.0" fitWidth="24.0" layoutX="274.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="talentChecker" fitHeight="21.0" fitWidth="24.0" layoutX="275.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextField fx:id="cout" layoutX="87.0" layoutY="330.0" prefHeight="25.0" prefWidth="177.0" promptText="Cout" />
                      </children>
                   </Pane>
                </children>

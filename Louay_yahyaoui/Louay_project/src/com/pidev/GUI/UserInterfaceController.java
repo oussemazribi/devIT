@@ -238,35 +238,10 @@ public class UserInterfaceController implements Initializable {
             String DateF1 = c1.getDateFin();
             String Type1=c1.getTypeDeTalent();
             int Cout1=c1.getCout();
-            Button btnDetail = new Button("Detail");
-            btnDetail.setTextOverrun(OverrunStyle.CLIP);
-            btnDetail.setStyle("-fx-background-color : #E4E0E0;");
-            btnDetail.setOnAction(new EventHandler<ActionEvent>() {
-
-                @Override
-                public void handle(ActionEvent event) {
-
-                    try {
-
-                        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Details.fxml"));
-                        Parent rootDetails = LOADER.load();
-                        DetailsController louay = LOADER.getController();
-                        louay.setDetails(Titre1, Description1, Image1, DateD1, DateF1,Type1,Cout1);
-
-                        Scene scene = new Scene(rootDetails, 600, 400);
-
-                        Stage primaryStage = new Stage();
-                        primaryStage.setScene(scene);
-                        primaryStage.show();
-
-                    } catch (IOException ex) {
-
-                    }
-
-                }
-            });
-
-            Button btnPart = new Button("Participer");
+            
+            
+            
+             Button btnPart = new Button("Participer");
             btnPart.setTextOverrun(OverrunStyle.CLIP);
             btnPart.setStyle("-fx-background-color : #3D7AB7;");
             String titre = listComp.get(i).getTitre();
@@ -305,8 +280,8 @@ public class UserInterfaceController implements Initializable {
                                     }
                                     QrCode("Bonjour Mr  --" + nom + " " + prenom + "-- je vous souhaite la bienvenue au sein de notre Competition sous le Titre --" + titre + "-- Voici votre Mot de passe pour accédé à --" + titre + "-- Mot de passe =====> :" + motDePasse);
 
-//                    TwilioSms twilio = new TwilioSms();
-//                    twilio.sendSms("Participation avec succés Mr--"+nom+" "+prenom);
+                    TwilioSms twilio = new TwilioSms();
+                    twilio.sendSms("Participation avec succés Mr--"+nom+" "+prenom);
                                     System.out.println(motDePasse);
                                     flowPanePart.getChildren().clear();
                                     AfficherParticipation();
@@ -343,6 +318,36 @@ public class UserInterfaceController implements Initializable {
                 });
             }
 
+            
+            Button btnDetail = new Button("Detail");
+            btnDetail.setTextOverrun(OverrunStyle.CLIP);
+            btnDetail.setStyle("-fx-background-color : #E4E0E0;");
+            btnDetail.setOnAction(new EventHandler<ActionEvent>() {
+
+                @Override
+                public void handle(ActionEvent event) {
+
+                    try {
+
+                        FXMLLoader LOADER = new FXMLLoader(getClass().getResource("Details.fxml"));
+                        Parent rootDetails = LOADER.load();
+                        DetailsController louay = LOADER.getController();
+                        louay.setDetails(Titre1, Description1, Image1, DateD1, DateF1,Type1,Cout1);
+
+                        Scene scene = new Scene(rootDetails, 600, 400);
+
+                        Stage primaryStage = new Stage();
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+
+                    } catch (IOException ex) {
+
+                    }
+
+                }
+            });
+
+           
             panne.getChildren().add(btnPart);
             panne.getChildren().add(btnDetail);
             VBoxComp.getChildren().add(panne);
