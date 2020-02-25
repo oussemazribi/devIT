@@ -25,7 +25,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -78,8 +77,8 @@ public class HomeController implements Initializable {
            }
           listepublication.setCellFactory(cp);
           listepublication.getItems().addAll(l1);
-           /*ajout.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;-fx-background-radius: 10px;"); 
-           actualiser.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;-fx-background-radius: 10px;");*/
+           ajout.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;-fx-background-radius: 10px;"); 
+           actualiser.setStyle("-fx-background-color: darkslateblue; -fx-text-fill: white;-fx-background-radius: 10px;");
             InputStream input1 =getClass().getResourceAsStream("/image/ajouter-100-.png");
             InputStream input2 =getClass().getResourceAsStream("/image/actualiser-90-.png");
             
@@ -91,8 +90,8 @@ public class HomeController implements Initializable {
         ImageView imageView1 = new ImageView(image);
         ImageView imageView2 = new ImageView(image1);
         imageuser.setImage(imageuser1);
-       /* ajout.setGraphic(imageView1);
-        actualiser.setGraphic(imageView2);*/
+        ajout.setGraphic(imageView1);
+        actualiser.setGraphic(imageView2);
     }     
    
 
@@ -124,14 +123,6 @@ public class HomeController implements Initializable {
      Stage stage=new Stage();
      stage.setScene(scene);
      stage.show();
-    }
-
-    @FXML
-    private void main(MouseEvent event) {
-    }
-
-    @FXML
-    private void chat1(MouseEvent event) {
     }
     
 }

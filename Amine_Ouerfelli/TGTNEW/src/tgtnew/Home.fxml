@@ -1,132 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tgtnew.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tgtnew.HomeController">
    <children>
-      <AnchorPane layoutX="6.0" layoutY="8.0" prefHeight="108.0" prefWidth="990.0" style="-fx-background-color: #C44569;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="6.0" layoutY="8.0" prefHeight="100.0" prefWidth="690.0" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="ajout" layoutX="296.0" layoutY="21.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: grey; -fx-background-radius: 5px;" text="Ajouter Publication" textFill="#f2ebeb">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="11.0" />
-               </font></Button>
-            <Button fx:id="actualiser" layoutX="426.0" layoutY="21.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: grey; -fx-background-radius: 5px;" text="Actualiser" textFill="#f2f2f2" />
+            <Button fx:id="ajout" layoutX="317.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="100.0" prefWidth="100.0" text="Ajouter Publication" />
+            <Button fx:id="actualiser" layoutX="454.0" layoutY="5.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="90.0" prefWidth="90.0" text="Actualiser" />
             <ImageView fitHeight="100.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="stat" layoutX="624.0" layoutY="68.0" mnemonicParsing="false" onAction="#stat" style="-fx-background-color: blue; -fx-background-radius: 5px;" text="STAT" textFill="WHITE" textOverrun="CLIP">
+            <Button fx:id="stat" layoutX="624.0" layoutY="68.0" mnemonicParsing="false" onAction="#stat" text="STAT" textFill="#439e5b" textOverrun="CLIP">
                <font>
                   <Font name="Arial Narrow Bold Italic" size="12.0" />
                </font>
             </Button>
-            <ImageView fx:id="imageuser" fitHeight="72.0" fitWidth="78.0" layoutX="28.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="32.0" />
+            <ImageView fx:id="imageuser" fitHeight="104.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="5.0" layoutY="100.0" prefHeight="500.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="100.0" />
-      <ListView fx:id="listepublication" layoutX="194.0" layoutY="112.0" prefHeight="491.0" prefWidth="799.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane prefHeight="609.0" prefWidth="200.0" style="-fx-background-color: #C44569;" styleClass="side-bar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Circle fill="WHITE" layoutX="74.0" layoutY="67.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-               <effect>
-                  <DropShadow color="#c6c4c4" />
-               </effect>
-            </Circle>
-            <ImageView fitHeight="36.0" fitWidth="35.0" layoutX="57.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/02.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="29.0" layoutY="117.0" text="Rana Chaabane" textFill="#404040">
-               <font>
-                  <Font name="Calibri Bold" size="14.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_LEFT" layoutX="-4.0" layoutY="146.0" prefHeight="35.0" prefWidth="154.0" styleClass="sidebar-btn">
-               <children>
-                  <FontAwesomeIcon fill="WHITE" iconName="HOME" size="1.3em" styleClass="sidebar-btn-icon">
-                     <HBox.margin>
-                        <Insets left="10.0" right="8.0" />
-                     </HBox.margin>
-                  </FontAwesomeIcon>
-                  <Label onMouseClicked="#main" prefHeight="17.0" prefWidth="70.0" styleClass="sidebar-btn-text" text="ACCEUIL" textFill="#f5f6f8">
-                     <font>
-                        <Font name="Calibri Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="181.0" onMouseClicked="#chat1" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
-               <children>
-                  <FontAwesomeIcon fill="#fefeff" iconName="ENVELOPE" styleClass="sidebar-btn-icon">
-                     <HBox.margin>
-                        <Insets left="10.0" right="8.0" />
-                     </HBox.margin>
-                  </FontAwesomeIcon>
-                  <Label styleClass="sidebar-btn-text" text="CHAT" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutY="216.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
-               <children>
-                  <FontAwesomeIcon fill="#f7f8fb" iconName="CALENDAR" styleClass="sidebar-btn-icon">
-                     <HBox.margin>
-                        <Insets left="10.0" right="8.0" />
-                     </HBox.margin>
-                  </FontAwesomeIcon>
-                  <Label styleClass="sidebar-btn-text" text="COMPETITION" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="251.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
-               <children>
-                  <FontAwesomeIcon fill="WHITE" iconName="FILE" styleClass="sidebar-btn-icon">
-                     <HBox.margin>
-                        <Insets left="10.0" right="8.0" />
-                     </HBox.margin>
-                  </FontAwesomeIcon>
-                  <Label prefHeight="17.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="ANNONCES" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="290.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
-               <children>
-                  <FontAwesomeIcon fill="WHITE" iconName="GEAR" styleClass="sidebar-btn-icon">
-                     <HBox.margin>
-                        <Insets left="10.0" right="8.0" />
-                     </HBox.margin>
-                  </FontAwesomeIcon>
-                  <Label styleClass="sidebar-btn-text" text="RECLAMATION" textFill="WHITE">
-                     <font>
-                        <Font name="Calibri Bold" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="338.0" prefHeight="17.0" prefWidth="59.0" styleClass="sidebar-btn-text" text="LOGOUT" textFill="#2e2929">
-               <font>
-                  <Font name="Calibri Bold" size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      <ListView fx:id="listepublication" layoutX="194.0" layoutY="112.0" prefHeight="473.0" prefWidth="506.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="112.0" />
    </children>
 </AnchorPane>

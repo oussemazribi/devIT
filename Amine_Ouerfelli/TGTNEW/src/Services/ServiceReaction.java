@@ -128,10 +128,5 @@ public class ServiceReaction implements IServices<Reaction> {
     public int calculatedowns(int a) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public List<Reaction> showcommentsbypub(int a) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

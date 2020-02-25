@@ -26,7 +26,6 @@ public interface IServices<T> {
     int calculatereacts(int a)throws SQLException;
     int calculateups(int a)throws SQLException;
     int calculatedowns(int a)throws SQLException;
-    List<T> showcommentsbypub(int a)throws SQLException;
 
     
 
