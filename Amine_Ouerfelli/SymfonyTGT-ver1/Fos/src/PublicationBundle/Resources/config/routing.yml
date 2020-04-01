@@ -1,0 +1,28 @@
+publication_show:
+    path:     /show
+    defaults: { _controller: PublicationBundle:Post:affichagePost }
+publication_homepage:
+    path:     /newsfeed
+    defaults: { _controller: PublicationBundle:Post:AjouterPostVI }
+publication_edit:
+    path:    /{id_post}/edit
+    defaults: { _controller: PublicationBundle:Post:ModifierPost }
+publication_delete:
+    path:    /{id_post}/delete
+    defaults: { _controller: PublicationBundle:Post:DeletePost}
+commentaire_add:
+    path:     /new/{post_id}
+    defaults: { _controller: PublicationBundle:commentaire:AjouterComment }
+    methods: [GET,POST]
+commentaire_modif:
+    path:    /{id}/editcom
+    defaults: { _controller: PublicationBundle:commentaire:editComment }
+commentaire_delete:
+    path:     /{id}/deletecom
+    defaults: { _controller: PublicationBundle:commentaire:deleteComment }
+vote_add:
+    path:     /{id_post}/voteup/{slug}
+    defaults: { _controller: PublicationBundle:Post:Vote }
+react_with:
+    path:     /{id_post}/reactwith/{type}
+    defaults: { _controller: PublicationBundle:Post:React }
