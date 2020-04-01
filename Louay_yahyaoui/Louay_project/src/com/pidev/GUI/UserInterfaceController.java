@@ -279,7 +279,7 @@ public class UserInterfaceController implements Initializable {
                                         Logger.getLogger(UserInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                                     QrCode("Bonjour Mr  --" + nom + " " + prenom + "-- je vous souhaite la bienvenue au sein de notre Competition sous le Titre --" + titre + "-- Voici votre Mot de passe pour accédé à --" + titre + "-- Mot de passe =====> :" + motDePasse);
-
+//
                     TwilioSms twilio = new TwilioSms();
                     twilio.sendSms("Participation avec succés Mr--"+nom+" "+prenom);
                                     System.out.println(motDePasse);
