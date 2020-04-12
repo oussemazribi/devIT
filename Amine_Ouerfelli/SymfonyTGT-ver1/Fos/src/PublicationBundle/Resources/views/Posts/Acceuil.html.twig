@@ -1268,9 +1268,23 @@
                                 {% if post.idauthor.id==user.id %}
                                     <a class="simple-dropdown-link btn btn-default" onclick="affichierpub(this)" id="ModifierPost-{{ post.id }}" data-toggle="modal" data-target="#Postedit" data-whatever="{{ post.id }}" ><i class='fa fa-pencil'></i>Edit</a>
                                     <!-- /SIMPLE DROPDOWN LINK -->
+                                    {% if post.type=="shared" %}
+                                        {% set f=0 %}
+                                        {% for po in posts %}
+                                        {% if post.contenue|number_format==po.id %}
+                                            {% set f=1 %}
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% if f==1 %}
+                                        <a class="simple-dropdown-link btn btn-default"  data_but="btn-xs"  onclick="showpubforshare(this)" data-toggle="modal" data-target="#Postforshare" data-whatever="{{ post.contenue|number_format}}"><i class="fa fa-share-square-o" aria-hidden="true"></i>Share</a>
+                                        {% else %}
+                                            <a class="simple-dropdown-link disabled btn btn-default"  data_but="btn-xs"  onclick="showpubforshare(this)" data-toggle="modal" data-target="#Postforshare" data-whatever="{{ post.contenue|number_format}}"><i class="fa fa-share-square-o" aria-hidden="true" disabled ></i>Share</a>
+                                         {% endif %}
+                                        {% else %}
                                     <a class="simple-dropdown-link btn btn-default"  data_but="btn-xs"  onclick="showpubforshare(this)" data-toggle="modal" data-target="#Postforshare" data-whatever="{{ post.id }}"><i class="fa fa-share-square-o" aria-hidden="true"></i>Share</a>
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <a class="simple-dropdown-link btn btn-default"  data_but="btn-xs" href="{{ path('publication_delete',{ id_post: post.id})}}"><i class='fa fa-trash'></i>Delete</a>
+                                        {% endif %}
+                                    <a class="simple-dropdown-link  btn btn-default"  data_but="btn-xs" href="{{ path('publication_delete',{ id_post: post.id})}}"><i class='fa fa-trash'></i>Delete</a>
 
                                 {% else %}
                                     <!-- SIMPLE DROPDOWN LINK -->
@@ -1357,7 +1371,7 @@
                                 <!-- /USER STATUS AVATAR -->
 
                                 <!-- USER STATUS TITLE -->
-                                <p class="user-status-title medium"><a class="bold" href="{{ path('visit_profile',{id_user:post.idauthor.id}) }}">{{post.idauthor.username}}</a> uploaded a <span class="bold">{{ post.type }}</span></p>
+                                <p class="user-status-title medium"><a class="bold" href="{{ path('visit_profile',{id_user:post.idauthor.id}) }}">{{post.idauthor.username}}</a> uploaded<span class="bold">a/an~{{ post.type }}~post</span></p>
                                 <!-- /USER STATUS TITLE -->
 
                                 <!-- USER STATUS TEXT -->
@@ -1389,9 +1403,11 @@
                         {% elseif post.type == "video" %}
                             <video class="video-fluid" width="304" height="236" src="{{ asset('/uploads/video/') ~ post.contenue }}" ></video>
                         {% elseif post.type == "shared" %}
+                            {% set trv=0 %}
                             {%for popo in posts  %}
                             {%if popo.id==post.contenue|number_format%}
-                                <div class="widget-box-status-content">
+                                {% set trv=1 %}
+                                <div class="widget-box-status-content" id="tfol-{{ post.id }}">
                                     <!-- USER STATUS -->
                                     <div class="user-status">
                                         <!-- USER STATUS AVATAR -->
@@ -1485,6 +1501,15 @@
                                 </div>
                             {% endif %}
                             {% endfor %}
+                            {% if trv==0 %}
+                                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;" id="tfol-{{ post.id }}">
+                                    <div class="card-header">Not Available</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">not found</h5>
+                                        <p class="card-text">this content isn't available !</p>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
 
                         <!-- WIDGET BOX STATUS CONTENT -->
@@ -1949,7 +1974,7 @@
 
         </div>
         <!-- /GRID COLUMN -->
-        
+
     </div>
 </div>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -1989,7 +2014,7 @@
                          <textarea class="form-control" id="titlepub" name="titre"  required></textarea>
                      </div>
                      <div class="form-group" id="content">
-                         <label for="message-text" class="control-label">Contenue</label>
+                         <label for="message-text" class="control-label">Contenu</label>
 
 
                      </div>
@@ -2031,7 +2056,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Partager</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="kaka">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -2180,9 +2205,19 @@
                         '          <source src="" type="video/mp4" />\n' +
                         '        </video>');
                 document.getElementById('vid').src =src1;}
-                else{
-                    $("#content").append('<img id="img" src="" class="img-thumbnail" alt="contenue" width="304" height="236">');
-                    document.getElementById('img').src =src2;}
+                else {
+                    if (data['type'].localeCompare("img") == 0) {
+                        $("#content").append('<img id="img" src="" class="img-thumbnail" alt="contenue" width="304" height="236">');
+                        document.getElementById('img').src = src2;
+                    }
+                    else
+                    {   var nouty="#tfol-"+idc;
+                        var clonebobo=$(nouty).clone();
+                        $("#content").append(clonebobo);
+
+                    }
+                }
+
 
 
 
@@ -2233,7 +2268,7 @@
             processData: true,
             success:function(data)
             {   $("#idpost").val(idc);
-                var imguser="template/img/avatar/"+data['imguser'];
+                var imguser="/template/img/avatar/"+data['imguser'];
                 var source="{{ asset('imguser') }}";
                 $('#usersh').attr("data-src",imguser);
                 var username=data['nameuser'];
