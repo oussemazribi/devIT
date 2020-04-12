@@ -10,4 +10,14 @@ namespace PublicationBundle\Repository;
  */
 class VoteRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function removePostVote($idPost)
+{
+    $query = $this->getEntityManager()->createQuery(
+        'DELETE PublicationBundle:Vote Vote
+               WHERE Vote.post = :idPost')
+        ->setParameter("idPost", $idPost);
+
+    $query->execute();
+}
 }

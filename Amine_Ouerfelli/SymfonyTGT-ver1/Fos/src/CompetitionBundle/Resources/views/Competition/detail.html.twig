@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block bodydef %}<body class="popup-event popup-event-information" oncontextmenu="return false;">{% endblock %}
+
+{% block stylesheets %}
+
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/css/styles.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/css/vendor/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/css/vendor/simplebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/css/vendor/tiny-slider.css')}}">
+
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+
+{% block detail_content %}
+    {% include "@Competition/Ressources/views/Competition/detailComp.html.twig" %}
+{% endblock detail_content %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('template/app.bundle.min.js')}}"></script>
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace PublicationBundle\Controller;
+namespace CompetitionBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

@@ -10,4 +10,13 @@ namespace PublicationBundle\Repository;
  */
 class reactionRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function removePostreaction($idPost)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'DELETE PublicationBundle:reaction reaction
+               WHERE reaction.post = :idPost')
+            ->setParameter("idPost", $idPost);
+
+        $query->execute();
+    }
 }

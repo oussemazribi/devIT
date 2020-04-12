@@ -3,14 +3,17 @@
 namespace PublicationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 /**
  * Vote
  *
  * @ORM\Table(name="vote")
  * @ORM\Entity(repositoryClass="PublicationBundle\Repository\VoteRepository")
+ *  @Notifiable(name="Vote")
  */
-class Vote
+class Vote implements NotifiableInterface
 {
     /**
      * @var int

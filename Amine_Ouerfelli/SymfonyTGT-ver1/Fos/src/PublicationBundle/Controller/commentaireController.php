@@ -17,16 +17,22 @@ class commentaireController extends Controller
         $formcom = $this->createForm('PublicationBundle\Form\commentaireType', $commentaire);
         $post = $em->getRepository('PublicationBundle:Post')->find($post_id);
         $formcom->handleRequest($request);
-
-
+            $nbcom=$post->getNbcomments();
             $commentaire->setPost($post);
             $commentaire->setIdUser($user);
             $commentaire->setDate(new \DateTime("now", new \DateTimeZone('+0100')));
             $contenue=$request->query->get("contenue");
             $commentaire->setContenue($contenue);
+            $post->setNbcomments($nbcom+1);
             $em->persist($commentaire);
             $em->flush();
-        return  $this->redirectToRoute("publication_homepage");
+            $manager = $this->get('mgilet.notification');
+            $phrase=$user->getUsername();
+            $notif = $manager->createNotification($phrase);
+            $notif->setMessage('a Commenté votre Publication');
+            $notif->setLink("/showonepost/$post_id");
+            $manager->addNotification(array($post->getIdauthor()), $notif, true);
+            return  $this->redirectToRoute("publication_homepage");
 
 
     }
@@ -37,25 +43,26 @@ class commentaireController extends Controller
         $commentaire= $em->getRepository('PublicationBundle:commentaire')->find($id);
         $editFormcom = $this->createForm('PublicationBundle\Form\commentaireType', $commentaire);
         $editFormcom->handleRequest($request);
-        $contenue=$request->query->get("contenue");
+        if($request->isXmlHttpRequest())
+        {$contenue=$request->request->get("contenue");
         echo "$contenue";
-        $commentaire->setContenue($contenue);
+        $commentaire->setContenue($contenue);}
         $em->persist($commentaire);
         $em->flush();
         return  $this->redirectToRoute("publication_homepage");
     }
-    public function deleteCommentAction($id)
+    public function deleteCommentAction($id_com,Request $request)
     {
         $user = $this->getUser() ;
         $em = $this->getDoctrine()->getManager();
-        $commentaire = $em->getRepository('PublicationBundle:commentaire')->find($id);
-
-        if ($commentaire && ($commentaire->getpost()->getId() == $user->getId() || $user->isSuperAdmin()) ) {
+        $commentaire = $em->getRepository('PublicationBundle:commentaire')->find($id_com);
+        if ($commentaire && ($commentaire->getpost()->getIdauthor()->getId() == $user->getId() || $user->isSuperAdmin()) ) {
+            $nbcom=$commentaire->getpost()->getNbcomments();
+            $commentaire->getpost()->setNbcomments($nbcom-1);
             $em->remove($commentaire);
             $em->flush();
         }
-
-        return $this->redirectToRoute("publication_homepage");
+   return  $this->redirectToRoute("publication_homepage");
     }
     /**
      * Creates a form to delete a commentaire entity.
@@ -69,8 +76,7 @@ class commentaireController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('commentaire_delete', array('id' => $commentaire->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-            ;
+            ->getForm();
     }
     public function AffichierCommentsAction(Commentaire $commentaire)
     {

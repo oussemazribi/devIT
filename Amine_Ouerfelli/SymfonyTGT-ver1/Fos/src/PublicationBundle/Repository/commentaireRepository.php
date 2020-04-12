@@ -10,7 +10,7 @@ namespace PublicationBundle\Repository;
  */
 class commentaireRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function removePostCommentaire($idPost)
+    public function deletePostCommentaire($idPost)
     {
         $query = $this->getEntityManager()->createQuery(
             'DELETE PublicationBundle:commentaire commentaire
@@ -19,4 +19,5 @@ class commentaireRepository extends \Doctrine\ORM\EntityRepository
 
         $query->execute();
     }
+
 }

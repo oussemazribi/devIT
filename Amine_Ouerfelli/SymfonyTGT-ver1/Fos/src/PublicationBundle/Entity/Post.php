@@ -1,7 +1,8 @@
 <?php
 
 namespace PublicationBundle\Entity;
-
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,8 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="PublicationBundle\Repository\PostRepository")
+ *  @Notifiable(name="Post")
  */
-class Post
+class Post implements NotifiableInterface
 {
     /**
      * @var int
@@ -224,5 +226,26 @@ class Post
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getNbcomments()
+    {
+        return $this->nbcomments;
+    }
+
+    /**
+     * @param int $nbcomments
+     */
+    public function setNbcomments($nbcomments)
+    {
+        $this->nbcomments = $nbcomments;
+    }
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="comments_on_post", type="integer", options={"default" : 0})
+     */
+    private $nbcomments;
 }
 
