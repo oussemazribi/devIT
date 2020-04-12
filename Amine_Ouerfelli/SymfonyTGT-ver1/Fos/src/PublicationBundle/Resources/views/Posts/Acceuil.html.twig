@@ -1284,10 +1284,11 @@
                                     <p class="simple-dropdown-link">Report Author</p>
                                     <!-- /SIMPLE DROPDOWN LINK -->
                                 {% endif %}
-                                {% endif %}
+
 
                             </div>
                             <!-- /SIMPLE DROPDOWN -->
+                            {% endif %}
                         </div>
                         <!-- /POST SETTINGS WRAP -->
                     </div>
@@ -1386,7 +1387,6 @@
                             <img class="img-responsive" alt="photo" width="304" height="236"src="{{ asset('/uploads/img/') ~ post.contenue }}" alt="photo-preview-10">
                             <!-- /IFRAME WRAP -->
                         {% elseif post.type == "video" %}
-
                             <video class="video-fluid" width="304" height="236" src="{{ asset('/uploads/video/') ~ post.contenue }}" ></video>
                         {% elseif post.type == "shared" %}
                             {%for popo in posts  %}
@@ -1483,17 +1483,12 @@
                                     <video class="video-fluid" width="304" height="236" src="{{ asset('/uploads/video/') ~ popo.contenue }}" ></video>
                                     {% endif %}
                                 </div>
-
-
-                        {% endif %}
-                            {% endfor %}
                             {% endif %}
+                            {% endfor %}
+                        {% endif %}
 
                         <!-- WIDGET BOX STATUS CONTENT -->
                         <div class="widget-box-status-content">
-                            <!-- TAG LIST -->
-
-                            <!-- /TAG LIST -->
                             <!-- CONTENT ACTIONS -->
                             <div class="content-actions">
                                 <!-- CONTENT ACTION -->
@@ -1616,9 +1611,9 @@
                                         <!-- /META LINE TEXT -->
                                     </div>
                                     <!-- /META LINE -->
+                                    {% endfor %}
                                 </div>
                                 <!-- /CONTENT ACTION -->
-                                {% endfor %}
                                 <!-- CONTENT ACTION -->
                                 <div class="content-action">
                                     <!-- META LINE -->
@@ -1751,7 +1746,6 @@
                     <!-- /POST OPTIONS -->
                     {% for comment in comments %}
                         {% if comment.post.id==post.id %}
-
                             <div class="post-comment">
                                 <!-- USER AVATAR -->
                                 <a class="user-avatar small no-outline" href="{{ path('visit_profile',{id_user:comment.idUser.id}) }}">
@@ -1872,9 +1866,7 @@
                                 </div>
                                 <!-- /CONTENT ACTIONS -->
                             </div>
-
                         {% endif %}
-
                     {% endfor %}
                     <div class="post-comment-form" id="post-comment-form" >
                         <!-- USER AVATAR -->
@@ -1957,11 +1949,9 @@
 
         </div>
         <!-- /GRID COLUMN -->
-
-
+        
     </div>
 </div>
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -2035,8 +2025,6 @@
             </div>
         </div>
     </div>
-
-
     <!-- Modal -->
     <div class="modal fade" id="Postforshare" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
