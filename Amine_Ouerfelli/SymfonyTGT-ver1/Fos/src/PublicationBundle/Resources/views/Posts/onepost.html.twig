@@ -103,16 +103,6 @@
                                 <!-- /ICON FACEBOOK -->
                             {{ socialButtons() }}
                             <!-- /SOCIAL LINK -->
-
-                            <!-- SOCIAL LINK -->
-                            <a class="social-link void twitter" href="#">
-                                <!-- ICON TWITTER -->
-                                <svg class="icon-twitter">
-                                    <use xlink:href="#svg-twitter"></use>
-                                </svg>
-                                <!-- /ICON TWITTER -->
-                            </a>
-                            <!-- /SOCIAL LINK -->
                         </div>
                         <!-- /SOCIAL LINKS -->
                     </div>
@@ -137,7 +127,117 @@
                                 <video src="{{ asset('/uploads/video/') ~ post.contenue }}" alt="cover-06"></video>
                             </figure>
                             <!-- /POST OPEN IMAGE -->
+                        {% elseif post.type == "shared" %}
+                            {% set trv=0 %}
+                            {%for popo in posts  %}
+                                {%if popo.id==post.contenue|number_format%}
+                                    {% set trv=1 %}
+                                    <div class="widget-box-status-content" id="tfol-{{ post.id }}" style="position: relative;left: 100px;">
+                                        <!-- USER STATUS -->
+                                        <div class="user-status">
+                                            <!-- USER STATUS AVATAR -->
+                                            <a class="user-status-avatar" href="{{ path('visit_profile',{id_user:popo.idauthor.id}) }}">
+                                                <!-- USER AVATAR -->
+                                                <div class="user-avatar small no-outline">
+                                                    <!-- USER AVATAR CONTENT -->
+                                                    <div class="user-avatar-content">
+                                                        <!-- HEXAGON -->
+                                                        <div class="hexagon-image-30-32" data-src="{{ asset('template/img/avatar/'~post.idauthor.imguser) }}" style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                                                        <!-- /HEXAGON -->
+                                                    </div>
+                                                    <!-- /USER AVATAR CONTENT -->
+
+                                                    <!-- USER AVATAR PROGRESS -->
+                                                    <div class="user-avatar-progress">
+                                                        <!-- HEXAGON -->
+                                                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                                                        <!-- /HEXAGON -->
+                                                    </div>
+                                                    <!-- /USER AVATAR PROGRESS -->
+
+                                                    <!-- USER AVATAR PROGRESS BORDER -->
+                                                    <div class="user-avatar-progress-border">
+                                                        <!-- HEXAGON -->
+                                                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                                                        <!-- /HEXAGON -->
+                                                    </div>
+                                                    <!-- /USER AVATAR PROGRESS BORDER -->
+
+                                                    <!-- USER AVATAR BADGE -->
+                                                    <div class="user-avatar-badge">
+                                                        <!-- USER AVATAR BADGE BORDER -->
+                                                        <div class="user-avatar-badge-border">
+                                                            <!-- HEXAGON -->
+                                                            <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                                                            <!-- /HEXAGON -->
+                                                        </div>
+                                                        <!-- /USER AVATAR BADGE BORDER -->
+
+                                                        <!-- USER AVATAR BADGE CONTENT -->
+                                                        <div class="user-avatar-badge-content">
+                                                            <!-- HEXAGON -->
+                                                            <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                                                            <!-- /HEXAGON -->
+                                                        </div>
+                                                        <!-- /USER AVATAR BADGE CONTENT -->
+
+                                                        <!-- USER AVATAR BADGE TEXT -->
+                                                        <p class="user-avatar-badge-text">1</p>
+                                                        <!-- /USER AVATAR BADGE TEXT -->
+                                                    </div>
+                                                    <!-- /USER AVATAR BADGE -->
+                                                </div>
+                                                <!-- /USER AVATAR -->
+                                            </a>
+                                            <!-- /USER STATUS AVATAR -->
+
+                                            <!-- USER STATUS TITLE -->
+                                            <p class="user-status-title medium"><a class="bold" href="{{ path('visit_profile',{id_user:popo.idauthor.id}) }}">{{ popo.idauthor.username }}</a></p>
+                                            <!-- /USER STATUS TITLE -->
+
+                                            <!-- USER STATUS TEXT -->
+                                            <p class="user-status-text small">{% if "now" |date("U") + 3600  > popo.date|date("U") + 31104000 %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date |date("U") ) |date("Y") }} Years Ago
+                                                {% elseif "now" |date("U") + 3600  > popo.date |date("U") + 2592000 %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date |date("U") ) |date("m") }} Months Ago
+                                                {% elseif "now" |date("U") + 3600  > popo.date |date("U") + 86400 %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date|date("U") ) |date("d") }} Days Ago
+                                                {% elseif "now" |date("U") + 3600  > popo.date |date("U") + 3600  %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date |date("U") ) |date("H") }} Hours Ago
+                                                {% elseif "now" |date("U") + 3600  > popo.date |date("U") + 60 %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date |date("U") ) |date("i") }} Minutes Ago
+                                                {% elseif "now" |date("U") + 3600  > popo.date |date("U")  %}
+                                                    {{ ("now" |date("U") + 3600  - popo.date |date("U") ) |date("s") }} Seconds Ago
+                                                {% endif %}</p>
+                                            <!-- /USER STATUS TEXT -->
+                                        </div>
+                                        <!-- /USER STATUS -->
+
+                                        <!-- WIDGET BOX STATUS TEXT -->
+                                        <p class="widget-box-status-text">{{ popo.titre }}</p>
+                                        <!-- /WIDGET BOX STATUS TEXT -->
+                                        {% if popo.type == "img" %}
+                                            <img class="img-responsive" alt="photo" width="304" height="236"src="{{ asset('/uploads/img/') ~ popo.contenue }}" alt="photo-preview-10">
+                                            <!-- /IFRAME WRAP -->
+                                        {% elseif popo.type == "video" %}
+
+                                            <video class="video-fluid" width="304" height="236" src="{{ asset('/uploads/video/') ~ popo.contenue }}" ></video>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            {% if trv==0 %}
+                                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;" id="tfol-{{ post.id }}">
+                                    <div class="card-header">Not Available</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">not found</h5>
+                                        <p class="card-text">this content isn't available !</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <!-- /POST OPEN IMAGE -->
                         {% endif %}
+
 
                     </div>
                     <!-- /POST OPEN CONTENT BODY -->
@@ -236,7 +336,7 @@
                         <!-- META LINE -->
                         <div class="meta-line">
                             <!-- META LINE LINK -->
-                            <p class="meta-line-link">3 Comments</p>
+                            <p class="meta-line-link">{{ post.nbcomments }}~comments</p>
                             <!-- /META LINE LINK -->
                         </div>
                         <!-- /META LINE -->
@@ -468,7 +568,7 @@
                             <!-- USER AVATAR CONTENT -->
                             <div class="user-avatar-content">
                                 <!-- HEXAGON -->
-                                <div class="hexagon-image-30-32" data-src="img/avatar/01.jpg"></div>
+                                <div class="hexagon-image-30-32" data-src="{{ asset('template/img/avatar/'~app.user.imguser) }}"></div>
                                 <!-- /HEXAGON -->
                             </div>
                             <!-- /USER AVATAR CONTENT -->

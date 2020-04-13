@@ -364,10 +364,14 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $post= $em->getRepository('PublicationBundle:Post')->find($id_post);
+        $posts=$em->getRepository('PublicationBundle:Post')->findAll();
         $comments=$em->getRepository('PublicationBundle:commentaire')->findBy(array());
         $reactions=$em->getRepository('PublicationBundle:reaction')->findBy(array());
         $votes=$em->getRepository('PublicationBundle:Vote')->findby(array());
-        return $this->render('@Publication/Posts/onepost.html.twig',array('post'=>$post,'comments'=>$comments,'reactions'=>$reactions,'votes'=>$votes));
+        if($post->getId()!=null)
+        return $this->render('@Publication/Posts/onepost.html.twig',array('post'=>$post,'comments'=>$comments,'reactions'=>$reactions,'votes'=>$votes,'posts'=>$posts));
+        else
+            return $this->redirectToRoute('publication_homepage');
 
 
     }

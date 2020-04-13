@@ -1285,6 +1285,7 @@
                                     <!-- SIMPLE DROPDOWN LINK -->
                                         {% endif %}
                                     <a class="simple-dropdown-link  btn btn-default"  data_but="btn-xs" href="{{ path('publication_delete',{ id_post: post.id})}}"><i class='fa fa-trash'></i>Delete</a>
+                                    <a class="simple-dropdown-link  btn btn-default" data-toggle="collapse" href="#socialbuttons-{{ post.id }}" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-share-alt"></i>Social Media</a>
 
                                 {% else %}
                                     <!-- SIMPLE DROPDOWN LINK -->
@@ -1514,6 +1515,10 @@
 
                         <!-- WIDGET BOX STATUS CONTENT -->
                         <div class="widget-box-status-content">
+                            <div class="collapse tag-list" id="socialbuttons-{{ post.id }}">
+                                {{ facebookButton() }}
+                                {{ socialButtons() }}
+                            </div>
                             <!-- CONTENT ACTIONS -->
                             <div class="content-actions">
                                 <!-- CONTENT ACTION -->
