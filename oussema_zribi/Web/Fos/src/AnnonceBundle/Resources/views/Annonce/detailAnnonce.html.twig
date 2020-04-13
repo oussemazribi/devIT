@@ -1,0 +1,437 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+
+    <div class="grid grid-9-3">
+        <!-- MARKETPLACE CONTENT -->
+        <div class="marketplace-content grid-column">
+            <!-- SLIDER PANEL -->
+            <div class="slider-panel">
+                <!-- SLIDER PANEL SLIDES -->
+                <div id="product-box-slider-items" class="slider-panel-slides">
+                    <!-- SLIDER PANEL SLIDE -->
+                    <div class="slider-panel-slide">
+                        <!-- SLIDER PANEL SLIDE IMAGE -->
+                        <figure class="slider-panel-slide-image liquid">
+                            <img src="{{ asset('template/img/cover/'~Annonce.images ) }}" alt="item-10">
+                        </figure>
+                        <!-- /SLIDER PANEL SLIDE IMAGE -->
+                    </div>
+                    <!-- /SLIDER PANEL SLIDE -->
+
+                </div>
+                <!-- /SLIDER PANEL SLIDES -->
+
+                <!-- SLIDER PANEL ROSTER -->
+                <div class="slider-panel-roster">
+                    <!-- SLIDER CONTROLS -->
+                    <div id="product-box-slider-controls" class="slider-controls">
+                        <!-- SLIDER CONTROL -->
+                        <div class="slider-control left">
+                            <!-- SLIDER CONTROL ICON -->
+                            <svg class="slider-control-icon icon-small-arrow">
+                                <use xlink:href="#svg-small-arrow"></use>
+                            </svg>
+                            <!-- /SLIDER CONTROL ICON -->
+                        </div>
+                        <!-- /SLIDER CONTROL -->
+
+                        <!-- /SLIDER CONTROL -->
+                    </div>
+                    <!-- /SLIDER CONTROLS -->
+
+                    <!-- BUTTON -->
+                    <a class="button secondary" href="https://themeforest.net/item/pixel-diamond-html-esports-gaming-magazine-community/23798711" target="_blank">Live Preview</a>
+                    <!-- /BUTTON -->
+
+                    <!-- ROSTER PICTURES -->
+                    <div id="product-box-slider-roster" class="roster-pictures">
+                        <!-- ROSTER PICTURE -->
+                        <div class="roster-picture">
+                            <!-- ROSTER PICTURE IMAGE -->
+                            <figure class="roster-picture-image liquid">
+                                <img src="{{ asset('template/img/cover/'~Annonce.images ) }}" alt="item-10">
+                            </figure>
+                            <!-- /ROSTER PICTURE IMAGE -->
+                        </div>
+                        <!-- /ROSTER PICTURE -->
+
+                    </div>
+                    <!-- /ROSTER PICTURES -->
+                </div>
+                <!-- /SLIDER PANEL ROSTER -->
+            </div>
+            <!-- /SLIDER PANEL -->
+
+            <!-- TAB BOX -->
+            <div class="tab-box">
+                <!-- TAB BOX OPTIONS -->
+                <div class="tab-box-options">
+                    <!-- TAB BOX OPTION -->
+                    <div class="tab-box-option">
+                        <!-- TAB BOX OPTION TITLE -->
+                        <p class="tab-box-option-title">Description</p>
+                        <!-- /TAB BOX OPTION TITLE -->
+                    </div>
+                    <!-- /TAB BOX OPTION -->
+
+                </div>
+                <!-- /TAB BOX OPTIONS -->
+                <!-- CHECKBOX INFO -->
+                <div class="information-line">
+                    <!-- CHECKBOX INFO TEXT -->
+                    <p class="information-line-text" >{{ Annonce.description }}</p>
+
+                    <!-- /CHECKBOX INFO TEXT -->
+                </div>
+                <!-- /CHECKBOX INFO -->
+
+
+            </div>
+            <!-- /TAB BOX -->
+        </div>
+        <!-- /MARKETPLACE CONTENT -->
+
+        <!-- MARKETPLACE SIDEBAR -->
+        <div class="marketplace-sidebar">
+            <!-- SIDEBAR BOX -->
+            <div class="sidebar-box">
+                <!-- SIDEBAR BOX ITEMS -->
+                <div class="sidebar-box-items">
+                    <!-- PRICE TITLE -->
+                    <p class="price-title big"><span class="currency">DNT</span> {{ Annonce.prix }}</p>
+                    <!-- /PRICE TITLE -->
+
+{% if( app.user.id == Annonce.user.id ) %}
+
+                    <!-- BUTTON -->
+                    <p class="button primary">    <a href="{{ path('supprimerannonce', {'id':Annonce.idAnnonce})  }})  }}">Supprimer</a></p>
+                    <!-- /BUTTON -->
+                    <!-- BUTTON -->
+                    <p class="button primary">    <a href="{{ path('modifierannonce', {'id':Annonce.idAnnonce})  }})  }}">Editer</a></p>
+                    <!-- /BUTTON -->
+                    {% endif %}
+                    <!-- USER STATS -->
+                    <div class="user-stats">
+                        <!-- USER STAT -->
+                        <div class="user-stat big">
+                            <!-- USER STAT TITLE -->
+                            <p class="user-stat-title">1.360</p>
+                            <!-- /USER STAT TITLE -->
+
+                            <!-- USER STAT TEXT -->
+                            <p class="user-stat-text">sales</p>
+                            <!-- /USER STAT TEXT -->
+                        </div>
+                        <!-- /USER STAT -->
+
+                        <!-- USER STAT -->
+                        <div class="user-stat big">
+                            <!-- USER STAT TITLE -->
+                            <p class="user-stat-title">4.2/5</p>
+                            <!-- /USER STAT TITLE -->
+
+                            <!-- RATING LIST -->
+                            <div class="rating-list">
+                                <!-- RATING -->
+                                <div class="rating filled">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+
+                                <!-- RATING -->
+                                <div class="rating filled">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+
+                                <!-- RATING -->
+                                <div class="rating filled">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+
+                                <!-- RATING -->
+                                <div class="rating filled">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+
+                                <!-- RATING -->
+                                <div class="rating">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+                            </div>
+                            <!-- /RATING LIST -->
+                        </div>
+                        <!-- /USER STAT -->
+                    </div>
+                    <!-- /USER STATS -->
+                </div>
+                <!-- /SIDEBAR BOX ITEMS -->
+
+                <!-- SIDEBAR BOX TITLE -->
+                <p class="sidebar-box-title medium-space">Item Author</p>
+                <!-- /SIDEBAR BOX TITLE -->
+
+                <!-- SIDEBAR BOX ITEMS -->
+                <div class="sidebar-box-items">
+                    <!-- USER STATUS -->
+                    <div class="user-status">
+                        <!-- USER STATUS AVATAR -->
+                        <a class="user-status-avatar" href="profile-timeline.html">
+                            <!-- USER AVATAR -->
+                            <div class="user-avatar small no-outline">
+                                <!-- USER AVATAR CONTENT -->
+                                <div class="user-avatar-content">
+                                    <!-- HEXAGON -->
+                                    <div class="hexagon-image-30-32" data-src="img/avatar/01.jpg"></div>
+                                    <!-- /HEXAGON -->
+                                </div>
+                                <!-- /USER AVATAR CONTENT -->
+
+                                <!-- USER AVATAR PROGRESS -->
+                                <div class="user-avatar-progress">
+                                    <!-- HEXAGON -->
+                                    <div class="hexagon-progress-40-44"></div>
+                                    <!-- /HEXAGON -->
+                                </div>
+                                <!-- /USER AVATAR PROGRESS -->
+
+                                <!-- USER AVATAR PROGRESS BORDER -->
+                                <div class="user-avatar-progress-border">
+                                    <!-- HEXAGON -->
+                                    <div class="hexagon-border-40-44"></div>
+                                    <!-- /HEXAGON -->
+                                </div>
+                                <!-- /USER AVATAR PROGRESS BORDER -->
+
+                                <!-- USER AVATAR BADGE -->
+                                <div class="user-avatar-badge">
+                                    <!-- USER AVATAR BADGE BORDER -->
+                                    <div class="user-avatar-badge-border">
+                                        <!-- HEXAGON -->
+                                        <div class="hexagon-22-24"></div>
+                                        <!-- /HEXAGON -->
+                                    </div>
+                                    <!-- /USER AVATAR BADGE BORDER -->
+
+                                    <!-- USER AVATAR BADGE CONTENT -->
+                                    <div class="user-avatar-badge-content">
+                                        <!-- HEXAGON -->
+                                        <div class="hexagon-dark-16-18"></div>
+                                        <!-- /HEXAGON -->
+                                    </div>
+                                    <!-- /USER AVATAR BADGE CONTENT -->
+
+                                    <!-- USER AVATAR BADGE TEXT -->
+                                    <p class="user-avatar-badge-text">24</p>
+                                    <!-- /USER AVATAR BADGE TEXT -->
+                                </div>
+                                <!-- /USER AVATAR BADGE -->
+                            </div>
+                            <!-- /USER AVATAR -->
+                        </a>
+                        <!-- /USER STATUS AVATAR -->
+
+                        <!-- USER STATUS TITLE -->
+                        <p class="user-status-title"><a class="bold" href="profile-timeline.html">Marina Valentine</a></p>
+                        <!-- /USER STATUS TITLE -->
+
+                        <!-- USER STATUS TEXT -->
+                        <p class="user-status-text small">5 items published</p>
+                        <!-- /USER STATUS TEXT -->
+                    </div>
+                    <!-- /USER STATUS -->
+
+                    <!-- BADGE LIST -->
+                    <div class="badge-list small align-left">
+                        <!-- BADGE ITEM -->
+                        <div class="badge-item text-tooltip-tft" data-title="Gold User">
+                            <img src="img/badge/gold-s.png" alt="badge-gold-s">
+                        </div>
+                        <!-- /BADGE ITEM -->
+
+                        <!-- BADGE ITEM -->
+                        <div class="badge-item text-tooltip-tft" data-title="Profile Age">
+                            <img src="img/badge/age-s.png" alt="badge-age-s">
+                        </div>
+                        <!-- /BADGE ITEM -->
+
+                        <!-- BADGE ITEM -->
+                        <div class="badge-item text-tooltip-tft" data-title="Caffeinated">
+                            <img src="img/badge/caffeinated-s.png" alt="badge-caffeinated-s">
+                        </div>
+                        <!-- /BADGE ITEM -->
+
+                        <!-- BADGE ITEM -->
+                        <div class="badge-item text-tooltip-tft" data-title="The Warrior">
+                            <img src="img/badge/warrior-s.png" alt="badge-warrior-s">
+                        </div>
+                        <!-- /BADGE ITEM -->
+
+                        <!-- BADGE ITEM -->
+                        <a class="badge-item" href="profile-badges.html">
+                            <img src="img/badge/blank-s.png" alt="badge-blank-s">
+                            <!-- BADGE ITEM TEXT -->
+                            <p class="badge-item-text">+9</p>
+                            <!-- /BADGE ITEM TEXT -->
+                        </a>
+                        <!-- /BADGE ITEM -->
+                    </div>
+                    <!-- /BADGE LIST -->
+
+                    <!-- BUTTON -->
+                    <a class="button small white" href="profile-store.html">View Author's Store</a>
+                    <!-- /BUTTON -->
+                </div>
+                <!-- /SIDEBAR BOX ITEMS -->
+
+                <!-- SIDEBAR BOX TITLE -->
+                <p class="sidebar-box-title medium-space">Item Details</p>
+                <!-- /SIDEBAR BOX TITLE -->
+
+                <!-- SIDEBAR BOX ITEMS -->
+                <div class="sidebar-box-items">
+                    <!-- INFORMATION LINE LIST -->
+                    <div class="information-line-list">
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Updated</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">October 13rd, 2019</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Created</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">August 17th, 2019</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Category</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><a href="marketplace-category.html">HTML Templates</a></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Files<br>Included</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">HTML Files, CSS Files, JS Files, Layered PSD</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Layout</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">Responsive</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Tags</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold"><a href="marketplace-category.html">Gaming</a>, <a href="marketplace-category.html">Magazine</a>, <a href="marketplace-category.html">Web</a>, <a href="marketplace-category.html">eSports</a>, <a href="marketplace-category.html">Template</a></span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+                    </div>
+                    <!-- /INFORMATION LINE LIST -->
+                </div>
+                <!-- /SIDEBAR BOX ITEMS -->
+
+                <!-- SIDEBAR BOX TITLE -->
+                <p class="sidebar-box-title medium-space">Item Share</p>
+                <!-- /SIDEBAR BOX TITLE -->
+
+                <!-- SIDEBAR BOX ITEMS -->
+                <div class="sidebar-box-items">
+                    <!-- SOCIAL LINKS -->
+                    <div class="social-links small align-left">
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link small facebook" href="#">
+                            <!-- SOCIAL LINK ICON -->
+                            <svg class="social-link-icon icon-facebook">
+                                <use xlink:href="#svg-facebook"></use>
+                            </svg>
+                            <!-- /SOCIAL LINK ICON -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+
+                        <!-- SOCIAL LINK -->
+                        <a class="social-link small twitter" href="#">
+                            <!-- SOCIAL LINK ICON -->
+                            <svg class="social-link-icon icon-twitter">
+                                <use xlink:href="#svg-twitter"></use>
+                            </svg>
+                            <!-- /SOCIAL LINK ICON -->
+                        </a>
+                        <!-- /SOCIAL LINK -->
+                    </div>
+                    <!-- /SOCIAL LINKS -->
+                </div>
+                <!-- /SIDEBAR BOX ITEMS -->
+            </div>
+            <!-- /SIDEBAR BOX -->
+        </div>
+        <!-- /MARKETPLACE SIDEBAR -->
+    </div>
+
+    </div>
+    <!-- /CONTENT GRID -->
+
+      {% endblock %}
