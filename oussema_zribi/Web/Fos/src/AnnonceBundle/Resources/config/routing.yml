@@ -1,0 +1,16 @@
+afficherannonce:
+  path:     /afficherannonce
+  defaults: { _controller: AnnonceBundle:Annonce:afficherAnnonce }
+ajouterannonce:
+  path:     /ajouterannonce
+  defaults: { _controller: AnnonceBundle:Annonce:ajouterAnnonce }
+
+detailannonce:
+  path:     /detailannonce/{id}
+  defaults: { _controller: AnnonceBundle:Annonce:detailAnnonce }
+supprimerannonce:
+  path:     /supprimerannonce/{id}
+  defaults: { _controller: AnnonceBundle:Annonce:supprimer }
+modifierannonce:
+  path:     /modifierannonce/{id}
+  defaults: { _controller: AnnonceBundle:Annonce:Modifier }
