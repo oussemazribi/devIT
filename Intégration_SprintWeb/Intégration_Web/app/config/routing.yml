@@ -6,6 +6,10 @@ competition:
     resource: "@CompetitionBundle/Resources/config/routing.yml"
     prefix:   /
 
+publication:
+    resource: "@PublicationBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fos:
     resource: "@FOSBundle/Resources/config/routing.yml"
     prefix:   /

@@ -46,6 +46,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/php-enum" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nexmo/client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nexmo/client-core" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nomaya/social-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/onesignal/emoji-picker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/php-http/guzzle6-adapter" />

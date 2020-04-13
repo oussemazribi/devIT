@@ -26,11 +26,8 @@ class AppKernel extends Kernel
             new Endroid\QrCode\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-
-
-
-
-
+            new PublicationBundle\PublicationBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
 
         ];
 

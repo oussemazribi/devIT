@@ -7,12 +7,15 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert ;
+use Mgilet\NotificationBundle\NotifiableInterface;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @Notifiable(name="fos_user")
  */
-class User extends BaseUser
+class User extends BaseUser implements NotifiableInterface
 {
     /**
      * @ORM\Id

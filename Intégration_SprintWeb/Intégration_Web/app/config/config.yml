@@ -5,6 +5,7 @@ imports:
     - { resource: "@FOSBundle/Resources/config/services.yml" }
     - { resource: "@CompetitionBundle/Resources/config/services.yml" }
     - { resource: "@MessagerieBundle/Resources/config/services.yml" }
+    - { resource: "@PublicationBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -13,6 +14,8 @@ parameters:
 
 framework:
     #esi: ~
+    templating:
+        engines: ['twig']
     translator: ~
     secret: '%secret%'
     router:
@@ -75,18 +78,18 @@ sensio_framework_extra:
         annotations: false
 
 fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
-    user_class: FOSBundle\Entity\User
-    service:
-        mailer: fos_user.mailer.twig_swift
+  db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+  firewall_name: main
+  user_class: FOSBundle\Entity\User
+  service:
+    mailer: fos_user.mailer.twig_swift
 
-    from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
-    registration:
-        form:
-            type: AppBundle\Form\RegistrationType
+  from_email:
+    address: "%mailer_user%"
+    sender_name: "%mailer_user%"
+  registration:
+    form:
+      type: AppBundle\Form\RegistrationType
 
 endroid_qr_code:
     writer: 'png'
@@ -121,3 +124,38 @@ knp_paginator:
     pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'
     sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
     filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+nomaya_social:
+
+  buttons:
+    facebook:
+      url:            null
+      locale:         "fr_FR"
+      send:           false
+      width:          300
+      showFaces:      false
+      layout:         "button_count"
+    twitter:
+      url:            null
+      locale:         "fr"
+      message:        "Je veux partager ça avec vous"
+      text:           "Tweet"
+      via:            "L'Equipe cartedevisitevirtuelle.fr"
+      tag:            "ttot"
+    googleplus:
+      url:            null
+      locale :        "fr"
+      size :          "medium"
+      annotation :    "bubble"
+      width :         300
+    linkedin:
+      url:            null
+      locale:         "fr_FR"
+      counter:        "right"
+    pinterest:
+      url:            null
+  theme:                  'default' # optional
+
+
+
+
