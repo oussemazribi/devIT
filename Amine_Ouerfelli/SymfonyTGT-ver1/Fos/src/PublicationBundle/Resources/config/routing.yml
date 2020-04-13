@@ -48,3 +48,23 @@ share:
 show_one_post:
     path:    /showonepost/{id_post}
     defaults: {_controller:PublicationBundle:Post:showPost1}
+
+show_Admin_posts:
+        path:    /showpostsadmin
+        defaults: {_controller:PublicationBundle:Post:showPostforadmin}
+
+show_Admin_post:
+            path:    /showonepostadmin/{id_post}
+            defaults: {_controller:PublicationBundle:Post:showPost1Adimin}
+
+commentaire_supprimera:
+    path:     /supprimercommentairea/{id_com}
+    defaults: { _controller: PublicationBundle:commentaire:deleteCommentA }
+commentaire_addad:
+    path:     /newad/{post_id}
+    defaults: { _controller: PublicationBundle:commentaire:AjouterCommentad }
+    methods: [GET,POST]
+
+publication_addelete:
+    path:    /{id_post}/deletead
+    defaults: { _controller: PublicationBundle:Post:DeletePostad}

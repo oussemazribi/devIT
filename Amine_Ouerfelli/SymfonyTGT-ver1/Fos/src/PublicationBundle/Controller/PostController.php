@@ -375,4 +375,47 @@ class PostController extends Controller
 
 
     }
+    public function showPostforadminAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user=$this->getUser();
+        $posts=$em->getRepository('PublicationBundle:Post')->findAll();
+        $top3=$em->getRepository('PublicationBundle:Post')->findBy(array(), array('votesPost'=>'DESC'), 3);
+        return $this->render('@Publication/Posts/adminPostside.html.twig',array('tp3'=>$top3,'user'=>$user,'posts'=>$posts));
+
+    }
+    public function showPost1AdiminAction($id_post,Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user=$this->getUser();
+        $post= $em->getRepository('PublicationBundle:Post')->find($id_post);
+        $posts=$em->getRepository('PublicationBundle:Post')->findAll();
+        $comments=$em->getRepository('PublicationBundle:commentaire')->findBy(array());
+        $reactions=$em->getRepository('PublicationBundle:reaction')->findBy(array());
+        $votes=$em->getRepository('PublicationBundle:Vote')->findby(array());
+        $top3=$em->getRepository('PublicationBundle:Post')->findBy(array(), array('votesPost'=>'DESC'), 3);
+        if($post->getId()!=null)
+            return $this->render('@Publication/Posts/view1postadmin.html.twig',array('tp3'=>$top3,'user'=>$user,'post'=>$post,'comments'=>$comments,'reactions'=>$reactions,'votes'=>$votes,'posts'=>$posts));
+         else
+             $this->redirectToRoute('show_Admin_posts');
+
+
+    }
+    public function DeletePostadAction($id_post,Request $request)
+    {
+        $user = $this->getUser() ;
+        $em = $this->getDoctrine()->getManager();
+        $publication = $em->getRepository('PublicationBundle:Post')->find($id_post);
+
+        if ($publication && ($publication->getIdauthor()->getId() == $user->getId() || $user->isSuperAdmin() )   ) {
+            $em->getRepository('PublicationBundle:commentaire')->deletePostCommentaire($id_post);
+            $em->getRepository('PublicationBundle:reaction')->removePostreaction($id_post);
+            $em->getRepository('PublicationBundle:Vote')->removePostVote($id_post);
+            $em->remove($publication);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute("show_Admin_posts");
+    }
+
 }
