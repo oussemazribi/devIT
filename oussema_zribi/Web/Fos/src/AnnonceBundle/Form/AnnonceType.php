@@ -5,6 +5,7 @@ namespace AnnonceBundle\Form;
 use AnnonceBundle\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,22 +24,23 @@ class AnnonceType extends AbstractType
         $builder->add('nom')
             ->add('description')
             ->add('prix')
-            ->add('etat' , HiddenType::class, [
-                'data' => 'Disponible',
-            ])
-            ->add('images',FileType::class, [
-                'label' => 'Content(image)',
-                'mapped' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '1M'
-                    ])
-                ],
-            ])
+            ->add('etat' , ChoiceType::class,array('choices'=>array(
+                'Disponible' => 'Disponible',
+                'Vendu' => 'Vendu'
+            )))
+            ->add('images',FileType::class,[
+            'label' => 'Content(image)',
+            'mapped' => false,
+            'constraints' => [
+        new File([
+            'maxSize' => '1M'
+        ])
+    ],
+        ])
             ->add('categorie',EntityType::class,[
                 'class' => Categorie::class,
-                'choice_label' => function(Categorie $user) {
-                    return sprintf('(%d) %s', $user->getId(), $user->getNom());
+                'choice_label' => function(Categorie $categorie) {
+                    return sprintf('%s', $categorie->getNom());
                 }
             ])
 

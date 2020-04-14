@@ -71,8 +71,23 @@
 
 
                         <br><br>
-
-
+                        <fieldset disabled>
+                        <!-- FORM ITEM -->
+                        <div class="form-item">
+                            <!-- FORM SELECT -->
+                            <div class="form-select">
+                                <label for="disabledSelect">Etat</label>
+                                {{ form_widget(form.etat,{'attr':{ 'id':'disabledSelect','name':'billing_country'}}) }}
+                                <!-- FORM SELECT ICON -->
+                                <svg class="form-select-icon icon-small-arrow">
+                                    <use xlink:href="#svg-small-arrow"></use>
+                                </svg>
+                                <!-- /FORM SELECT ICON -->
+                            </div>
+                            <!-- /FORM SELECT -->
+                        </div>
+                        </fieldset>
+                        <br><br>
                         <!-- /FORM ITEM -->
 
                         <!-- FORM ROW -->
@@ -120,6 +135,7 @@
                             <label class="custom-file-label" for="customFile">Choose file</label>
                             {{ form_widget(form.images,{'attr':{ 'id':'customFile','class':'custom-file-input'}})}}
                         </div>
+
 
 
 

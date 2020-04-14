@@ -22,6 +22,30 @@ class Annonce
     private $categorie;
 
     /**
+     * @return \DateTime
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param \DateTime $dateCreation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+    }
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date_creation", type="datetime", nullable=true)
+     */
+    private $dateCreation;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="idAnnonce", type="integer")

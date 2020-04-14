@@ -14,6 +14,7 @@ class AnnonceController extends Controller
         $Annonc= new Annonce();
         $user = $this->getUser();
         $Annonc->setUser($user);
+        $Annonc->setDateCreation(new \DateTime('now'));
         $form=$this->createForm(AnnonceType::class,$Annonc);
         $form->handleRequest($request);
         $em=$this->getDoctrine()->getManager();
