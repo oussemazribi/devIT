@@ -28,15 +28,7 @@ class AnnonceType extends AbstractType
                 'Disponible' => 'Disponible',
                 'Vendu' => 'Vendu'
             )))
-            ->add('images',FileType::class,[
-            'label' => 'Content(image)',
-            'mapped' => false,
-            'constraints' => [
-        new File([
-            'maxSize' => '1M'
-        ])
-    ],
-        ])
+            ->add('file')
             ->add('categorie',EntityType::class,[
                 'class' => Categorie::class,
                 'choice_label' => function(Categorie $categorie) {

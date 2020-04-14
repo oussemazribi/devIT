@@ -6,6 +6,7 @@ use AnnonceBundle\Entity\Annonce;
 use AnnonceBundle\Form\AnnonceType;
 use Symfony\Component\HttpFoundation\Request;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AnnonceController extends Controller
@@ -20,7 +21,7 @@ class AnnonceController extends Controller
         $em=$this->getDoctrine()->getManager();
         if($form->isSubmitted()){
 
-
+            $Annonc->upload();
             $em->persist($Annonc);
             $em->flush();
             return $this->redirectToRoute('afficherannonce');
