@@ -138,10 +138,10 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link text-tooltip-tfr" href="template/groups.html" data-title="Groups">
+                <a class="menu-item-link text-tooltip-tfr" href="{{ path('affichC') }}" data-title="Messages">
                     <!-- MENU ITEM LINK ICON -->
-                    <svg class="menu-item-link-icon icon-group">
-                        <use xlink:href="#svg-group"></use>
+                    <svg class="menu-item-link-icon icon-send-message">
+                        <use xlink:href="#svg-send-message"></use>
                     </svg>
                     <!-- /MENU ITEM LINK ICON -->
                 </a>
@@ -207,15 +207,27 @@
 
             <!-- MENU ITEM -->
             <li class="menu-item active">
-                <!-- MENU ITEM LINK -->
-                <a class="menu-item-link text-tooltip-tfr" href="template/events.html" data-title="Events">
-                    <!-- MENU ITEM LINK ICON -->
-                    <svg class="menu-item-link-icon icon-events">
-                        <use xlink:href="#svg-events"></use>
-                    </svg>
-                    <!-- /MENU ITEM LINK ICON -->
-                </a>
-                <!-- /MENU ITEM LINK -->
+                {% if app.user.typecompte=="Chasseur du talent" %}
+                    <!-- MENU ITEM LINK -->
+                    <a class="menu-item-link text-tooltip-tfr" href="{{ path('affichercompetition') }}" data-title="Events">
+                        <!-- MENU ITEM LINK ICON -->
+                        <svg class="menu-item-link-icon icon-events">
+                            <use xlink:href="#svg-events"></use>
+                        </svg>
+                        <!-- /MENU ITEM LINK ICON -->
+                    </a>
+                    <!-- /MENU ITEM LINK -->
+                {% else %}
+                    <!-- MENU ITEM LINK -->
+                    <a class="menu-item-link text-tooltip-tfr" href="{{ path('affichercompetitionUser') }}" data-title="Events">
+                        <!-- MENU ITEM LINK ICON -->
+                        <svg class="menu-item-link-icon icon-events">
+                            <use xlink:href="#svg-events"></use>
+                        </svg>
+                        <!-- /MENU ITEM LINK ICON -->
+                    </a>
+                    <!-- /MENU ITEM LINK -->
+                {% endif %}
             </li>
             <!-- /MENU ITEM -->
 
@@ -411,13 +423,13 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="template/groups.html">
+                <a class="menu-item-link" href="{{ path('affichC') }}">
                     <!-- MENU ITEM LINK ICON -->
-                    <svg class="menu-item-link-icon icon-group">
-                        <use xlink:href="#svg-group"></use>
+                    <svg class="menu-item-link-icon icon-send-message">
+                        <use xlink:href="#svg-send-message"></use>
                     </svg>
                     <!-- /MENU ITEM LINK ICON -->
-                    Groups
+                    Messages
                 </a>
                 <!-- /MENU ITEM LINK -->
             </li>
@@ -485,16 +497,30 @@
 
             <!-- MENU ITEM -->
             <li class="menu-item active">
-                <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="template/events.html">
-                    <!-- MENU ITEM LINK ICON -->
-                    <svg class="menu-item-link-icon icon-events">
-                        <use xlink:href="#svg-events"></use>
-                    </svg>
-                    <!-- /MENU ITEM LINK ICON -->
-                    Events
-                </a>
-                <!-- /MENU ITEM LINK -->
+                {% if app.user.typecompte=="Chasseur du talent" %}
+                    <!-- MENU ITEM LINK -->
+                    <a class="menu-item-link" href="{{ path('affichercompetition') }}">
+                        <!-- MENU ITEM LINK ICON -->
+                        <svg class="menu-item-link-icon icon-events">
+                            <use xlink:href="#svg-events"></use>
+                        </svg>
+                        <!-- /MENU ITEM LINK ICON -->
+                        Events
+                    </a>
+                    <!-- /MENU ITEM LINK -->
+                {% else %}
+                    <!-- MENU ITEM LINK -->
+                    <a class="menu-item-link" href="{{ path('affichercompetitionUser') }}">
+                        <!-- MENU ITEM LINK ICON -->
+                        <svg class="menu-item-link-icon icon-events">
+                            <use xlink:href="#svg-events"></use>
+                        </svg>
+                        <!-- /MENU ITEM LINK ICON -->
+                        Events
+                    </a>
+                    <!-- /MENU ITEM LINK -->
+                {% endif %}
+
             </li>
             <!-- /MENU ITEM -->
 
@@ -655,13 +681,13 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="groups.html">
+                <a class="menu-item-link" href="{{ path('affichC') }}">
                     <!-- MENU ITEM LINK ICON -->
-                    <svg class="menu-item-link-icon icon-group">
-                        <use xlink:href="#svg-group"></use>
+                    <svg class="menu-item-link-icon icon-forums">
+                        <use xlink:href="#svg-forums"></use>
                     </svg>
                     <!-- /MENU ITEM LINK ICON -->
-                    Groups
+                    Messages
                 </a>
                 <!-- /MENU ITEM LINK -->
             </li>
@@ -2362,8 +2388,8 @@
                             <!-- USER STATUS ICON -->
                             <div class="user-status-icon">
                                 <!-- ICON GROUP -->
-                                <svg class="icon-group">
-                                    <use xlink:href="#svg-group"></use>
+                                <svg class="icon-messages">
+                                    <use xlink:href="#svg-messages"></use>
                                 </svg>
                                 <!-- /ICON GROUP -->
                             </div>
@@ -4071,17 +4097,7 @@
                     <a class="dropdown-navigation-link" href="#">General Settings</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
 
-                    <!-- DROPDOWN NAVIGATION CATEGORY -->
-                    <p class="dropdown-navigation-category">Groups</p>
-                    <!-- /DROPDOWN NAVIGATION CATEGORY -->
 
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="#">Manage Groups</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
-
-                    <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="#">Invitations</a>
-                    <!-- /DROPDOWN NAVIGATION LINK -->
 
                     <!-- DROPDOWN NAVIGATION CATEGORY -->
                     <p class="dropdown-navigation-category">My Store</p>
@@ -4095,10 +4111,12 @@
 
 
                     <!-- DROPDOWN NAVIGATION BUTTON -->
+                    <a href="{{ path('fos_user_security_logout') }}" title="">
                     <p class="dropdown-navigation-button button small secondary">
-                        <a href="{{ path('fos_user_security_logout') }}" title="">Logout</a>
+                        Logout
 
                     </p>
+                    </a>
                     <!-- /DROPDOWN NAVIGATION BUTTON -->
                 </div>
                 <!-- /DROPDOWN NAVIGATION -->

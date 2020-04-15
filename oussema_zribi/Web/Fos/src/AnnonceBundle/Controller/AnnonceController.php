@@ -6,6 +6,7 @@ use AnnonceBundle\Entity\Annonce;
 use AnnonceBundle\Form\AnnonceType;
 use Symfony\Component\HttpFoundation\Request;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AnnonceController extends Controller
@@ -14,12 +15,13 @@ class AnnonceController extends Controller
         $Annonc= new Annonce();
         $user = $this->getUser();
         $Annonc->setUser($user);
+        $Annonc->setDateCreation(new \DateTime('now'));
         $form=$this->createForm(AnnonceType::class,$Annonc);
         $form->handleRequest($request);
         $em=$this->getDoctrine()->getManager();
         if($form->isSubmitted()){
 
-
+            $Annonc->upload();
             $em->persist($Annonc);
             $em->flush();
             return $this->redirectToRoute('afficherannonce');

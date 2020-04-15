@@ -80,20 +80,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PI" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Fos\src\AnnonceBundle\Resources\views\Annonce" />
-      <recent name="C:\wamp64\www\Fos\app\Resources\FOSUserBundle\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Fos\src\CompetitionBundle" />
       <recent name="C:\wamp64\www\Fos\src\AnnonceBundle\Resources\config" />
       <recent name="C:\wamp64\www\Fos\src\AppBundle\Controller" />
       <recent name="C:\wamp64\www\Fos\app\Resources\FOSUserBundle\Controller" />
       <recent name="C:\wamp64\www\Fos\app\Resources\FOSUserBundle" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Fos\src\AnnonceBundle\Resources\views\Annonce" />
+      <recent name="C:\wamp64\www\Fos\app\Resources\FOSUserBundle\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -117,14 +117,14 @@
       <command value=" COMPOSER_MEMORY_LIMIT=-1 c require statickidz/php-google-translate-free" />
       <command value="c require mrad/notifications-bundle" />
       <command value="s doctrine:generate:entity" />
-      <command value="c dump-autoload" />
-      <command value="s doctrine:schema:update --force" />
       <command value="c require statickidz/php-google-translate-free" />
       <command value="s generate:controller" />
-      <command value="s server:run" />
       <command value="s doctrine:generate:form AnnonceBundle:ModifierAnnonce" />
       <command value="s doctrine:generate:form AnnonceBundle:Annonce" />
       <command value="s cache:clear" />
+      <command value="c dump-autoload" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="s server:run" />
     </option>
   </component>
   <component name="RunManager">
@@ -174,7 +174,8 @@
       <workItem from="1584480457516" duration="105306000" />
       <workItem from="1584822839233" duration="285000" />
       <workItem from="1585426165706" duration="59230000" />
-      <workItem from="1586305201956" duration="14183000" />
+      <workItem from="1586305201956" duration="26052000" />
+      <workItem from="1586863007368" duration="3692000" />
     </task>
     <servers />
   </component>
@@ -190,58 +191,58 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="453" y="175" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1585433100311" />
-    <state x="485" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1586734592332">
+    <state x="485" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1586834175031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="485" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586734592332" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1585430746350">
+    <state x="485" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586834175031" />
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586868001142">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585430746350" />
-    <state x="407" y="256" key="ComposerCompositePathDialog" timestamp="1584073879692">
+    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586868001142" />
+    <state x="407" y="256" key="ComposerCompositePathDialog" timestamp="1586863554293">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="407" y="256" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1584073879692" />
-    <state x="462" y="109" key="FileChooserDialogImpl" timestamp="1586736339801">
+    <state x="407" y="256" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1586863554293" />
+    <state x="462" y="109" key="FileChooserDialogImpl" timestamp="1586863565034">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586736339801" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586790085495">
+    <state x="462" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586863565034" />
+    <state width="1323" height="140" key="GridCell.Tab.0.bottom" timestamp="1586863934195">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586790085495" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586790085495">
+    <state width="1323" height="140" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586863934195" />
+    <state width="1323" height="140" key="GridCell.Tab.0.center" timestamp="1586863934194">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586790085495" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586790085495">
+    <state width="1323" height="140" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586863934194" />
+    <state width="1323" height="140" key="GridCell.Tab.0.left" timestamp="1586863934193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586790085495" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586790085495">
+    <state width="1323" height="140" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586863934193" />
+    <state width="1323" height="140" key="GridCell.Tab.0.right" timestamp="1586863934194">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586790085495" />
+    <state width="1323" height="140" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586863934194" />
     <state x="468" y="199" key="NewPhpClassDialog" timestamp="1584506519239">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="468" y="199" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1584506519239" />
-    <state x="186" y="10" key="SettingsEditor" timestamp="1585610387356">
+    <state x="186" y="10" key="SettingsEditor" timestamp="1586863579706">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585610387356" />
-    <state x="454" y="279" key="SymfonyPathDialog" timestamp="1584073893832">
+    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586863579706" />
+    <state x="454" y="279" key="SymfonyPathDialog" timestamp="1586863568400">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="454" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1584073893832" />
+    <state x="454" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1586863568400" />
     <state x="391" y="193" width="530" height="350" key="com.intellij.ide.util.TipDialog" timestamp="1584390002294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="193" width="530" height="350" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584390002294" />
-    <state x="609" y="123" width="672" height="677" key="run.anything.popup" timestamp="1586790085594">
+    <state x="609" y="123" width="672" height="677" key="run.anything.popup" timestamp="1586863934257">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="609" y="123" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586790085594" />
+    <state x="609" y="123" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586863934257" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585615683461">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -22,11 +22,15 @@
         "docdocdoc/nexmo-bundle": "dev-master",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "dompdf/dompdf": "^0.8.3",
+        "endroid/qrcode": "^2.5",
+        "friendsofsymfony/ckeditor-bundle": "^1.2",
         "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-paginator-bundle": "^3.0",
         "mgilet/notification-bundle": "^3.1",
         "nexmo/client": "^1.9",
+        "nomaya/social-bundle": "dev-master",
         "onesignal/emoji-picker": "^1.4",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
@@ -36,7 +40,6 @@
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
         "twig/twig": "^1.0||^2.0",
-        "nomaya/social-bundle": "dev-master",
         "twilio/sdk": "^5.42"
     },
     "require-dev": {

@@ -907,9 +907,17 @@
 
                                 {% elseif c.Cout > app.user.nbdiament %}
 
-                                    <button class="button primary">
-                                        <a href="#" > <i class="fa fa-diamond" style="font-size:14px;color:deepskyblue"></i> &nbsp; gagner plus de diament</a>
+                                    <button  class="button secondary">
+
+                                        <!-- BUTTON ICON -->
+                                        <svg class="button-icon icon-cross">
+                                            <use xlink:href="#svg-cross"></use>
+                                        </svg>
+                                        <!-- /BUTTON ICON -->
+                                        &nbsp; gagner plus de diament
                                     </button>
+
+
 
                                 {% endif %}
 
