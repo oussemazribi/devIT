@@ -9,6 +9,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -23,11 +24,12 @@ class AppKernel extends Kernel
             new MessagerieBundle\MessagerieBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
             new DocDocDoc\NexmoBundle\DocDocDocNexmoBundle(),
-            new Endroid\QrCode\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new PublicationBundle\PublicationBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new BlogBundle\BlogBundle(),
+            new Endroid\QrCode\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
 
         ];
 

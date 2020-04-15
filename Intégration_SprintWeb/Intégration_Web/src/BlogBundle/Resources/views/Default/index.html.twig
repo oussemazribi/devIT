@@ -1,0 +1,181 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    <div class="tm-breadcrumb-area tm-padding-section bg-grey"
+         data-bgimage="{{ asset('Front/') }}assets/images/breadcrumb-bg.jpg"
+         data-white-overlay="2">
+        <div class="container">
+            <div class="tm-breadcrumb">
+                <h2>Our Blogs</h2>
+                <ul>
+                    <li><a href="{{ path('blog_homepage') }}">Home</a></li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-content">
+
+        <div class="tm-section tm-blog-area tm-padding-section bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row mt-50-reverse" id="blogRecherche">
+                            {% for blog in blogs %}
+                                {% if blog.accept == '1' %}
+                                    <div class="col-lg-6 col-md-6 col-12 mt-50">
+                                        <div class="tm-blog tm-scrollanim">
+                                            <div class="tm-blog-topside">
+                                                <div class="tm-blog-thumb"><a href="{{ path('blog_show',{id:blog.id}) }}">
+                                                        <img src="{{ asset('') }}{{ vich_uploader_asset(blog, 'imageFile') }}"
+                                                             alt="blog image"></a>
+                                                </div>
+                                            </div>
+                                            <div class="tm-blog-content">
+                                                <h6 class="tm-blog-title"><a
+                                                            href="{{ path('blog_show',{id:blog.id}) }}">{{ blog.title }}</a>
+                                                </h6>
+                                                <ul class="tm-blog-meta">
+                                                    <li><a href="#"><i class="ion-android-person"></i> {{ blog.author }}</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="ion-android-calendar"></i>
+                                                        {% set datePost = blog.dateCreation|date('d-m-Y') %}
+                                                        {% set today = "now"|date('d-m-Y') %}
+                                                        {% set difference = date(today).diff(date(datePost)) %}
+                                                        {% set leftDays = difference.days %}
+                                                        {% if datePost == today %}
+                                                            1 day
+                                                        {% else %}
+                                                            {{ leftDays }} days ago
+                                                        {% endif %}
+                                                    </li>
+                                                </ul>
+                                                <p>{{ blog.content|raw(50) }} </p>
+                                                <a href="{{ path('blog_show',{id:blog.id}) }}" class="tm-readmore">Read
+                                                    more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="tm-pagination mt-50">{{ knp_pagination_render(blogs) }}</div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="widgets widgets-blog">
+
+                            <div class="single-widget widget-search ">
+                                <h6 class="widget-title">Search</h6>
+                                <form action="#" class="widget-search-form">
+                                    <input class="form-control blog-search" id="blog-search" type="text"
+                                           placeholder="Search Blog Posts......">
+                                    <button type="submit"><i class="ion-android-search"></i></button>
+                                </form>
+                            </div>
+
+                            <div class="single-widget widget-recentpost">
+                                <h6 class="widget-title">Recent Posts</h6>
+                                <ul>
+                                    {% for b in blogsmax %}
+
+                                        <li>
+                                            <a href="{{ path('blog_show',{id:b.id}) }}" class="widget-recentpost-image">
+                                                <img src="{{ asset('') }}{{ vich_uploader_asset(b, 'imageFile') }}"
+                                                     alt="blog thumbnail">
+                                            </a>
+                                            <div class="widget-recentpost-content">
+                                                <h6><a href="{{ path('blog_show',{id:b.id}) }}">{{ b.title }}</a></h6>
+                                                <span>
+                                                {% set datePost = b.dateCreation|date('d-m-Y') %}
+                                                    {% set today = "now"|date('d-m-Y') %}
+                                                    {% set difference = date(today).diff(date(datePost)) %}
+                                                    {% set leftDays = difference.days %}
+                                                    {% if datePost == today %}
+                                                        1 day
+                                                    {% else %}
+                                                        {{ leftDays }} days ago
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="single-widget widget-tags">
+                                <h6 class="widget-title">Popular Category</h6>
+                                <ul>
+                                    {% for Cat in Cat %}
+                                        <li><a href="{{ path('ByCategorie',{cat:Cat.name}) }}">{{Cat.name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var searchRequest = null;
+            $("#blog-search").keyup(function () {
+                var minlength = 1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#blogRecherche").html('');
+                if (value.length >= minlength) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('recherche_blog') }}",
+                        data: {
+                            'q': value
+                        },
+                        dataType: "text",
+                        success: function (msg) {
+                            if (value == $(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function (key, arr) {
+                                    $.each(arr, function (id, value) {
+                                        if (key == 'entities') {
+                                            if (id != 'error') {
+                                                entitySelector.append('<div class="col-lg-6 col-md-6 col-12 mt-50">' +
+                                                    '<div class="tm-blog">' +
+                                                    '<div class="tm-blog-topside">' +
+                                                    '<div class="tm-blog-thumb">' +
+                                                    '<a href="/Pidev-web/web/app_dev.php/Post/Details/' + id + '">' +
+                                                    '<img src="{{ asset('uploads/') }}' + value[3] + '" alt="blog image"></a>' +
+                                                    '</div>' +
+                                                    '</div>' +
+                                                    '<div class="tm-blog-content">' +
+                                                    '<h6 class="tm-blog-title"><a href="">' + value[0] + '</a></h6><ul class="tm-blog-meta">' +
+                                                    '<li><a href="#"><i class="ion-android-person"></i>' + value[4] + '</a></li>' +
+                                                    '<li><i class="ion-android-calendar"></i> '+ value[5] +'</li> </ul>' +
+                                                    '<p> ' + value[1] + ' </p>' +
+                                                    '<a href="" class="tm-readmore">Read  more</a>' +
+                                                    '</div>' +
+                                                    '</div>'
+                                                );
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">' + value + '</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

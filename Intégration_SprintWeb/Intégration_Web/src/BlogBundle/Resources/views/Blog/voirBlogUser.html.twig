@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+    <!-- SECTION BANNER -->
+
+    <div class="section-banner">
+        <!-- SECTION BANNER ICON -->
+        <img class="section-banner-icon" src="{{ asset('template/img/banner/events-icon.png') }}" alt="events-icon">
+        <!-- /SECTION BANNER ICON -->
+
+        <!-- SECTION BANNER TITLE -->
+        <p class="section-banner-title">{{ post.sujet }}</p>
+        <!-- /SECTION BANNER TITLE -->
+
+        <!-- SECTION BANNER TEXT -->
+        <p class="section-banner-text">Blogs posté par {{ app.user.username }}</p>
+        <!-- /SECTION BANNER TEXT -->
+    </div>
+    <!-- /SECTION BANNER -->
+    <div class="carousel-item active">
+        <br>
+        <br>
+        <div class="image"><img src="{{ asset('images/') }}{{ post.photo }}" alt=""
+                                class="d-block img-fluid" style="width: 1000px;height: 500px"></div>
+        <br>
+        <br>
+        <p><strong> {{ post.contenu }}</strong></p>
+    <br>
+    <br>
+
+    <!-- FORM -->
+    <!-- FORM -->
+    <form class="form" action="{{ path('add_comment',{'post_id':post.id}) }}">
+        <!-- FORM ROW -->
+        <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small">
+                    <label for="post-reply">Your Reply</label>
+                    <input type="text" id="post-reply" name="contenu">
+
+                </div>
+
+                <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+        </div>
+        {% for c in comment %}
+
+
+            <div class="post-comment">
+                <!-- USER AVATAR -->
+                <a class="user-avatar small no-outline" href="profile-timeline.html">
+                    <!-- USER AVATAR CONTENT -->
+                    <div class="user-avatar-content">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-image-30-32" data-src="{{ asset('images/') }}{{ app.user.imguser }}"  style="width: 30px; height: 32px; position: relative;"><canvas width="30" height="32" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR CONTENT -->
+
+                    <!-- USER AVATAR PROGRESS -->
+                    <div class="user-avatar-progress">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-progress-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR PROGRESS -->
+
+                    <!-- USER AVATAR PROGRESS BORDER -->
+                    <div class="user-avatar-progress-border">
+                        <!-- HEXAGON -->
+                        <div class="hexagon-border-40-44" style="width: 40px; height: 44px; position: relative;"><canvas width="40" height="44" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                        <!-- /HEXAGON -->
+                    </div>
+                    <!-- /USER AVATAR PROGRESS BORDER -->
+
+                    <!-- USER AVATAR BADGE -->
+                    <div class="user-avatar-badge">
+                        <!-- USER AVATAR BADGE BORDER -->
+                        <div class="user-avatar-badge-border">
+                            <!-- HEXAGON -->
+                            <div class="hexagon-22-24" style="width: 22px; height: 24px; position: relative;"><canvas width="22" height="24" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                            <!-- /HEXAGON -->
+                        </div>
+                        <!-- /USER AVATAR BADGE BORDER -->
+
+                        <!-- USER AVATAR BADGE CONTENT -->
+                        <div class="user-avatar-badge-content">
+                            <!-- HEXAGON -->
+                            <div class="hexagon-dark-16-18" style="width: 16px; height: 18px; position: relative;"><canvas width="16" height="18" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
+                            <!-- /HEXAGON -->
+                        </div>
+                        <!-- /USER AVATAR BADGE CONTENT -->
+
+                        <!-- USER AVATAR BADGE TEXT -->
+                        <p class="user-avatar-badge-text">6</p>
+                        <!-- /USER AVATAR BADGE TEXT -->
+                    </div>
+                    <!-- /USER AVATAR BADGE -->
+                </a>
+                <!-- /USER AVATAR -->
+
+                <!-- POST COMMENT TEXT -->
+                <p class="post-comment-text"><a class="post-comment-text-author" href="">{{ app.user.username }}</a><a href="">{{ c.dateCreation |date("m/d/Y") }}</a>!</p>
+                <br>
+                <!-- /POST COMMENT TEXT -->
+                <p>{{ c.contenu }}</p>
+                <!-- /CONTENT ACTIONS -->
+            </div>
+
+        {% endfor %}
+        <!-- /FORM ROW -->
+    </form>
+    <!-- /FORM -->
+
+
+
+
+{% endblock %}

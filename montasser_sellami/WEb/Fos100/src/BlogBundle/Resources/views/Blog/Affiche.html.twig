@@ -1,0 +1,113 @@
+{% extends 'base1.html.twig' %}
+
+
+{% block body %}
+
+
+    <section class="content blog-page">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Liste des Blogs
+                        <small>Welcome to DEVIT</small>
+                    </h2>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> DEVIT</a></li>
+                        <li class="breadcrumb-item"><a href="blog-dashboard.html">BLOG</a></li>
+                        <li class="breadcrumb-item active">Liste des Blogs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <br>
+    <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 left-box">
+                    {% for p in post %}
+                    <div class="card single_post">
+                        <div class="header">
+
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
+                                        <a href="{{path('blog_modifierBlog',{'id':p.id}) }}">Update</a>
+                                        <a href="{{ path('blog_supprimerBlog', {'id':p.id})  }}">Remove</a>
+                                    </ul>
+                                </li>
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="body">
+                            <h3  class="m-t-0 m-b-5"><a href="{{ path('blog_voirBlog', {'id':p.id})  }}" a> {{ p.sujet }}</h3>
+                            <ul class="meta">
+
+                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: MONTINHO</a></li>
+                                <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>Comments: (nbr comment) </a></li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="img-post m-b-15">
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+
+                                        <div class="carousel-item active">
+                                            <div class="image"><img src="{{ asset('images/') }}{{ p.photo }}" alt=""
+                                                                    class="d-block img-fluid" style="width: 1000px;height: 500px"></div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+
+                    </div>
+                    </div>
+            {% endfor %}
+                    <ul class="pagination pagination-primary">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12 right-box">
+                    <div class="card">
+                        <div class="body search">
+                            <div class="input-group m-b-0">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-addon">
+                                <i class="zmdi zmdi-search"></i>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
