@@ -67,4 +67,12 @@ commentaire_addad:
 
 publication_addelete:
     path:    /{id_post}/deletead
-    defaults: { _controller: PublicationBundle:Post:DeletePostad}
+    defaults: { _controller: PublicationBundle:Post:DeletePostad }
+
+chatbotcomp:
+    path:     /{id_user}/yes
+    defaults: { _controller: PublicationBundle:Post:tooop1 }
+
+chatbotcomp23:
+    path:     /{id_user}/evens
+    defaults: { _controller: PublicationBundle:Post:chatbotcomp }
