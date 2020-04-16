@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use CompetitionBundle\Entity\Competition;
 
 class PostController extends Controller
 {
@@ -283,7 +284,7 @@ class PostController extends Controller
       $form->add('contenue', FileType::class, [
           'label' => 'Content(video, text, image)',
           'mapped' => false,
-          'required' => false,
+          'required' => true,
           'constraints' => [
               new \Symfony\Component\Validator\Constraints\File([
                   'maxSize' => '1024M',
@@ -416,6 +417,29 @@ class PostController extends Controller
         }
 
         return $this->redirectToRoute("show_Admin_posts");
+    }
+    public function chatbotcompAction(Request $request,$id_user)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user=$em->getRepository('FOSBundle:User')->find($id_user);
+        $Comp=$em->getRepository("CompetitionBundle:Competition")->findOneBy(array('typedetalent'=>$user->getTypetalent()));
+        if($request->isXmlHttpRequest()&&$Comp!=null)
+        {
+            return $this->json(['imgC'=>$Comp->getImagec(),'nameuser'=>$user->getusername(),'cout' => $Comp->getCout(),'datef'=>$Comp->getDatefin(),]);
+        }
+        else
+        {
+            return $this->json(['imgC'=>null,'nameuser'=>null,'cout' => null,'datef'=>null,]);
+        }
+      return new Response("");
+    }
+    public function tooop1Action(Request $request,$id_user)
+    {   $em=$this->getDoctrine()->getManager();
+        $top=$em->getRepository('PublicationBundle:Post')->findOneBy(array('idauthor'=>$id_user));
+        if($request->isXmlHttpRequest())
+        {
+            return $this->json(['titre' =>$top->getTitre(),'contenue'=>$top->getcontenue(),'Votes'=>$top->getVotesPost()]);
+        }
     }
 
 }
