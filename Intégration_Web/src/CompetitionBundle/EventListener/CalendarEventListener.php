@@ -52,7 +52,7 @@ class CalendarEventListener
             $eventEntity = new EventEntity($companyEvent->getTitre(), $companyEvent->getDatedebut(), null, true);
 
 
-            $eventEntity->setCssClass('calendar-days'); // a custom class you may want to apply to event labels
+            //$eventEntity->setCssClass('.calendar-day-event'); // a custom class you may want to apply to event labels
             $eventEntity->setUrl('/detailuser/'.$companyEvent->getIdcompetition()); // url to send user to when event label is clicked
 
 
