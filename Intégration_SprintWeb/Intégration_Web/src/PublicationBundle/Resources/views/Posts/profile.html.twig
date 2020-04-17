@@ -1,4 +1,4 @@
-{% extends 'baseamine.html.twig' %}
+﻿{% extends 'baseamine.html.twig' %}
 {% block body %}
     <div class="content-grid">
         <!-- PROFILE HEADER -->
@@ -14,7 +14,7 @@
                 <!-- USER SHORT DESCRIPTION -->
                 <div class="user-short-description big">
                     <!-- USER SHORT DESCRIPTION AVATAR -->
-                    <a class="user-short-description-avatar user-avatar big" href="#">
+                    <a class="user-short-description-avatar user-avatar big" href="profile-timeline.html">
                         <!-- USER AVATAR BORDER -->
                         <div class="user-avatar-border">
                             <!-- HEXAGON -->
@@ -315,7 +315,7 @@
                     <!-- /WIDGET BOX SETTINGS -->
 
                     <!-- WIDGET BOX TITLE -->
-                    <p class="widget-box-title">Photos <span class="highlighted"></span></p>
+                    <p class="widget-box-title">Photos<span class="highlighted"></span></p>
                     <!-- /WIDGET BOX TITLE -->
 
                     <!-- WIDGET BOX CONTENT -->
@@ -325,40 +325,38 @@
                             <!-- VIDEO BOX -->
                             {% for pos in posts %}
                                 {% if pos.type=="img" %}
-                            <div class="video-box small">
-                                <!-- VIDEO BOX COVER -->
-                                <div class="video-box-cover popup-video-trigger">
-                                    <!-- VIDEO BOX COVER IMAGE -->
-                                    <figure class="video-box-cover-image liquid">
-                                        <img src="{{ asset('/uploads/img/') ~ pos.contenue }}" alt="cover-08">
-                                    </figure>
-                                    <!-- /VIDEO BOX COVER IMAGE -->
+                                    <div class="video-box small">
+                                        <!-- VIDEO BOX COVER -->
+                                        <div class="video-box-cover popup-video-trigger">
+                                            <!-- VIDEO BOX COVER IMAGE -->
+                                            <figure class="video-box-cover-image liquid">
+                                                <img src="{{ asset('/uploads/img/') ~ pos.contenue }}" alt="cover-08">
+                                            </figure>
+                                            <!-- /VIDEO BOX COVER IMAGE -->
 
 
-                                    <!-- VIDEO BOX INFO -->
-                                    <div class="video-box-info">
-                                        <!-- VIDEO BOX TITLE -->
-                                        <p class="video-box-title">{{ pos.titre }}</p>
-                                        <!-- /VIDEO BOX TITLE -->
+                                            <!-- VIDEO BOX INFO -->
+                                            <div class="video-box-info">
+                                                <!-- VIDEO BOX TITLE -->
+                                                <p class="video-box-title">{{ pos.titre }}</p>
+                                                <!-- /VIDEO BOX TITLE -->
 
-                                        <!-- VIDEO BOX TEXT -->
-                                        <p class="video-box-text">{{ pos.date|date }}</p>
-                                        <!-- /VIDEO BOX TEXT -->
+                                                <!-- VIDEO BOX TEXT -->
+                                                <p class="video-box-text">{{ pos.date|date }}</p>
+                                                <!-- /VIDEO BOX TEXT -->
+                                            </div>
+                                            <!-- /VIDEO BOX INFO -->
+                                        </div>
+                                        <!-- /VIDEO BOX COVER -->
                                     </div>
-                                    <!-- /VIDEO BOX INFO -->
-                                </div>
-                                <!-- /VIDEO BOX COVER -->
-                            </div>
                                 {% endif %}
                             {% endfor %}
                         </div>
                         <!-- /VIDEO BOX LIST -->
                     </div>
                     <!-- WIDGET BOX CONTENT -->
-
                 </div>
                 <!-- /WIDGET BOX -->
-
 
             </div>
             <!-- /GRID COLUMN -->
