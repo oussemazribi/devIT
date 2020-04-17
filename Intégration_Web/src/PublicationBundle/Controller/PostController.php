@@ -35,7 +35,6 @@ class PostController extends Controller
             'constraints' => [
                 new \Symfony\Component\Validator\Constraints\File([
                     'maxSize' => '1024M',
-
                     'mimeTypesMessage' => 'Please upload a valid document',
                 ])
             ],
