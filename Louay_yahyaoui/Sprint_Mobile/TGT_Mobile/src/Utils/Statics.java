@@ -10,6 +10,6 @@ package Utils;
  * @author loume78
  */
 public class Statics {
-     public static final String BASE_URL="http://localhost/Intégration_Web/web/app_dev.php";
+     public static final String BASE_URL="http://localhost/Intégration_Web";
     
 }
