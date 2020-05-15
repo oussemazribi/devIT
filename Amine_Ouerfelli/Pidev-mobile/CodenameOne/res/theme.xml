@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="9" useXmlUI="false">
+    <image name="background toolbar.png"  />
+    <image name="camera.png"  />
+    <image name="comment_icon.png"  />
+    <image name="dis.png"  />
+    <image name="heart.png"  />
+    <image name="heart_icon.png"  />
+    <image name="icons8-dossier-de-photos-60.png"  />
+    <image name="icons8-effacer-50.png"  />
+    <image name="icons8-modifier-50.png"  />
+    <image name="like1.png"  />
+    <ui name="post" />
+    <image name="postmenu.png"  />
+    <image name="submit.png"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+        <val key="contenuettexte.bgColor" value="ffffff" />
+        <val key="contenuettexte.transparency" value="255" />
+        <val key="postbody.bgColor" value="ffffff" />
+        <val key="postbody.transparency" value="255" />
+    </theme>
+</resource>

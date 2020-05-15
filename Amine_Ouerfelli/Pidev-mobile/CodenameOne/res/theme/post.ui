@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="post" cloudDestinationProperty="post" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" uiid="postbody" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+  </component>
+  <component type="Label" name="Label" cloudDestinationProperty="Label" uiid="contenuettexte" text="Label" >
+  </component>
+</component>
