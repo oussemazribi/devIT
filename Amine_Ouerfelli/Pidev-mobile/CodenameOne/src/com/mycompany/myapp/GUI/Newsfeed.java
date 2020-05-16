@@ -22,5 +22,6 @@ public class Newsfeed extends Form  {
         setTitle("Newsfeed");
         setName("Newsfeed");
     }// </editor-fold>
+
 //-- DON'T EDIT ABOVE THIS LINE!!!
 }
