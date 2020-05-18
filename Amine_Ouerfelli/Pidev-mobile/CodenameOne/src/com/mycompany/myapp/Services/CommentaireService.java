@@ -34,9 +34,10 @@ public class CommentaireService {
     }
     
     public boolean ajoutercommentaire(Commentaire c) {
-        String url = Statics.BASE_URL + "/addcommentfromphone";
-        req.addArgument("contenu",c.getcontenu());
+        String url = Statics.BASE_URL + "/newcom/"+c.getpost().getId()+"/"+c.getcontenu()+"/"+c.getiduser().getId();
         req.setUrl(url);
+        req.setPost(true);
+        req.addArgument("contenu",c.getcontenu());
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
@@ -49,7 +50,7 @@ public class CommentaireService {
     }
     public boolean supprimerCommentaire(Commentaire c)
     {
-         String url = Statics.BASE_URL + "/DeleteCom/"+c.getid();
+         String url = Statics.BASE_URL + "/supcommentaire/"+c.getid();
          req.setUrl(url);
          req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -63,8 +64,7 @@ public class CommentaireService {
     }
         public boolean ediCommentaire(Commentaire c)
     {
-         String url = Statics.BASE_URL + "/editCom/"+c.getid();
-         req.addArgument("contenu",c.getcontenu());
+         String url = Statics.BASE_URL+ "/"+c.getid()+ "/edcom/"+c.getcontenu();
          req.setUrl(url);
          req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

@@ -33,9 +33,10 @@ public class VoteService {
         return instance;
     }
     
-    public boolean reagir(votes v) {
-        String url = Statics.BASE_URL + "/react/"+v.getvaleur()+"/"+v.getidpublication();
+    public boolean vote(votes v) {
+        String url = Statics.BASE_URL + "/votephone/"+v.getvaleur()+"/"+v.getidpublication();
         req.setUrl(url);
+        req.addArgument("iduser",Integer.toString(v.getiduser().getId()));
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {

@@ -2,6 +2,9 @@
 
 <component type="Form" name="post" cloudDestinationProperty="post" >
   <component type="Container" name="Container" cloudDestinationProperty="Container" uiid="postbody" layout="BorderLayout" borderLayoutAbsoluteCenter="false" >
+    <component type="Button" name="Button" cloudDestinationProperty="Button" uiid="bt" text="Button" >
+      <layoutConstraint value="Center" />
+    </component>
   </component>
   <component type="Label" name="Label" cloudDestinationProperty="Label" uiid="contenuettexte" text="Label" >
   </component>

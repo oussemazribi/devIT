@@ -31,7 +31,34 @@ public class Publication implements Serializable,Externalizable {
     private Integer nb_votes;
     ArrayList<Medias> mediapost;
     ArrayList<Commentaire>  Commentaires;
+    ArrayList<reactions> Reactions=new ArrayList();
+    ArrayList<votes> Votes=new ArrayList();
+    private String type;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public ArrayList<reactions> getReactions() {
+        return Reactions;
+    }
+
+    public void setReactions(ArrayList<reactions> Reactions) {
+        this.Reactions = Reactions;
+    }
+
+    public ArrayList<votes> getVotes() {
+        return Votes;
+    }
+
+    public void setVotes(ArrayList<votes> Votes) {
+        this.Votes = Votes;
+    }
+    
     public String getTitre() {
         return titre;
     }
@@ -189,7 +216,7 @@ public class Publication implements Serializable,Externalizable {
 
     @Override
     public String toString() {
-        return "Publication{" + "id=" + id + ", contenu=" + contenu + ", datePublication=" + datePublication + ", idUser=" + idUser +",nombre des reactions="+nb_reacts+",nombre des commentaires="+nb_comments+",nombre des votes="+nb_votes+ '}';
+        return "Publication{" + "id=" + id +",type="+type+ ", contenu=" + contenu + ", datePublication=" + datePublication + ", idUser=" + idUser +",nombre des reactions="+nb_reacts+",nombre des commentaires="+nb_comments+",nombre des votes="+nb_votes+ '}';
     }
     
     @Override

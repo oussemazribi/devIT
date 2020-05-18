@@ -5,6 +5,7 @@
  */
 package com.mycompany.myapp.GUI;
 
+import Sessioncontrol.Session;
 import com.codename1.ui.Button;
 import static com.codename1.ui.Component.CENTER;
 import static com.codename1.ui.Component.TOP;
@@ -139,6 +140,7 @@ public class addnewpost extends Form {
              Publication p=new Publication();
              p.setContenu(Contenu.getText());
              p.setTitre(title.getText());
+             p.setIdUser(Session.getInstance().getuser());
                 try {
                     boolean yes=PostService.getInstance().addPost(p, MediaContainer);
                     if(yes)

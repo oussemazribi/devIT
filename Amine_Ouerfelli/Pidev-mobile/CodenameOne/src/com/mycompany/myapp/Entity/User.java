@@ -44,7 +44,7 @@ public class User implements Serializable,Externalizable {
         this.imguser = imguser;
     }
 
-    private User() {
+    public User() {
        
     }
 
@@ -275,7 +275,10 @@ public class User implements Serializable,Externalizable {
             user.setUsername(mappedUser.get("username").toString());
         if(mappedUser.get("imguser") != null)
             user.setImguser(mappedUser.get("imguser").toString());
-
+        if(mappedUser.get("password")!=null)
+            user.setPassword(mappedUser.get("password").toString());
+         if(mappedUser.get("email")!=null)
+            user.setPassword(mappedUser.get("password").toString());
         return user;
     }
     

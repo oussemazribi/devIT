@@ -12,19 +12,19 @@ import java.util.Date;
  * @author asus
  */
 public class reactions {
-    private int id_user;
+    private User id_user;
     private int id_publication;
     private Date date;
     private int type;
     
-    public reactions(int id_user,int id_publication,Date date,int type)
+    public reactions(User id_user,int id_publication,Date date,int type)
     {
         this.id_user=id_user;
         this.id_publication=id_publication;
         this.date=date;
         this.type=type;
     }
-       public reactions(int id_user,int id_publication,int type)
+       public reactions(User id_user,int id_publication,int type)
     {
         this.id_user=id_user;
         this.id_publication=id_publication;
@@ -32,13 +32,17 @@ public class reactions {
         this.type=type;
     }
 
+    public reactions() {
+        
+    }
 
-     public void setiduser(int iduser)
+
+     public void setiduser(User iduser)
     {
         this.id_user=iduser;
         
     }  
-    public int getiduser()
+    public User getiduser()
     {
         return id_user;
     }

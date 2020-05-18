@@ -36,6 +36,7 @@ public class ReactService {
     public boolean reagir(reactions r) {
         String url = Statics.BASE_URL + "/react/"+r.gettype()+"/"+r.getidpublication();
         req.setUrl(url);
+        req.addArgument("iduser",Integer.toString(r.getiduser().getId()));
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {

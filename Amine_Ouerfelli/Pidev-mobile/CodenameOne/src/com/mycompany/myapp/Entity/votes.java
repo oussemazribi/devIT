@@ -10,31 +10,35 @@ import java.util.Date;
  * @author asus
  */
 public class votes {
-    private int id_user;
+    private User id_user;
     private int id_publication;
     private Date date;
     private int valeur;
     
-    public votes(int id_user,int id_publication,Date date,int valeur)
+    public votes(User id_user,int id_publication,Date date,int valeur)
     {
         this.id_user=id_user;
         this.id_publication=id_publication;
         this.date=date;
         this.valeur=valeur;
     }
-      public votes(int id_user,int id_publication,int valeur)
+      public votes(User id_user,int id_publication,int valeur)
     {
         this.id_user=id_user;
         this.id_publication=id_publication;
         this.valeur=valeur;
     }
+
+    public votes() {
+       
+    }
     
-     public void setiduser(int iduser)
+     public void setiduser(User iduser)
     {
         this.id_user=iduser;
         
     }  
-    public int getiduser()
+    public User getiduser()
     {
         return id_user;
     }

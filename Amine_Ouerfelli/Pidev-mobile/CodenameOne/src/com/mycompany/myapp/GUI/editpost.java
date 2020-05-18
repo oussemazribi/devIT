@@ -46,7 +46,7 @@ public class editpost extends Form {
         current = this;
         setTitle("Home");
         setLayout(new BorderLayout());
-        getToolbar().addCommandToLeftBar(SOUTH, null, new ActionListener() {
+        getToolbar().addCommandToLeftBar("home", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 new Home(theme).show();
