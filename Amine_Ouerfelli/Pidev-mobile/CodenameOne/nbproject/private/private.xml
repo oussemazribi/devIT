@@ -4,22 +4,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/WalkthruForm.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/Userservices.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Entity/reactions.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/SignInForm.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/BaseForm.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/Sessioncontrol/Session.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/MyApplication.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/MediaService.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/Home.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Entity/User.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/VoteService.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/ReactService.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/SplashForm.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/GUI/Listedesreactions.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/CommentaireService.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/CodenameOne/src/com/mycompany/myapp/Services/PostService.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/Services/CommentaireService.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/GUI/addnewpost.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/Services/PostService.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/Utils/Statics.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/GUI/show1post.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/Services/MediaService.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/GUI/editpost.java</file>
+            <file>file:/C:/Users/HPENVY/Documents/GitHub/devIT/Amine_Ouerfelli/Pidev-mobile/CodenameOne/src/com/mycompany/myapp/GUI/Home.java</file>
         </group>
     </open-files>
 </project-private>
