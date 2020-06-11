@@ -14,6 +14,7 @@ import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
 import com.mycompany.myapp.GUI.Home;
+import com.mycompany.myapp.GUI.HomeBlog;
 import com.mycompany.myapp.GUI.SignInForm;
 
 /**
@@ -54,7 +55,8 @@ public class MyApplication {
             current.show();
             return;
         }
-       new SignInForm(theme_1).show();
+      // new SignInForm(theme_1).show();
+        new SignInForm(theme_1).show();
         
     }
 

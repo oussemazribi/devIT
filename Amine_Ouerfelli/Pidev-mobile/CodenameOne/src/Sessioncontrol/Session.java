@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import org.mindrot.jbcrypt.BCrypt;
+import org.mindrot.BCrypt;
 
 /**
  *
@@ -130,7 +130,7 @@ public class Session {
 
     public User getFullConnectedUser() {
         ConnectionRequest con = new ConnectionRequest();
-        con.setUrl(Statics.BASE_URL + "/piintegration/web/app_dev.php/interaction/user");
+        con.setUrl(Statics.BASE_URL + "/Rana_Web/web/app_dev.php/interaction/user");
         User user = new User();
         con.addResponseListener((NetworkEvent evt) -> {
             try {
