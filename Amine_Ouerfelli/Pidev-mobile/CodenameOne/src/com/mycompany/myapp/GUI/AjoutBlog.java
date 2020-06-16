@@ -28,9 +28,9 @@ import com.mycompany.myapp.Entity.Blog;
 import com.mycompany.myapp.Services.ServiceBlog;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.LocalDateTime;
+import java.util.Date;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -43,22 +43,27 @@ public class AjoutBlog extends Form {
     Button photo = new Button("Ajouter image");
     String cap ="";
     Label ph = new Label();
+     LocalDateTime date1 ; 
 
     public AjoutBlog(Resources res) {
         setTitle("Ajout d'un nouveau Blog");
         setLayout(BoxLayout.y());
         TextField tfSujet = new TextField("", "sujet du Blog");
         TextField tfcontenu = new TextField("", "Contenu du blog");
+        Label l1 = new Label();
+        l1.setText("la date est"+date1);
         photo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 Display.getInstance().openGallery(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
+                        
                        String photo1 = (String) evt.getSource();
                           String filePath = Capture.capturePhoto();
            if (filePath != null) {
                try {
+                   System.out.println("date local"+date1);
                    photo1 = FileSystemStorage.getInstance().getAppHomePath() +  ".png";
                    
                    Image img = Image.createImage(filePath);
@@ -118,7 +123,8 @@ public class AjoutBlog extends Form {
                 }
             }
         });
- addAll(tfSujet,tfcontenu,TripDate,photo,btnValider);
+       
+ addAll(tfSujet,tfcontenu,TripDate,photo,btnValider,l1);
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK
                 , e->  {
              HomeBlog m = new HomeBlog(res);
