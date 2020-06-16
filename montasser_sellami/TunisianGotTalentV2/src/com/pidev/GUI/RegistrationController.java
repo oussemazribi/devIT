@@ -4,7 +4,14 @@ import com.pidev.Service.Mailing;
 import com.pidev.Service.ServiceUser;
 import com.pidev.Entite.User;
 import java.io.File;
+import java.io.FileInputStream;
+//import java.io.FileInputStreimport java.io.InputStream;
+import java.io.OutputStream;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -25,11 +32,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Hyperlink;
+
+
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -39,6 +49,10 @@ import javax.swing.filechooser.FileSystemView;
 public class RegistrationController implements Initializable {
 
     String path;
+     @FXML
+    private String Imguser;
+     @FXML
+    private ImageView imageU;
     @FXML
     private TextField txtNom;
     @FXML
@@ -155,6 +169,7 @@ public class RegistrationController implements Initializable {
 
                 user.setTypeTalent(combo_typeTalent.getValue());
                 user.setTypeCompte(combo_typeCompte.getValue());
+                user.setImguser(Imguser);
             
             JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
             String txt_CodeConfirmation = jop.showInputDialog(null, "Merci de saisir le code de verification !", "Verification Adresse Mail", JOptionPane.QUESTION_MESSAGE);
@@ -179,20 +194,59 @@ public class RegistrationController implements Initializable {
 
     }
 
+//    @FXML
+//    public void btnParcourir(ActionEvent event) throws IOException {
+//
+//        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+//
+//        int returnValue = jfc.showOpenDialog(null);
+//        // int returnValue = jfc.showSaveDialog(null);
+//
+//        if (returnValue == JFileChooser.APPROVE_OPTION) {
+//            File selectedFile = jfc.getSelectedFile();
+//            System.out.println(selectedFile.getAbsolutePath());
+//            path = selectedFile.getAbsolutePath();
+//            u.setImguser(path);
+//
+//        }
+//
+//    }
+    
     @FXML
-    public void btnParcourir(ActionEvent event) throws IOException {
+    public void ChoiceImage() throws FileNotFoundException, IOException {
+        FileChooser fc = new FileChooser();
+        //fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Images", listFichier));
+        File f = fc.showOpenDialog(null);
+        if (f != null) {
 
-        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            //Commentaire.setText("Image selectionnée" + f.getAbsolutePath());
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = new FileInputStream(new File(f.getAbsolutePath()));
+//             
+                os = new FileOutputStream(new File("C:/wamp64/www/Image_PI/" + f.getName()));
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
+                }
+                System.out.println("louay");
 
-        int returnValue = jfc.showOpenDialog(null);
-        // int returnValue = jfc.showSaveDialog(null);
+            } finally {
+                is.close();
+                os.close();
 
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jfc.getSelectedFile();
-            System.out.println(selectedFile.getAbsolutePath());
-            path = selectedFile.getAbsolutePath();
-            u.setImguser(path);
+            }
 
+            File file = new File("C:/wamp64/www/Image_PI/" + f.getName());
+//            System.out.println(file.toURI().toString());
+            imageU.setImage(new Image(file.toURI().toString()));
+            Imguser = f.getName();
+            System.out.println(Imguser);
+        } else if (f == null) {
+            //Commentaire.setText("Erreur chargement de l'image");
+            System.out.println("Erreur !");
         }
 
     }

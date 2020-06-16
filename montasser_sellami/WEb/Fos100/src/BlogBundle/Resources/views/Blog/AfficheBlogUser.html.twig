@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+    <!-- SECTION BANNER -->
+
+    <div class="section-banner">
+        <!-- SECTION BANNER ICON -->
+        <img class="section-banner-icon" src="{{ asset('template/img/banner/events-icon.png') }}" alt="events-icon">
+        <!-- /SECTION BANNER ICON -->
+
+        <!-- SECTION BANNER TITLE -->
+        <p class="section-banner-title">Blogs</p>
+        <!-- /SECTION BANNER TITLE -->
+
+        <!-- SECTION BANNER TEXT -->
+        <p class="section-banner-text">Consulter tout les Blogs posté par TGT</p>
+        <!-- /SECTION BANNER TEXT -->
+    </div>
+    <!-- /SECTION BANNER -->
+
+
+    {% for p in post %}
+    <!-- GRID -->
+    <div class="grid grid-3-3-3-3 centered">
+        <!-- POST PREVIEW -->
+        <div class="post-preview">
+            <!-- POST PREVIEW IMAGE -->
+            <figure class="post-preview-image liquid">
+                <img src="{{ asset('images/') }}{{ p.photo }}" alt="cover-19">
+            </figure>
+            <!-- /POST PREVIEW IMAGE -->
+    <div class="post-preview-info fixed-height">
+        <!-- POST PREVIEW INFO TOP -->
+        <div class="post-preview-info-top">
+            <!-- POST PREVIEW TIMESTAMP -->
+            <p class="post-preview-timestamp"></p>
+            <!-- /POST PREVIEW TIMESTAMP -->
+
+            <!-- POST PREVIEW TITLE -->
+            <p class="post-preview-title">{{ p.sujet }}</p>
+            <!-- /POST PREVIEW TITLE -->
+        </div>
+        <!-- /POST PREVIEW INFO TOP -->
+
+        <!-- POST PREVIEW INFO BOTTOM -->
+        <div class="post-preview-info-bottom">
+            <!-- POST PREVIEW TEXT -->
+            <p class="post-preview-text"> {{ p.contenu }}</p>
+            <!-- /POST PREVIEW TEXT -->
+
+            <!-- POST PREVIEW LINK -->
+            <a class="post-preview-link" href="profile-post.html">Read more...</a>
+            <!-- /POST PREVIEW LINK -->
+        </div>
+
+        <!-- /POST PREVIEW INFO BOTTOM -->
+    </div>
+        </div>>
+    {% endfor %}
+    <!-- /POST PREVIEW INFO -->
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+    <div class="content-grid full">
+        <!-- POST OPEN -->
+        <article class="post-open">
+
+            <!-- POST OPEN COVER -->
+            <figure class="post-open-cover liquid">
+                <img src="{{ asset('template/img/cover/'~Competition.imageC) }}" alt="cover-19">
+            </figure>
+            <!-- /POST OPEN COVER -->
+
+
+
+            <!-- POST OPEN BODY -->
+            <div class="post-open-body">
+                <!-- POST OPEN HEADING -->
+                <div class="post-open-heading">
+                    <!-- POST OPEN TIMESTAMP -->
+                    <p class="post-open-timestamp"><span class="highlighted">{{ Competition.DateDebut|date('F jS ') }}</span> <span class="highlighted"></span>{{ Competition.DateFin|date('F jS ') }}</p>
+                    <br>
+                    <p class="post-open-timestamp">{{ Competition.Cout }}  <span class="highlighted">Diamond</span> </p>
+                    <!-- /POST OPEN TIMESTAMP -->
+                    <!-- TAG LIST -->
+
+
+
+
+                    <!-- /TAG LIST -->
+
+                    <!-- POST OPEN TITLE -->
+                    <h2 class="post-open-title">{{ Competition.Titre }}</h2>
+
+
+                    <!-- /POST OPEN TITLE -->
+                    <br>
+                    <div class="tag-list">
+                        <!-- TAG ITEM -->
+                        <a class="tag-item secondary" >{{Competition.Typedetalent}}</a>
+                        <!-- /TAG ITEM -->
+
+
+
+                    </div>
+
+                </div>
+                <!-- /POST OPEN HEADING -->
+
+
+                <!-- POST OPEN CONTENT -->
+                <div class="post-open-content">
+
+
+                    <!-- POST OPEN CONTENT BODY -->
+                    <div class="post-open-content-body">
+                        <!-- POST OPEN PARAGRAPH -->
+                        <p class="post-open-paragraph">{{ Competition.Description }}</p>
+                        <!-- /POST OPEN PARAGRAPH -->
+
+
+
+                        <br><br>
+
+                        <div class="tag-list">
+                            <!-- TAG ITEM -->
+
+                            <a class="tag-item  secondary btn-outline-danger" href="{{ path('affichercompetition')  }}">Retour</a>
+
+                            <!-- /TAG ITEM -->
+
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                    <!-- /POST OPEN CONTENT BODY -->
+                </div>
+                <!-- /POST OPEN CONTENT -->
+
+
+
+
+            </div>
+            <!-- /POST OPEN BODY -->
+
+
+
+
+    </article>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -39,7 +39,7 @@ public class HomePage extends Application {
         try {
             
           
-            Parent root1 = FXMLLoader.load(getClass().getResource("listAmis.fxml"));
+            Parent root1 = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
             primaryStage.setTitle("Authentification");
             Scene scene = new Scene(root1);
                     this.stage = primaryStage;

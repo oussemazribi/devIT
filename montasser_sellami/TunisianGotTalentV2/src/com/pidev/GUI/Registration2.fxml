@@ -36,7 +36,7 @@
       <TextField fx:id="txtPrenom" layoutX="122.0" layoutY="187.0" prefHeight="32.0" prefWidth="229.0" promptText="Prenom" />
       <TextField fx:id="txtNom" layoutX="122.0" layoutY="122.0" prefHeight="32.0" prefWidth="229.0" promptText="Nom" />
       <Label fx:id="lblResultat" layoutX="439.0" layoutY="228.0" prefHeight="71.0" prefWidth="122.0" />
-      <Button fx:id="btnParcourir" layoutX="622.0" layoutY="402.0" mnemonicParsing="false" onAction="#btnParcourir" prefHeight="32.0" prefWidth="236.0" text="Parcourir Image" />
+      <Button layoutX="622.0" layoutY="402.0" mnemonicParsing="false" onAction="#ChoiceImage" prefHeight="32.0" prefWidth="236.0" text="Parcourir Image" />
       <TextField fx:id="txtTelephone" layoutX="624.0" layoutY="122.0" prefHeight="32.0" prefWidth="236.0" promptText="Telephone" />
       <DatePicker fx:id="date" layoutX="622.0" layoutY="186.0" prefHeight="32.0" prefWidth="236.0" />
       <ComboBox fx:id="combo_typeTalent" layoutX="622.0" layoutY="327.0" prefHeight="40.0" prefWidth="236.0" promptText="Type_Talent&#10;&#10;&#10;" visibleRowCount="3" />
@@ -53,5 +53,6 @@
             <Font size="39.0" />
          </font>
       </Label>
+      <ImageView fx:id="imageU" fitHeight="150.0" fitWidth="200.0" layoutX="860.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

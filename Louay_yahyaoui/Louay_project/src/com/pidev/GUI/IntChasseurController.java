@@ -5,10 +5,12 @@
  */
 package com.pidev.GUI;
 
+import com.jfoenix.controls.JFXTextField;
 import com.pidev.Entite.Competition;
 import com.pidev.Entite.User;
 import static com.pidev.GUI.tnGotTalent.Userconnected;
 import com.pidev.Service.ServiceCompetition;
+import com.sun.mail.iap.Literal;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -463,14 +465,17 @@ public class IntChasseurController implements Initializable {
         String Titre = titre.getText();
         String Description = desc.getText();
         String TypeTalent = talent.getValue();
-        int Cout = Integer.parseInt(cout.getText());
-
-        Competition c1 = new Competition(Userconnected, Titre, Description, TypeTalent, DateD, DateFe, Cout, ImageComp);
+        //int Cout = Integer.parseInt(cout.getText());
+        System.out.println(cout.getText());
+        System.out.println(testCout());
+        if(testCout()==true)
+        {
+        Competition c1 = new Competition(Userconnected, Titre, Description, TypeTalent, DateD, DateFe,Integer.parseInt(cout.getText()), ImageComp);
         ServiceCompetition ser1 = new ServiceCompetition();
         //boolean test = false;
         //ser1.ajouter1(c1);
         if (ser1.findBy(c1) == false) {
-            if (testSaisie() == true) {
+            if ((testSaisie() == true) && (testCout()==true)) {
 //                if (testDateFin() == true) {
 //                    if ((!cout.getText().isEmpty()) && (!titre.getText().isEmpty())) {
 //                        if (testCout() == true) {
@@ -508,6 +513,13 @@ public class IntChasseurController implements Initializable {
             flowPaneComp.getChildren().clear();
             affichageUS();
 
+        }
+        }
+        else
+        {
+            Alert alert1 = new Alert(Alert.AlertType.ERROR, "le cout doit etre un entier ! ", ButtonType.OK);
+            alert1.show();
+            
         }
 
     }
@@ -694,7 +706,7 @@ public class IntChasseurController implements Initializable {
 //
 //        if (nbNonChar == 0 && NomTXFLD.getText().trim().length() >= 3) {
 //            nomCheckMark.setImage(new Image("Images/checkMark.png"));
-//            return true;
+//            return true; 
 //        } else {
 //            nomCheckMark.setImage(new Image("Images/erreurcheckMark.png"));
 ////                erreur = erreur + ("Pas de caractere permit dans le telephone\n");
@@ -741,7 +753,9 @@ public class IntChasseurController implements Initializable {
     
     
         
-       if(cout.getText().matches("([0-9]+(\\.[0-9]+)?)+"))
+           
+        
+       if((cout.getText().matches("^[0-9]*$")))
        {
             File file = new File("C:/wamp64/www/PI_DEV_Image/tick.png");
 //            System.out.println(file.toURI().toString());
@@ -755,6 +769,18 @@ public class IntChasseurController implements Initializable {
         coutCheck.setImage(new Image(file.toURI().toString()));
         return false;
     }
+
+    }
+    
+     private void fonction(java.awt.event.KeyEvent evt)
+    {
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) ||( c==KeyEvent.VK_BACK_SPACE ) || c==KeyEvent.VK_DELETE))
+        {
+                        evt.consume();
+
+            
+        }
     }
 
 //    @FXML
@@ -800,5 +826,13 @@ public class IntChasseurController implements Initializable {
 
     @FXML
     private void chat1(MouseEvent event) {
+    }
+
+    @FXML
+    private void fonction(javafx.scene.input.KeyEvent event) {
+    }
+
+    @FXML
+    private void fonction(ActionEvent event) {
     }
 }

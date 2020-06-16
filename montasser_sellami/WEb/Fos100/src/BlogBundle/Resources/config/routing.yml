@@ -1,0 +1,21 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+blog_ajoutBlog:
+    path:     /Ajout
+    defaults: { _controller: BlogBundle:Blog:ajoutBlog }
+blog_afficheBlog:
+    path:     /Affiche
+    defaults: { _controller: BlogBundle:Blog:afficheBlog }
+blog_supprimerBlog:
+    path:     /supprimerBlog/{id}
+    defaults: { _controller: BlogBundle:Blog:supprimerBlog }
+blog_modifierBlog:
+    path:     /modifierBlog/{id}
+    defaults: { _controller: BlogBundle:Blog:modifierBlog }
+blog_voirBlog:
+    path:     /voirBlog/{id}
+    defaults: { _controller: BlogBundle:Blog:voirBlog }
+blog_afficheBlogUser:
+    path:     /AfficheBlogUser
+    defaults: { _controller: BlogBundle:Blog:afficheBlogUser }

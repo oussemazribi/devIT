@@ -1,0 +1,8 @@
+{
+    "name": "onesignal/emoji-picker",
+    "description": "Add a slick emoji selector to input fields and textareas on your website.",
+    "require": {
+    },
+    "require-dev": {
+    }
+}

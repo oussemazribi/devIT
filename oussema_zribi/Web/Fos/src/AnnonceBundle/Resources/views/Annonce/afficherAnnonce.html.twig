@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <script>
+        /**
+         * After calling notifications_assets() "pusher" is now available
+         * and you can use it this way
+         */
+
+            // select the channel you want to listen to
+        var channel = pusher.subscribe("notifications");// notifications channel
+        channel.bind("my-event", function(data) {
+            console.log('from notifications channel', data);
+        });
+
+        var channel = pusher.subscribe("messages");// messages channel
+        channel.bind("my-event", function(data) {
+            console.log('from messages channel', data);
+        });
+    </script>
+
+
+
+
+<!-- CONTENT GRID -->
+<div class="content-grid">
+    <!-- SECTION BANNER -->
+    <div class="section-banner">
+        <!-- SECTION BANNER ICON -->
+        <img class="section-banner-icon" src="{{ asset('template/img/banner/marketplace-icon.png') }}" alt="marketplace-icon">
+        <!-- /SECTION BANNER ICON -->
+
+        <!-- SECTION BANNER TITLE -->
+        <p class="section-banner-title">Marketplace</p>
+        <!-- /SECTION BANNER TITLE -->
+
+        <!-- SECTION BANNER TEXT -->
+        <p class="section-banner-text">The best place to buy and sell!</p>
+        <!-- /SECTION BANNER TEXT -->
+    </div>
+    <!-- /SECTION BANNER -->
+
+    <!-- SECTION FILTERS BAR -->
+    <div class="section-filters-bar v6">
+        <!-- SECTION FILTERS BAR ACTIONS -->
+
+        <div class="section-filters-bar-actions">
+            <!-- FORM -->
+            <form class="form">
+                <!-- FORM ITEM -->
+                <div class="form-item split">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small">
+                        <label for="events-search">Search Events</label>
+                        <input type="text" id="events-search" name="events_search">
+                    </div>
+                    <!-- /FORM INPUT -->
+
+                    <!-- BUTTON -->
+                    <button class="button primary">
+                        <!-- ICON MAGNIFYING GLASS -->
+                        <svg class="icon-magnifying-glass">
+                            <use xlink:href="#svg-magnifying-glass"></use>
+                        </svg>
+                        <!-- /ICON MAGNIFYING GLASS -->
+                    </button>
+                    <!-- /BUTTON -->
+                </div>
+                <!-- /FORM ITEM -->
+            </form>
+            <!-- /FORM -->
+        </div>
+        <!-- /SECTION FILTERS BAR ACTIONS -->
+        <div class="section-filters-bar-actions">
+            <p class="button danger popup-event-creation-trigger" >
+                <a href="{{ path('ajouterannonce')  }}">+ Add New</a>
+
+
+            </p>
+
+        </div>
+
+        <!-- SECTION FILTERS BAR ACTIONS -->
+
+        <!-- /SECTION FILTERS BAR ACTIONS -->
+    </div>
+    <!-- /SECTION FILTERS BAR -->
+
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">See what's new!</p>
+            <!-- /SECTION PRETITLE -->
+
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">Latest Items</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+
+        <!-- /SECTION HEADER ACTIONS -->
+    </div>
+    <!-- /SECTION HEADER -->
+
+    <!-- GRID -->
+    <div class="grid grid-3-3-3-3 centered">
+    {% for a in Annonce %}
+        <!-- PRODUCT PREVIEW -->
+        <div class="product-preview">
+            <!-- PRODUCT PREVIEW IMAGE -->
+            <a href="{{ path('detailannonce', {'id':a.idAnnonce})  }}">
+                <figure class="product-preview-image liquid">
+                    <img src="{{ asset('template/img/cover/'~a.images ) }}" alt="item-01">
+                </figure>
+            </a>
+            <!-- /PRODUCT PREVIEW IMAGE -->
+
+            <!-- PRODUCT PREVIEW INFO -->
+            <div class="product-preview-info">
+                <!-- TEXT STICKER -->
+                <p class="text-sticker"><span class="highlighted">DNT</span> {{ a.prix }}</p>
+                <!-- /TEXT STICKER -->
+
+                <!-- PRODUCT PREVIEW TITLE -->
+                <p class="product-preview-title"><a href="{{ path('detailannonce', {'id':a.idAnnonce})  }}">{{ a.nom }}</a></p>
+                <!-- /PRODUCT PREVIEW TITLE -->
+
+
+                <!-- PRODUCT PREVIEW TEXT -->
+                <p class="product-preview-text">{{ a.description }}</p>
+                <!-- /PRODUCT PREVIEW TEXT -->
+            </div>
+            <!-- /PRODUCT PREVIEW INFO -->
+
+            <!-- PRODUCT PREVIEW META -->
+            <div class="product-preview-meta">
+                <!-- PRODUCT PREVIEW AUTHOR -->
+                <div class="product-preview-author">
+                    <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
+                    <a class="product-preview-author-image user-avatar micro no-border" href="profile-timeline.html">
+                        <!-- USER AVATAR CONTENT -->
+                        <div class="user-avatar-content">
+                            <!-- HEXAGON -->
+                            <div class="hexagon-image-18-20" data-src="{{ asset('template/img/avatar/'~a.user.imguser) }}"></div>
+                            <!-- /HEXAGON -->
+                        </div>
+                        <!-- /USER AVATAR CONTENT -->
+                    </a>
+                    <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
+
+                    <!-- PRODUCT PREVIEW AUTHOR TITLE -->
+                    <p class="product-preview-author-title">Posted By</p>
+                    <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
+
+                    <!-- PRODUCT PREVIEW AUTHOR TEXT -->
+                    <p class="product-preview-author-text"><a href="profile-timeline.html">{{ a.user.username }}</a></p>
+                    <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
+                </div>
+                <!-- /PRODUCT PREVIEW AUTHOR -->
+
+                <!-- RATING LIST -->
+                <div class="rating-list">
+                    <!-- RATING -->
+                    <div class="rating filled">
+                        <!-- RATING ICON -->
+                        <svg class="rating-icon icon-star">
+                            <use xlink:href="#svg-star"></use>
+                        </svg>
+                        <!-- /RATING ICON -->
+                    </div>
+                    <!-- /RATING -->
+
+                    <!-- RATING -->
+                    <div class="rating filled">
+                        <!-- RATING ICON -->
+                        <svg class="rating-icon icon-star">
+                            <use xlink:href="#svg-star"></use>
+                        </svg>
+                        <!-- /RATING ICON -->
+                    </div>
+                    <!-- /RATING -->
+
+                    <!-- RATING -->
+                    <div class="rating filled">
+                        <!-- RATING ICON -->
+                        <svg class="rating-icon icon-star">
+                            <use xlink:href="#svg-star"></use>
+                        </svg>
+                        <!-- /RATING ICON -->
+                    </div>
+                    <!-- /RATING -->
+
+                    <!-- RATING -->
+                    <div class="rating filled">
+                        <!-- RATING ICON -->
+                        <svg class="rating-icon icon-star">
+                            <use xlink:href="#svg-star"></use>
+                        </svg>
+                        <!-- /RATING ICON -->
+                    </div>
+                    <!-- /RATING -->
+
+                    <!-- RATING -->
+                    <div class="rating">
+                        <!-- RATING ICON -->
+                        <svg class="rating-icon icon-star">
+                            <use xlink:href="#svg-star"></use>
+                        </svg>
+                        <!-- /RATING ICON -->
+                    </div>
+                    <!-- /RATING -->
+                </div>
+                <!-- /RATING LIST -->
+
+            </div>
+            <!-- /PRODUCT PREVIEW META -->
+        </div>
+        {% endfor %}
+    </div>
+</div>
+        <!-- /PRODUCT PREVIEW -->
+{% endblock %}

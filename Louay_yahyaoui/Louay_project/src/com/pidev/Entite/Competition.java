@@ -23,6 +23,8 @@ public class Competition {
     int cout;
     String imageC;
 
+   
+
     public String getImageC() {
         return imageC;
     }

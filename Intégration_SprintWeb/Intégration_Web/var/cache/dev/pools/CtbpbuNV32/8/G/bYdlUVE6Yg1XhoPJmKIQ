@@ -1,0 +1,3 @@
+0
+%255BMgilet%255CNotificationBundle%255CEntity%255CNotifiableNotification%2524notifiableEntity%255D%255B1%255D
+a:1:{i:0;O:30:"Doctrine\ORM\Mapping\ManyToOne":4:{s:12:"targetEntity";s:49:"Mgilet\NotificationBundle\Entity\NotifiableEntity";s:7:"cascade";a:1:{i:0;s:7:"persist";}s:5:"fetch";s:4:"LAZY";s:10:"inversedBy";s:23:"notifiableNotifications";}}

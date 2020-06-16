@@ -1,0 +1,25 @@
+competition:
+    resource: "@CompetitionBundle/Resources/config/routing.yml"
+    prefix:   /
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+fos:
+    resource: "@FOSBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_registration_register:
+    path: /register
+    controller: AppBundle\Controller\RegistrationController::registerAction
+
+EndroidQrCodeBundle:
+    resource: "@EndroidQrCodeBundle/Controller/"
+    type: annotation
+    prefix: /qrcode
