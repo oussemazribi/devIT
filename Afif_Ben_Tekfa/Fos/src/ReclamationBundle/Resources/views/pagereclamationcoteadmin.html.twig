@@ -1,0 +1,49 @@
+{% extends 'base1.html.twig' %}
+
+
+{% block body %}
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>App Widgets
+                        <small>Welcome to Oreo</small>
+                    </h2>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-white btn-icon btn-round hidden-sm-down float-right m-l-10" type="button">
+                        <i class="zmdi zmdi-plus"></i>
+                    </button>
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                        <li class="breadcrumb-item active">Widgets</li>
+                        <li class="breadcrumb-item active">App</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card-group text-center">
+                        {% for rec in Reclamations %}
+                        <div class="card">
+                            <img class="img-fluid" src="{{ 'uploads/Reclamation/'~rec.photo }}" alt="Card image cap">
+                            <div class="body">
+                                <h4 class="title">{{ rec.objet }}</h4>
+                                <h5 class="title">{{ rec.statut }}</h5>
+                                <p class="text">{{ rec.description }}</p>
+                                <a href="{{ path('Suuprimer_admin',{id:rec.id}) }}" class="btn btn-primary btn-round waves-effect">Delete</a>
+                                <a href="{{ path('traiter_admin_rec',{id:rec.id}) }}" class="btn btn-primary btn-round waves-effect">Traiter</a>
+                                <p class="text">
+                                    <small class="text-muted">{{ rec.datereclamation|date }}</small>
+                                </p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,435 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+        <!-- SECTION BANNER -->
+        <div class="section-banner">
+            <!-- SECTION BANNER ICON -->
+            <img class="section-banner-icon" src="{{ asset('template/img/banner/accounthub-icon.png') }}" alt="accounthub-icon">
+            <!-- /SECTION BANNER ICON -->
+
+            <!-- SECTION BANNER TITLE -->
+            <p class="section-banner-title">Account Hub</p>
+            <!-- /SECTION BANNER TITLE -->
+
+            <!-- SECTION BANNER TEXT -->
+            <p class="section-banner-text">Profile info, messages, settings and much more!</p>
+            <!-- /SECTION BANNER TEXT -->
+        </div>
+        <!-- /SECTION BANNER -->
+
+        <!-- GRID -->
+        <div class="grid grid-3-9 medium-space">
+            <!-- GRID COLUMN -->
+            <div class="account-hub-sidebar">
+                <!-- SIDEBAR BOX -->
+                <div class="sidebar-box no-padding">
+                    <!-- SIDEBAR MENU -->
+                    <div class="sidebar-menu round-borders">
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-profile">
+                                    <use xlink:href="#svg-profile"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">My Profile</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Change your avatar &amp; cover, accept friends, read messages and more!</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="#">Profile Info</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="#">Social &amp; Stream</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="#">Notifications</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="#">Messages</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="#">Friend Requests</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-settings">
+                                    <use xlink:href="#svg-settings"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">Account</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Change settings, configure notifications, and review your privacy</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-account-info.html">Account Info</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-account-password.html">Change Password</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-account-settings.html">General Settings</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-group">
+                                    <use xlink:href="#svg-group"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">Réclamations</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Create new Reclamation ;Feel Free</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked accordion-open">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link active" href="{{ path('Ajout_reclamation') }}">Create Reclamation</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="{{ path('Affichage_client')}}">Your Reclamtions</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+
+                        <!-- SIDEBAR MENU ITEM -->
+                        <div class="sidebar-menu-item">
+                            <!-- SIDEBAR MENU HEADER -->
+                            <div class="sidebar-menu-header accordion-trigger-linked">
+                                <!-- SIDEBAR MENU HEADER ICON -->
+                                <svg class="sidebar-menu-header-icon icon-store">
+                                    <use xlink:href="#svg-store"></use>
+                                </svg>
+                                <!-- /SIDEBAR MENU HEADER ICON -->
+
+                                <!-- SIDEBAR MENU HEADER CONTROL ICON -->
+                                <div class="sidebar-menu-header-control-icon">
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+                                    <svg class="sidebar-menu-header-control-icon-open icon-minus-small">
+                                        <use xlink:href="#svg-minus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON OPEN -->
+
+                                    <!-- SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                    <svg class="sidebar-menu-header-control-icon-closed icon-plus-small">
+                                        <use xlink:href="#svg-plus-small"></use>
+                                    </svg>
+                                    <!-- /SIDEBAR MENU HEADER CONTROL ICON CLOSED -->
+                                </div>
+                                <!-- /SIDEBAR MENU HEADER CONTROL ICON -->
+
+                                <!-- SIDEBAR MENU HEADER TITLE -->
+                                <p class="sidebar-menu-header-title">My Store</p>
+                                <!-- /SIDEBAR MENU HEADER TITLE -->
+
+                                <!-- SIDEBAR MENU HEADER TEXT -->
+                                <p class="sidebar-menu-header-text">Review your account, manage products check stats and much more!</p>
+                                <!-- /SIDEBAR MENU HEADER TEXT -->
+                            </div>
+                            <!-- /SIDEBAR MENU HEADER -->
+
+                            <!-- SIDEBAR MENU BODY -->
+                            <div class="sidebar-menu-body accordion-content-linked">
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-store-account.html">My Account</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-store-statement.html">Sales Statement</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-store-items.html">Manage Items</a>
+                                <!-- /SIDEBAR MENU LINK -->
+
+                                <!-- SIDEBAR MENU LINK -->
+                                <a class="sidebar-menu-link" href="hub-store-downloads.html">Downloads</a>
+                                <!-- /SIDEBAR MENU LINK -->
+                            </div>
+                            <!-- /SIDEBAR MENU BODY -->
+                        </div>
+                        <!-- /SIDEBAR MENU ITEM -->
+                    </div>
+                    <!-- /SIDEBAR MENU -->
+                </div>
+                <!-- /SIDEBAR BOX -->
+            </div>
+            <!-- /GRID COLUMN -->
+
+            <!-- GRID COLUMN -->
+            <div class="account-hub-content">
+                <!-- SECTION HEADER -->
+                <div class="section-header">
+                    <!-- SECTION HEADER INFO -->
+                    <div class="section-header-info">
+                        <!-- SECTION PRETITLE -->
+                        <p class="section-pretitle">Reclamations</p>
+                        <!-- /SECTION PRETITLE -->
+
+                        <!-- SECTION TITLE -->
+                        <h2 class="section-title">Create Reclamation</h2>
+                        <!-- /SECTION TITLE -->
+                    </div>
+                    <!-- /SECTION HEADER INFO -->
+                </div>
+                <!-- /SECTION HEADER -->
+
+                <!-- GRID -->
+                <div class="grid grid-3-3-3 centered-on-mobile">
+                    <!-- CREATE ENTITY BOX -->
+                    <!-- POPUP BOX BODY -->
+                    <div class="popup-box-body">
+                        <!-- POPUP BOX SIDEBAR -->
+                        <div class="popup-box-sidebar">
+                            <!-- USER PREVIEW -->
+                            <div class="user-preview small">
+                                <!-- USER PREVIEW COVER -->
+                                <figure class="user-preview-cover liquid">
+                                    <img src="{{asset('template/img/cover/29.jpg')}}" alt="cover-29">
+                                </figure>
+                                <!-- /USER PREVIEW COVER -->
+
+                                <!-- USER PREVIEW INFO -->
+                                <div class="user-preview-info">
+                                    <!-- USER SHORT DESCRIPTION -->
+                                    <div class="user-short-description small">
+                                        <!-- USER SHORT DESCRIPTION AVATAR -->
+                                        <a class="user-short-description-avatar user-avatar no-stats" href="#">
+                                            <!-- USER AVATAR BORDER -->
+                                            <div class="user-avatar-border">
+                                                <!-- HEXAGON -->
+                                                <div class="hexagon-100-108"></div>
+                                                <!-- /HEXAGON -->
+                                            </div>
+                                            <!-- /USER AVATAR BORDER -->
+
+                                            <!-- USER AVATAR CONTENT -->
+                                            <div class="user-avatar-content">
+                                                <!-- HEXAGON -->
+                                                <div class="hexagon-image-84-92" data-src="{{asset('template/img/avatar/'~user.imguser)}}"></div>
+                                                <!-- /HEXAGON -->
+                                            </div>
+                                            <!-- /USER AVATAR CONTENT -->
+                                        </a>
+                                        <!-- /USER SHORT DESCRIPTION AVATAR -->
+
+                                        <!-- USER SHORT DESCRIPTION TITLE -->
+                                        <p class="user-short-description-title small"><a href="#">{{ user.username }}</a></p>
+                                    </div>
+                                    <!-- /USER SHORT DESCRIPTION -->
+                                </div>
+                                <!-- /USER PREVIEW INFO -->
+                            </div>
+                            <!-- /USER PREVIEW -->
+
+                            <!-- SIDEBAR MENU ITEM -->
+                            <div class="sidebar-menu-item">
+                                <!-- SIDEBAR MENU BODY -->
+                                <div class="sidebar-menu-body secondary">
+                                    <!-- SIDEBAR MENU LINK -->
+                                    <a href="" class="sidebar-menu-link active">Show Reclamations</a>
+                                    <!-- /SIDEBAR MENU LINK -->
+                                </div>
+                                <!-- /SIDEBAR MENU BODY -->
+                            </div>
+                            <!-- /SIDEBAR MENU ITEM -->
+
+                        </div>
+                        <!-- /POPUP BOX SIDEBAR -->
+
+                        <!-- POPUP BOX CONTENT -->
+                        <div class="popup-box-content">
+                            <!-- WIDGET BOX -->
+                            <div class="widget-box">
+                                <!-- WIDGET BOX TITLE -->
+                                <p class="widget-box-title">Reclamation</p>
+                                <!-- /WIDGET BOX TITLE -->
+
+                                <!-- WIDGET BOX CONTENT -->
+                                <div class="widget-box-content">
+                                    <!-- FORM -->
+                                    {{ form_start(formmodif) }}
+                                        <!-- FORM ROW -->
+                                        <div class="form-row">
+                                            <!-- FORM ITEM -->
+                                            <div class="form-item">
+                                                <!-- FORM INPUT -->
+                                                <div class="form-input small active">
+                                                    <label for="group-name">Objet</label>
+                                                    {{ form_widget(formmodif.objet) }}
+                                                </div>
+                                                <!-- /FORM INPUT -->
+                                            </div>
+                                            <!-- /FORM ITEM -->
+                                        </div>
+                                        <!-- /FORM ROW -->
+
+                                        <!-- FORM ROW -->
+                                        <div class="form-row">
+                                            <!-- FORM ITEM -->
+                                            <div class="form-item">
+                                                <!-- FORM INPUT -->
+                                                <div class="form-input small active">
+                                                    <label for="group-tagline">Description</label>
+                                                    {{ form_widget(formmodif.description) }}
+                                                </div>
+                                                <!-- /FORM INPUT -->
+                                            </div>
+                                            <!-- /FORM ITEM -->
+                                        </div>
+                                        <!-- /FORM ROW -->
+                                        <!-- FORM ROW -->
+                                        <div class="form-row">
+                                            <!-- FORM ITEM -->
+                                            <div class="form-item">
+                                                <!-- FORM INPUT -->
+                                                <div class="form-input small">
+                                                    <label for="group-public-website">Choix de fichier</label>
+                                                    {{ form_widget(formmodif.photo) }}
+                                                </div>
+                                                <!-- /FORM INPUT -->
+                                            </div>
+                                            <!-- /FORM ITEM -->
+                                        </div>
+                                    <!-- FORM ROW -->
+                                    <div class="form-row">
+                                        <!-- FORM ITEM -->
+                                        <div class="form-item">
+                                            <!-- FORM INPUT -->
+                                            <div class="popup-box-sidebar-footer">
+                                                <!-- BUTTON -->
+                                                {{ form_widget(formmodif.Publier,{'attr':{ 'class':'button secondary full popup-manage-group-trigger'}}) }}
+                                                <!-- /BUTTON -->
+
+                                                <!-- BUTTON -->
+                                                <a href="{{ path('Affichage_client') }}" class="button white full popup-manage-group-trigger">Discard All</a>
+                                                <!-- /BUTTON -->
+                                            </div>
+                                            <!-- /FORM INPUT -->
+                                        </div>
+                                        <!-- /FORM ITEM -->
+                                    </div>
+                                    <!-- /FORM ROW -->
+                                    {{ form_end(formmodif) }}
+                                    <!-- /FORM -->
+
+                                </div>
+                                <!-- WIDGET BOX CONTENT -->
+                            </div>
+                            <!-- /WIDGET BOX -->
+                        </div>
+                        <!-- /POPUP BOX CONTENT -->
+                    </div>
+                    <!-- /POPUP BOX BODY -->
+                </div>
+                <!-- /GRID -->
+            </div>
+            <!-- /GRID COLUMN -->
+        </div>
+        <!-- /GRID -->
+    </div>
+    <!-- /CONTENT GRID -->
+{% endblock %}
