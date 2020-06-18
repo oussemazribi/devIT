@@ -25,7 +25,7 @@ class PostType extends AbstractType
             ->add('contenu',CKEditorType::class)
             ->add('dateCreation',DateTimeType::class,['widget' => 'single_text','attr' => ['class' => 'js-datepicker']])
 
-         //   ->add('photo',VichImageType::class, array('attr' => array('class' => 'form-control'),'label' => "Image"))
+         //->add('photo',VichImageType::class, array('attr' => array('class' => 'form-control'),'label' => "Image"))
          ->add('file', FileType::class, array('attr' => array('class' => 'form-control')))
             ->add('Ajouter', SubmitType::class, array('label' => 'Ajouter', 'attr' => array('class' => 'btn btn-success ','style'=>'margin-top:10px'  )));
     }

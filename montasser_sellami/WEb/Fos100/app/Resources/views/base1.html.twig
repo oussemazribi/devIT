@@ -12,7 +12,7 @@
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-        <title>:: Oreo Bootstrap4 Admin ::</title>
+        <title>:: TUNISIAN GOT TALENT ::</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- Favicon-->
         <link rel="stylesheet" href="{{ asset('Dashboard/assets/plugins/bootstrap/css/bootstrap.min.css') }}">
@@ -106,7 +106,7 @@
 <!-- Left Sidebar -->
 <aside id="leftsidebar" class="sidebar">
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Acceuil</a></li>
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Accueil</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>User</a></li>
     </ul>
     <div class="tab-content">
@@ -115,10 +115,11 @@
                 <ul class="list">
                     <li>
                         <div class="user-info">
-                            <div class="image"><a href="#dashboard"><img src="" alt="User"></a></div>
+
+                            <div class="image"><a href="#dashboard"><img src="{{ asset('template/img/avatar/'~app.user.imguser) }}" alt="User"></a></div>
                             <div class="detail">
                                 <h4> {{ app.user.username }}</h4>
-                                <small>Administrateur</small>
+                                <small>{{ app.user.typecompte }}</small>
                             </div>
                             <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
                             <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
@@ -128,8 +129,8 @@
                     <li class="header">MAIN</li>
                     <li class="active open"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Gestion Blog</span></a>
                         <ul class="ml-menu">
-                            <li class="active"><a href="Ajout.html">Ajouter Post</a> </li>
-                            <li class="active"><a href="Affiche.html">Afficher Post</a> </li>
+                            <li class="active"><a href="{{ path("blog_ajoutBlog") }}">Ajouter Post</a></li>
+                            <li class="active"><a href="{{ path("blog_afficheBlog") }}">Afficher Post</a></li>
                         </ul>
                     </li>
                     <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>Gestion Evenement</span> </a>
@@ -171,10 +172,15 @@
                 <ul class="list">
                     <li>
                         <div class="user-info m-b-20 p-b-15">
-                            <div class="image"><a href="profile.html"><img src="" alt="User"></a></div>
+                            <div class="user-avatar-content">
+                                <!-- HEXAGON -->
+                                <div class="hexagon-image-30-32" data-src="{{ asset('template/img/avatar/'~app.user.imguser) }}"></div>
+                                <!-- /HEXAGON -->
+                            </div>
                             <div class="detail">
-                                <h4>montinho</h4>
-                                <small>Administrateur</small>
+                                <div class="image"><a href="#dashboard"><img src="{{ asset('template/img/avatar/'~app.user.imguser) }}" alt="User"></a></div>
+                                <h4>{{ app.user.username }}</h4>
+                                <small>{{ app.user.Typecompte }}</small>
                             </div>
                             <a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a>
                             <a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a>
@@ -184,8 +190,8 @@
                         </div>
                     </li>
                     <li>
-                        <small class="text-muted">Email address: </small>
-                        <p>email</p>
+                        <small class="text-muted">Email : {{ app.user.email }} </small>
+
                         <hr>
                         <small class="text-muted">Phone: </small>
                         <p>+ 216 23422387</p>

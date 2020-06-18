@@ -14,16 +14,16 @@ class SecurityController extends Controller
             if(!($user->isSuperAdmin()))
             {
 
-                if ($user->getTypecompte()=='Chasseur du talent')
-                    return $this->redirectToRoute('affichercompetition');
+                if ($user->getTypecompte()=='Administrateur')
+                    return $this->redirectToRoute('blog_ajoutBlog');
                 else if ($user->getTypecompte()=='Simple Utilisateur')
                 {
-                    return $this->redirectToRoute('affichercompetitionUser');
+                    return $this->redirectToRoute('blog_afficheBlogUser');
                 }
             }
-            else if (($user->isSuperAdmin()))
+            else
             {
-                return $this->redirectToRoute('affichercompetitionAdmin');
+                return $this->redirectToRoute('blog_ajoutBlog');
             }
 
 

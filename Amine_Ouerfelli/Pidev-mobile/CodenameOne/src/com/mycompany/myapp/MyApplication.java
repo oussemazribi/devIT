@@ -56,7 +56,7 @@ public class MyApplication {
             return;
         }
       // new SignInForm(theme_1).show();
-        new SignInForm(theme_1).show();
+        new HomeBlog(theme_1).show();
         
     }
 

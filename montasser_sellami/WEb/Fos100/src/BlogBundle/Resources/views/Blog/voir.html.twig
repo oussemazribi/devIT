@@ -32,9 +32,9 @@
                         <ul class="header-dropdown">
                             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                 <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                    <li><a href="javascript:void(0);">Edit</a></li>
-                                    <a href="{{ path('blog_modifierBlog',{'id':post.id}) }}">Update</a>
-                                    <a href="{{ path('blog_supprimerBlog', {'id':post.id})  }}">Remove</a>
+                                    <li><a href="javascript:void(0);"></a></li>
+                                    <a href="{{ path('blog_modifierBlog',{'id':post.id}) }}">Modifier</a>
+                                    <a href="{{ path('blog_supprimerBlog', {'id':post.id})  }}">Supprimer</a>
 
                                 </ul>
                             </li>
@@ -49,7 +49,7 @@
                         <ul class="meta">
 
                             <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: {{ app.user.username }}</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>Comments: (nbr comment) </a></li>
+                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i></a></li>
                         </ul>
                     </div>
                     <div class="body">
@@ -73,35 +73,37 @@
 
                             </div>
                         </div>
-                        <p>{{ post.contenu}}</p>
+                        {{ post.contenu | raw}}
 
-                        <div class="card">
+
+
+                        {% for c in comment %}
                             <div class="header">
-                                <h2><strong>Comments</strong></h2>
-                            </div>
 
-                            <div class="body">
-                                <ul class="comment-reply list-unstyled">
-                                    <li class="row">
-                                        <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail" src="assets/images/sm/avatar2.jpg" alt="Awesome Image"></div>
-                                        <div class="text-box col-md-10 col-8 p-l-0 p-r0">
-                                            {% for c in comments  %}
-                                            <h5 class="m-b-0">{{ app.user.username }} </h5>
-                                            <p>{{ c.contenu}}</p>
-                                            <ul class="list-inline">
-                                                <li><a href="#">{{ post.DateCreation }}</a></li>
-                                                <li><a href="#">Reply</a></li>
-                                            </ul>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
+                                            <li>
+                                            <a href="{{ path('delete_comment',{'id':c.id})  }}">Supprimer</a>
 
-                                        </div>
+
+                                        </ul>
                                     </li>
-
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
                                 </ul>
                             </div>
 
-                        </div>
+                            <p><p>commentaire ajouté par :</p>{{ c.idUser }}</p> <p>{{ c.dateCreation |date("m/d/Y") }}</p>
 
-                    </div>{% endfor %}
+                            <p>{{ c.contenu }}</p>
+
+
+
+                        {% endfor %}
+                    </div>
+
                 </div>
 
             </div>

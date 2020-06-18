@@ -20,6 +20,21 @@
                     </ul>
                 </div>
             </div>
+
+        </div>
+        <div class="col-lg-4 col-md-12 right-box">
+            <div class="card">
+                <div class="body search">
+                    <div class="input-group m-b-0">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-addon">
+                                <i class="zmdi zmdi-search"></i>
+                            </span>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     <br>
     <br>
@@ -33,8 +48,8 @@
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                     <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                        <a href="{{path('blog_modifierBlog',{'id':p.id}) }}">Update</a>
-                                        <a href="{{ path('blog_supprimerBlog', {'id':p.id})  }}">Remove</a>
+                                        <a href="{{path('blog_modifierBlog',{'id':p.id}) }}">Modifier</a>
+                                        <a href="{{ path('blog_supprimerBlog', {'id':p.id})  }}">Supprimer</a>
                                     </ul>
                                 </li>
                                 <li class="remove">
@@ -47,8 +62,8 @@
                             <h3  class="m-t-0 m-b-5"><a href="{{ path('blog_voirBlog', {'id':p.id})  }}" a> {{ p.sujet }}</h3>
                             <ul class="meta">
 
-                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: MONTINHO</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>Comments: (nbr comment) </a></li>
+                                <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posté par: {{ app.user.username }}</a></li>
+                                <li><a href="{{ path('AffichierNBRComments',{'id':p.id}) }}"><i class="zmdi zmdi-comment-text col-blue"></i>Nombre de commentaire : </a></li>
                             </ul>
                         </div>
                         <div class="body">
@@ -79,30 +94,8 @@
                     </div>
                     </div>
             {% endfor %}
-                    <ul class="pagination pagination-primary">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
+
                 </div>
-
-                <div class="col-lg-4 col-md-12 right-box">
-                    <div class="card">
-                        <div class="body search">
-                            <div class="input-group m-b-0">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-addon">
-                                <i class="zmdi zmdi-search"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    </div>
-
 
                 </div>
             </div>

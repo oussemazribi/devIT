@@ -16,49 +16,67 @@
         <!-- /SECTION BANNER TITLE -->
 
         <!-- SECTION BANNER TEXT -->
-        <p class="section-banner-text">Consulter tout les Blogs posté par TGT</p>
+        <p class="section-banner-text">Consulter tout les Article posté par Tunisian Got Talent</p>
         <!-- /SECTION BANNER TEXT -->
     </div>
     <!-- /SECTION BANNER -->
-
-
-    {% for p in post %}
-    <!-- GRID -->
     <div class="grid grid-3-3-3-3 centered">
-        <!-- POST PREVIEW -->
-        <div class="post-preview">
-            <!-- POST PREVIEW IMAGE -->
-            <figure class="post-preview-image liquid">
-                <img src="{{ asset('images/') }}{{ p.photo }}" alt="cover-19">
-            </figure>
-            <!-- /POST PREVIEW IMAGE -->
-    <div class="post-preview-info fixed-height">
-        <!-- POST PREVIEW INFO TOP -->
-        <div class="post-preview-info-top">
-            <!-- POST PREVIEW TIMESTAMP -->
-            <p class="post-preview-timestamp"></p>
-            <!-- /POST PREVIEW TIMESTAMP -->
+    {%  for p in post %}
+    <!-- PRODUCT PREVIEW -->
+    <div class="product-preview">
+    <!-- PRODUCT PREVIEW IMAGE -->
+    <a href="marketplace-product.html">
+        <figure class="product-preview-image liquid">
+            <img src="{{  asset ('images/')  }}{{ p.photo }}" alt="item-01">
+        </figure>
+    </a>
+    <!-- /PRODUCT PREVIEW IMAGE -->
 
-            <!-- POST PREVIEW TITLE -->
-            <p class="post-preview-title">{{ p.sujet }}</p>
-            <!-- /POST PREVIEW TITLE -->
-        </div>
-        <!-- /POST PREVIEW INFO TOP -->
+    <!-- PRODUCT PREVIEW INFO -->
+    <div class="product-preview-info">
+        <!-- PRODUCT PREVIEW TITLE -->
+        <p class="product-preview-title"><a href="{{ path('blog_voirBlogUser', {'id':p.id}) }}"><p><h3>{{p.sujet}}</h3></p></a></p>
+        <!-- /PRODUCT PREVIEW TITLE -->
+        <!-- PRODUCT PREVIEW TEXT -->
+        <p class="product-preview-text">{{ p.contenu | raw }}</p>
+        <!-- /PRODUCT PREVIEW TEXT -->
+    </div>
+    <!-- /PRODUCT PREVIEW INFO -->
 
-        <!-- POST PREVIEW INFO BOTTOM -->
-        <div class="post-preview-info-bottom">
-            <!-- POST PREVIEW TEXT -->
-            <p class="post-preview-text"> {{ p.contenu }}</p>
-            <!-- /POST PREVIEW TEXT -->
+    <!-- PRODUCT PREVIEW META -->
+    <div class="product-preview-meta">
+    <!-- PRODUCT PREVIEW AUTHOR -->
+    <div class="product-preview-author">
+        <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
+        <a class="product-preview-author-image user-avatar micro no-border" href="profile-timeline.html">
+            <!-- USER AVATAR CONTENT -->
+            <div class="user-avatar-content">
+                <!-- HEXAGON -->
+
+                <!-- /HEXAGON -->
+            </div>
+            <!-- /USER AVATAR CONTENT -->
+        </a>
+        <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
+
+        <!-- PRODUCT PREVIEW AUTHOR TITLE -->
+        <p class="product-preview-author-title">Posted By Monta </p>
+        <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
+
+        <!-- PRODUCT PREVIEW AUTHOR TEXT -->
+
+        <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
+    </div>
+    <!-- /PRODUCT PREVIEW AUTHOR -->
 
             <!-- POST PREVIEW LINK -->
-            <a class="post-preview-link" href="profile-post.html">Read more...</a>
+        <a class="post-preview-link" href="{{ path('blog_voirBlogUser', {'id':p.id}) }}"><b>Read more...</b></a>
             <!-- /POST PREVIEW LINK -->
-        </div>
+
 
         <!-- /POST PREVIEW INFO BOTTOM -->
     </div>
-        </div>>
+        </div>
     {% endfor %}
     <!-- /POST PREVIEW INFO -->
 

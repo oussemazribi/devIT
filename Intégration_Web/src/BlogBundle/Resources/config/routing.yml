@@ -33,3 +33,6 @@ delete_comment:
 AffichierComments:
     path:     /AffichierComments/{}
     defaults: { _controller: BlogBundle:Blog:AffichierComments }
+AffichierNBRComments:
+    path:     /getNbComment/{id}
+    defaults: { _controller: BlogBundle:Blog:getNbComment }

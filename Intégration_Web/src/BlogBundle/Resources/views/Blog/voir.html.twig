@@ -32,9 +32,9 @@
                         <ul class="header-dropdown">
                             <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                 <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                    <li><a href="javascript:void(0);">Edit</a></li>
-                                    <a href="{{ path('blog_modifierBlog',{'id':post.id}) }}">Update</a>
-                                    <a href="{{ path('blog_supprimerBlog', {'id':post.id})  }}">Remove</a>
+                                    <li><a href="javascript:void(0);"></a></li>
+                                    <a href="{{ path('blog_modifierBlog',{'id':post.id}) }}">Modifier</a>
+                                    <a href="{{ path('blog_supprimerBlog', {'id':post.id})  }}">Supprimer</a>
 
                                 </ul>
                             </li>
@@ -49,7 +49,7 @@
                         <ul class="meta">
 
                             <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: {{ app.user.username }}</a></li>
-                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i>Comments: (nbr comment) </a></li>
+                            <li><a href="#"><i class="zmdi zmdi-comment-text col-blue"></i></a></li>
                         </ul>
                     </div>
                     <div class="body">
@@ -73,7 +73,8 @@
 
                             </div>
                         </div>
-                        <p>{{ post.contenu}}</p>
+                        {{ post.contenu | raw}}
+
 
 
                         {% for c in comment %}
@@ -82,8 +83,9 @@
                                 <ul class="header-dropdown">
                                     <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
                                         <ul class="dropdown-menu dropdown-menu-right slideUp float-right">
-                                            <li><a href="javascript:void(0);">Edit</a></li>
-                                            <a href="{{ path('delete_comment', {'id':comment.id})  }}">Remove</a>
+                                            <li>
+                                            <a href="{{ path('delete_comment',{'id':c.id})  }}">Supprimer</a>
+
 
                                         </ul>
                                     </li>
@@ -93,7 +95,7 @@
                                 </ul>
                             </div>
 
-                            <p><p>commentaire ajouté par :</p>{{ app.user.username }}</p> <p>{{ c.dateCreation |date("m/d/Y") }}</p>
+                            <p><p>commentaire ajouté par :</p>{{ c.idUser }}</p> <p>{{ c.dateCreation |date("m/d/Y") }}</p>
 
                             <p>{{ c.contenu }}</p>
 

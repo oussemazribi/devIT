@@ -82,14 +82,14 @@ public function modifierBlogAction (Request $request,$id){
             $p->setSujet ($form['sujet']->getData());
             $p->setContenu($form['contenu']->getData());
             $p->setPhoto($photo);
-
-            ;
             $p->uploadProfilePicture();
-
+            $em->persist($p);
+            $em->flush();
         }
         return $this->render('@Blog/Blog/Modifier.html.twig', array(
             "form"=> $form->createView()
         ));
+    return $this->redirectToRoute('blog_afficheBlog');
 
     }
 
@@ -150,7 +150,7 @@ public function modifierBlogAction (Request $request,$id){
     }
 
 
-    public function deleteCommentAction(Request $request)
+    public function deleteCommentAction(Request $request ,$id)
     {
         $id = $request->get('id');
         $em= $this->getDoctrine()->getManager();
@@ -168,5 +168,34 @@ public function modifierBlogAction (Request $request,$id){
             'comments' => $comment
         ));
     }
+    public function editCommentAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $comment= $em->getRepository('BlogBundle:comment')->find($id);
+        $editFormcom = $this->createForm('BlogBundle\Form\commentType', $comment);
+        $editFormcom->handleRequest($request);
+        if($request->isXmlHttpRequest())
+        {$contenu=$request->request->get("contenu");
+            echo "$contenu";
+            $comment->setContenue($contenu);}
+        $em->persist($comment);
+        $em->flush();
+        return  $this->redirectToRoute("publication_homepage");
+    }
+
+
+    public function getNbCommentAction($id)
+    {
+        $em = $this->getDoctrine()->getManager(); //on appelle Doctrine
+        $query = $em->createQuery( //creation de la requête
+            'SELECT count(*)
+    FROM Comment c join  Post 
+    WHERE c.post > :post')
+    ->setParameter('post', $id);
+        $parc = $query->getResult();
+
+        return ['parc' => $parc ];
+    }
+
 
 }

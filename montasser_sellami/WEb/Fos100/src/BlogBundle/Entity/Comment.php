@@ -23,13 +23,15 @@ class Comment
     private $id;
 
 
-
     /**
-     * @var string
+     * @var \FosUser
      *
-     * @ORM\Column(name="pseudo", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FOSBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * })
      */
-    private $pseudo;
+    private $idUser;
     /**
      * @var string
      *
@@ -48,7 +50,7 @@ class Comment
      * @ORM\ManyToOne(targetEntity="post", inversedBy="comment",cascade={"persist"})
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id",onDelete="CASCADE")
      */
-    protected $post;
+    private $post;
 
 
 
@@ -126,11 +128,9 @@ class Comment
      *
      * @return Comment
      */
-    public function setPost(\BlogBundle\Entity\Post $post = null)
+    public function setPost($post)
     {
         $this->post = $post;
-
-        return $this;
     }
 
     /**
@@ -141,6 +141,21 @@ class Comment
     public function getPost()
     {
         return $this->post;
+    }
+    /**
+     * @return \FosUser
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \FosUser $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
     }
 }
 
