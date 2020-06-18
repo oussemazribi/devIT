@@ -5,6 +5,7 @@ namespace PublicationBundle\Controller;
 use http\Env\Response;
 use PublicationBundle\Entity\commentaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class commentaireController extends Controller
@@ -136,6 +137,43 @@ class commentaireController extends Controller
         $manager->addNotification(array($post->getIdauthor()), $notif, true);
         return  $this->redirectToRoute("show_Admin_post");
 
+
+    }
+    public function addcommentfromphoneAction(Request $request ,$idpost,$contenue,$iduser)
+    {
+        $commentaire = new commentaire();
+        $em = $this->getDoctrine()->getManager();
+        $User=$em->getRepository('FOSBundle:User')->findOneBy(array('id'=>$iduser));
+        $commentaire->setIdUser($User);
+        $post = $em->getRepository('PublicationBundle:Post')->find($idpost);
+        $nbcom=$post->getNbcomments();
+        $commentaire->setPost($post);
+        $commentaire->setDate(new \DateTime("now", new \DateTimeZone('+0100')));
+        /*$contenue=$request->query->get("contenu");*/
+        $commentaire->setContenue($contenue);
+        $post->setNbcomments($nbcom+1);
+        $em->persist($commentaire);
+        $em->flush();
+        return new JsonResponse("add comment");
+    }
+    public function editcommfromphoneAction(Request $request,$idcom,$contenue)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire= $em->getRepository('PublicationBundle:commentaire')->find($idcom);
+        $commentaire->setContenue($contenue);
+        $em->persist($commentaire);
+        $em->flush();
+        return new JsonResponse("edit comment");
+    }
+    public function deletecomfromphoneAction(Request $request,$idcom)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $commentaire = $em->getRepository('PublicationBundle:commentaire')->find($idcom);
+        $nbcom=$commentaire->getpost()->getNbcomments();
+        $commentaire->getpost()->setNbcomments($nbcom-1);
+        $em->remove($commentaire);
+        $em->flush();
+        return new JsonResponse("deleted comment");
 
     }
 }
