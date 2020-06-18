@@ -4,17 +4,75 @@ namespace CompetitionBundle\Controller;
 
 
 use CompetitionBundle\Entity\Competition;
+use CompetitionBundle\Entity\Participation;
 use CompetitionBundle\Entity\Ticket;
 use CompetitionBundle\Form\CompetitionType;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class TicketController extends Controller
 {
+
+
+    public function affichTicAction(){
+        $em=$this->getDoctrine()->getManager();
+        $Ticket=$em->getRepository("CompetitionBundle:Ticket")->findAll();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Ticket);
+        return new JsonResponse($formatted);
+    }
+
+
+    public function newAction(Request $request)
+    {
+
+
+        $em = $this->getDoctrine()->getManager();
+        $user=$em->getRepository("FOSBundle:User")->find($request->get('user'));
+
+        $Competition=$em->getRepository("CompetitionBundle:Competition")->find($request->get('competition'));
+
+        $Ticket = new Ticket();
+
+        $Ticket->setDateemission(new \DateTime("now", new \DateTimeZone('+0100')));
+
+        $random = random_int(1000, 1000000);
+        $Ticket->setMotDePasse($random);
+        $Ticket->setIduser($user);
+
+        $Ticket->setIdcompetition($Competition);
+
+        $em->persist($Ticket);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Ticket);
+        return new JsonResponse($formatted);
+    }
+
+
+    public function supprimerTmobileAction($id,$id1)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Ticket=$em->getRepository("CompetitionBundle:Ticket")->findOneBy(array('iduser'=>$id,'idcompetition'=>$id1));
+
+        $em->remove($Ticket);
+        $em->flush();
+        //return $this->redirectToRoute('affichercompetition');
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($id);
+        return new JsonResponse($formatted);
+    }
+
+
+
 
     public function ajouterTicketAction(Request $request , $id,$type)
     {

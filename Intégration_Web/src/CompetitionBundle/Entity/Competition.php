@@ -254,19 +254,8 @@ class Competition
 
 
 
-    public function getAbsoluteImage()
-    {
-        return null === $this->imageC
-            ? null
-            : $this->getUploadRootDir().'/'.$this->imageC;
-    }
 
-    public function getWebImage()
-    {
-        return null === $this->imageC
-            ? null
-            : $this->getUploadDir().'/'.$this->imageC;
-    }
+
 
     protected function getUploadRootDir()
     {

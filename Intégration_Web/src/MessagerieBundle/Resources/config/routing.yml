@@ -37,3 +37,26 @@ updateC:
 ajax_search:
     path:     /search
     defaults: { _controller: MessagerieBundle:Conversation:search }
+
+affichCM:
+    path:     /affichConversationsM/{id}
+    defaults: { _controller: MessagerieBundle:Conversation:affichConversationM }
+AjoutCM:
+    path:     /ajoutConversationM
+    defaults: { _controller: MessagerieBundle:Conversation:AjoutConversationM }
+suppCM:
+    path:     /supprimerConversationM/{id}
+    defaults: { _controller: MessagerieBundle:Conversation:suppConversationM }
+affichM:
+    path:     /affichMessagesM/{id}
+    defaults: { _controller: MessagerieBundle:Message:affichM }
+AjoutM:
+    path:     /AjoutMessagesM/{id}/{id1}/{id2}
+    defaults: { _controller: MessagerieBundle:Message:ajoutM }
+    methods:  [GET, POST]
+updateM:
+    path:     /updateMessages/{id}
+    defaults: { _controller: MessagerieBundle:Message:updateM }
+deleteM:
+    path:     /supprimerMessages/{id}
+    defaults: { _controller: MessagerieBundle:Message:suppMessageM }

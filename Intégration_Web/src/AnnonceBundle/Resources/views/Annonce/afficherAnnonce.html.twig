@@ -85,7 +85,7 @@
     <div class="grid grid-3-3-3-3 centered">
 {% for c in Cat %}
         <!-- PRODUCT CATEGORY BOX -->
-        <a class="product-category-box category-digital"  href="">
+        <a class="product-category-box category-digital"  href="{{ path('item', {'id':c.id})  }}">
 
             <!-- PRODUCT CATEGORY BOX TITLE -->
             <p class="product-category-box-title">{{c.nom}}</p>

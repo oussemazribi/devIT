@@ -6,16 +6,72 @@ use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use CompetitionBundle\Entity\Competition;
 use CompetitionBundle\Form\CompetitionType;
 use evenementBundle\Form\evenementType;
+use http\Client\Curl\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
+
 
 
 class CompetitionController extends Controller
 {
 
+
+    public function newAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $Competition = new Competition();
+       // $image=($request->get('image'));
+        $df=strtotime($request->get('datefin'));
+        $Competition->setTitre($request->get('titre'));
+        $Competition->setDescription($request->get('description'));
+        $user=$em->getRepository("FOSBundle:User")->find($request->get('user'));
+        $Competition->setIduser($user);
+        $Competition->setCout($request->get('cout'));
+        $Competition->setDatedebut(new \DateTime($request->get('datedebut')));
+        $Competition->setDateFin(new \DateTime($request->get('datefin')));
+        $Competition->setTypedetalent($request->get('typedetalent'));
+        $Competition->setImagec($request->get('image'));
+        $em->persist($Competition);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Competition);
+        return new JsonResponse($formatted);
+    }
+
+    public function modifAction(Request $request,$id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $Competition =$em->getRepository("CompetitionBundle:Competition")->find($id);
+
+        $Competition->setTitre($request->get('titre'));
+        $Competition->setDescription($request->get('description'));
+        $user=$em->getRepository("FOSBundle:User")->find($request->get('user'));
+        $Competition->setIduser($user);
+        $Competition->setCout($request->get('cout'));
+        $Competition->setDatedebut(new \DateTime($request->get('datedebut')));
+        $Competition->setDateFin(new \DateTime($request->get('datefin')));
+        $Competition->setTypedetalent($request->get('typedetalent'));
+        $Competition->setImagec($request->get('image'));
+        $em->persist($Competition);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Competition);
+        return new JsonResponse($formatted);
+    }
 
     public function ajoutercompetitionAction(Request $request)
     {
@@ -176,6 +232,14 @@ class CompetitionController extends Controller
             ));
     }
 
+    public function affichcompAction(){
+        $em=$this->getDoctrine()->getManager();
+        $Competition=$em->getRepository("CompetitionBundle:Competition")->findAll();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Competition);
+        return new JsonResponse($formatted);
+    }
+
 
     public function afficherTrendingCompetitionAction(){
         $em=$this->getDoctrine()->getManager();
@@ -214,6 +278,19 @@ class CompetitionController extends Controller
         $em->remove($Competition);
         $em->flush();
         return $this->redirectToRoute('affichercompetition');
+    }
+
+    public function supprimerCAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Competition = $em->getRepository("CompetitionBundle:Competition")->find($id);
+        $em->remove($Competition);
+        $em->flush();
+        //return $this->redirectToRoute('affichercompetition');
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($id);
+        return new JsonResponse($formatted);
     }
 
     public function supprimerCompetitionAdminAction($id)
@@ -375,6 +452,9 @@ class CompetitionController extends Controller
 
             ));
     }
+
+
+
 
 
 

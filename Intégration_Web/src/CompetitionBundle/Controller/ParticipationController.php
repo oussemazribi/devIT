@@ -1,13 +1,116 @@
 <?php
 
 namespace CompetitionBundle\Controller;
+use CompetitionBundle\Entity\Competition;
 use CompetitionBundle\Entity\Participation;
 use CompetitionBundle\Entity\Ticket;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class ParticipationController extends Controller
 {
+
+
+    public function affichParAction(){
+        $em=$this->getDoctrine()->getManager();
+        $Participation=$em->getRepository("CompetitionBundle:Participation")->findAll();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Participation);
+        return new JsonResponse($formatted);
+    }
+
+    public function newAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $Participation = new Participation();
+
+        $user=$em->getRepository("FOSBundle:User")->find($request->get('user'));
+        $Participation->setIduser($user);
+        $Competition=$em->getRepository("CompetitionBundle:Competition")->find($request->get('competition'));
+        $Participation->setIdcompetition($Competition);
+
+
+
+
+        $em->persist($Participation);
+        $em->flush();
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Participation);
+        return new JsonResponse($formatted);
+    }
+
+
+    public function supprimerPmobileAction($id,$id1)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $Participation=$em->getRepository("CompetitionBundle:Participation")->findOneBy(array('iduser'=>$id,'idcompetition'=>$id1));
+
+        $em->remove($Participation);
+        $em->flush();
+        //return $this->redirectToRoute('affichercompetition');
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($id);
+        return new JsonResponse($formatted);
+    }
+
+    public function mobileAction($id,$id1)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Competition=$em->getRepository("CompetitionBundle:Competition")->findOneBy(array('idcompetition'=>$id1));
+        $user=$em->getRepository("FOSBundle:User")->findOneBy(array('id'=>$id));
+        $user->setNbdiament($user->getNbdiament()-$Competition->getCout());
+
+        $em->persist($user);
+        $em->flush();
+        //return $this->redirectToRoute('affichercompetition');
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($user);
+        return new JsonResponse($formatted);
+    }
+
+    public function FindParAction($id,$id1)
+    {
+
+        $data = [
+            'type' => 'Participation  Not Found',
+            'title' => 'There was a validation error',
+            'errors' => 'username or password invalide'
+        ];
+        $response = new JsonResponse($data, 400);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $Participation=$em->getRepository("CompetitionBundle:Participation")->findOneBy(array('iduser'=>$id,'idcompetition'=>$id1));
+
+
+
+        if($Participation)
+        {
+            $data=array('type'=>'Participation Found',
+                'title'=>'yes',
+                'errors'=>'no errors',
+            );
+            $response = new JsonResponse($data, 200);
+            return $response;
+
+        }
+
+        else
+        {
+            return $response;
+
+        }
+    }
+
+
 
     public function ajouterParticipationAction(Request $request , $id,$type)
     {

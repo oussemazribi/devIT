@@ -10,6 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class MessageController extends Controller
 {
@@ -140,6 +144,69 @@ class MessageController extends Controller
             $em= $this->getDoctrine()->getManager();
             $em->flush();
             return $this->affichAction($request,$id1);
+    }
+
+    public function affichMessageMobileAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $Conversation =$em->getRepository("MessagerieBundle:Message")->findAll();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Conversation);
+        return new JsonResponse($formatted);
+    }
+    public function affichMAction(Request $request , $id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $Conversation=$em->getRepository("MessagerieBundle:Conversation")->findBy(array('idConversation'=>$id));
+        $Message=$em->getRepository("MessagerieBundle:Message")->findBy(array('idConversation'=>$id));
+        $users=$em->getRepository("FOSBundle:User")->findAll();
+        $user = $this->getUser();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Message);
+        return new JsonResponse($formatted);
+    }
+    public function AjoutMAction(Request $request, $id, $id1,$id2)
+    {
+        $user_manager = $this->get('fos_user.user_manager');
+        $Message = new Message();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(MessageType::class, $Message);
+        $Conversation = $em->getRepository("MessagerieBundle:Conversation")->find(array('idConversation' => $id));
+        $user = $user_manager->findUserBy(array('id'=>$id1));
+        $user2 = $user_manager->findUserBy(array('id'=>$id2));
+        $form->handleRequest($request);
+        $Message->setIdConversation($Conversation);
+        $Message->setContenu($request->get('Contenu'));
+        $Message->setDateMessage(new \DateTime("now"));
+        $Message->setEtat("NotSeen");
+        $Message->setIdSender($user);
+        $Message->setIdReceiver($user2);
+        $em->persist($Message);
+        $em->flush();
+        $this->get('session')->getFlashBag()->add('succes', " envoie de Message avec succées !!!");
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Message);
+        return new JsonResponse($formatted);
+    }
+    public function updateMAction (Request $request, $id)
+    {
+        $Message = new Message();
+        $Message= $this->getDoctrine()->getRepository(Message::class )->find($id);
+        $Message->setEtat("Seen");
+        $em= $this->getDoctrine()->getManager();
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Message);
+        return new JsonResponse($formatted);
+    }
+    public function suppMessageMAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $Message=$em->getRepository(Message::class)->find($id);
+        $em->remove($Message);
+        $em->flush();
+        return $this->redirectToRoute('affichCM');
     }
 
 

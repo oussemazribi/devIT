@@ -613,8 +613,10 @@
                                                                 <!-- USER AVATAR CONTENT -->
                                                                 <div class="user-avatar-content">
                                                                     <!-- HEXAGON -->
-                                                                    <div class="hexagon-image-30-32" data-src="{{ asset('template/img/avatar/'~par.idUser.imguser) }}"></div>
-                                                                    <!-- /HEXAGON -->
+                                                                    <a href="{{ path('profile', {'id':par.iduser.id})  }}">
+                                                                    <div class="hexagon-image-30-32"  data-src="{{ asset('template/img/avatar/'~par.idUser.imguser) }}"></div>
+                                                                    </a>
+                                                                        <!-- /HEXAGON -->
                                                                 </div>
                                                                 <!-- /USER AVATAR CONTENT -->
 
@@ -846,7 +848,7 @@
 
 
                                             <!-- USER AVATAR -->
-                                            <div class="user-avatar micro no-stats">
+                                            <div class="user-avatar micro no-stats ">
                                                 <!-- USER AVATAR BORDER -->
                                                 <div class="user-avatar-border">
                                                     <!-- HEXAGON -->
@@ -856,10 +858,12 @@
                                                 <!-- /USER AVATAR BORDER -->
 
                                                 <!-- USER AVATAR CONTENT -->
-                                                <div class="user-avatar-content">
+                                                <div class="user-avatar-content"  >
                                                     <!-- HEXAGON -->
-                                                    <div class="hexagon-image-18-20" data-src="{{ asset('template/img/avatar/'~par.iduser.imguser) }}"></div>
-                                                    <!-- /HEXAGON -->
+                                                    <a href="{{ path('profile', {'id':par.iduser.id})  }}">
+                                                    <div class="hexagon-image-18-20"  data-src="{{ asset('template/img/avatar/'~par.iduser.imguser) }}" ></div>
+                                                    </a>
+                                                        <!-- /HEXAGON -->
                                                 </div>
                                                 <!-- /USER AVATAR CONTENT -->
                                             </div>

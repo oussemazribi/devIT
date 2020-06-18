@@ -9,6 +9,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class ConversationController extends Controller
 {
@@ -102,5 +106,39 @@ class ConversationController extends Controller
 
         }
         return $realEntities;
+    }
+
+
+    public function affichConversationMAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $Conversation =$em->getRepository("MessagerieBundle:Conversation")->findBy(array('idMe'=>$id));
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($Conversation);
+        return new JsonResponse($formatted);
+    }
+    public function AjoutConversationMAction(Request $request)
+    {
+        $Conversation = new Conversation();
+        $form = $this->createForm( ConversationType::class ,$Conversation);
+        $form->handleRequest($request);
+        $form1= $form->createView();
+        if($form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Conversation);
+            $em->flush();
+            $serializer = new Serializer([new ObjectNormalizer()]);
+            $formatted = $serializer->normalize($Conversation);
+            return new JsonResponse($formatted);
+        }
+    }
+    public function suppConversationMAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $Conversation=$em->getRepository(Conversation::class)->find($id);
+        $em->remove($Conversation);
+        $em->flush();
+        return $this->redirectToRoute('affichM');
     }
 }
