@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListCell?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<graphic>
+<AnchorPane id="AnchorPane" fx:id="pubbody" prefHeight="539.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="commentfield" layoutY="505.0" prefHeight="25.0" prefWidth="601.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="113.0" />
+      <Button id="ajoutercomment" fx:id="commenter" layoutX="610.0" layoutY="505.0" mnemonicParsing="false" onAction="#ajoutercomment" prefHeight="25.0" prefWidth="90.0" text="Commenter" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <ListView fx:id="listecommentaires" layoutX="4.0" layoutY="256.0" prefHeight="188.0" prefWidth="676.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="date" layoutX="610.0" layoutY="14.0" prefHeight="17.0" prefWidth="90.0" text="Label" AnchorPane.bottomAnchor="513.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="nameuser" layoutX="143.0" layoutY="14.0" text="Label" AnchorPane.leftAnchor="143.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="desription" layoutX="140.0" layoutY="52.0" prefHeight="25.0" prefWidth="434.0" text="Label" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="52.0" />
+      <ImageView fx:id="imageuser" fitHeight="97.0" fitWidth="102.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="supprimer" contentDisplay="BOTTOM" layoutX="610.0" layoutY="86.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="90.0" text="Supprimer" textAlignment="CENTER" textFill="#dd1313" textOverrun="LEADING_ELLIPSIS" AnchorPane.rightAnchor="14.0">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="W_RESIZE" />
+         </cursor></Button>
+      <Button fx:id="modifier" layoutX="610.0" layoutY="130.0" mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="90.0" text="Modifier" AnchorPane.rightAnchor="14.0" />
+      <CheckBox fx:id="up" layoutX="7.0" layoutY="236.0" mnemonicParsing="false" onAction="#upit" text="1" />
+      <CheckBox fx:id="down" layoutX="62.0" layoutY="236.0" mnemonicParsing="false" onAction="#downit" text="5" />
+      <CheckBox fx:id="like" layoutX="171.0" layoutY="236.0" mnemonicParsing="false" onAction="#jaime" text="Like" />
+      <CheckBox fx:id="dislike" layoutX="255.0" layoutY="236.0" mnemonicParsing="false" onAction="#dilikeit" text="Dislike" />
+      <Label fx:id="nbvotes" layoutX="537.0" layoutY="236.0" text="Reacts" />
+      <Label fx:id="nbvotes2" layoutX="587.0" layoutY="236.0" text="Votes" />
+      <Label fx:id="nbreacts" layoutX="641.0" layoutY="236.0" text="Comments" />
+      <Label id="nb_reacts" fx:id="nbreacts" layoutX="543.0" layoutY="264.0" text="Label" />
+      <Label id="nbvotes" fx:id="nbvotes" layoutX="589.0" layoutY="264.0" text="Label" />
+      <Label id="nbcomments" layoutX="645.0" layoutY="264.0" />
+      <ListView id="mediacontainer" fx:id="mediacontainer" layoutX="157.0" layoutY="83.0" prefHeight="119.0" prefWidth="387.0" />
+      <Label id="Contenuee" fx:id="contenuee" layoutX="143.0" layoutY="210.0" prefHeight="17.0" prefWidth="422.0" text="Label" />
+      <Label fx:id="nbcomments" layoutX="645.0" layoutY="264.0" text="Label" />
+   </children>
+</AnchorPane>
+</graphic>
+</fx:root>
