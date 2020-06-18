@@ -1,0 +1,42 @@
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Reclamation:all}
+all:
+    path:     /reclamation
+    defaults: { _controller: ReclamationBundle:Reclamation:all }
+Affichage_Reclamation:
+    path:     /afficheReclamation
+    defaults: {_controller: ReclamationBundle:Reclamation:Affichierreclamtions}
+find_reclamation:
+    path:     /tasks/find/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:find}
+create_reclamation:
+    path:     /reclamation/new/
+    defaults: { _controller: ReclamationBundle:Reclamation:new}
+traiter_reclamation:
+    path:    /rec/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:traiter}
+supprimer:
+    path:    /supp/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:supprimer}
+Ajout_reclamation:
+    path:   /Ajoutetafffichage
+    defaults: {_controller:ReclamationBundle:Reclamation:Ajouterreclamation}
+Suuprimer_admin:
+    path:   /suprimerreclamation/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:DeleteReclamation}
+FindReclamation:
+    path:   /trouv/{id}
+    defaults: {_controller:ReclamtionBundle:Reclamation:findReclamtion}
+Affichage_client:
+    path:   /affichageClient
+    defaults: {_controller:ReclamationBundle:Reclamation:Affichierreclamtionsclient}
+Delete_client:
+    path:   /deleteclient/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:DeleteReclamationclient}
+Modifier_client:
+    path : /Modifierrec/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:ModifierReclamtion}
+traiter_admin_rec:
+    path :  /treatrec/{id}
+    defaults: {_controller:ReclamationBundle:Reclamation:TraiterReclamtions}
