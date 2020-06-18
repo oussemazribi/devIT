@@ -1,0 +1,8 @@
+{% for c in Competition %}
+    {{ c.Titre }}
+    {{ c.Description }}
+    {{ c.Cout }}
+    {{ c.DateDebut|date }}
+    {{ c.DateFin|date }}
+
+{% endfor %}

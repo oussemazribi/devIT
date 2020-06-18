@@ -1,0 +1,113 @@
+{% extends 'base1.html.twig' %}
+{% block body %}
+
+
+    {{ form_start(form) }}
+
+<section class="content invoice">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>Annonce
+
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Oreo</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
+                    <li class="breadcrumb-item active">Invoice</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+
+
+                    <!-- Vertical Layout -->
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h2><strong>Annonce</strong> Categorie </h2>
+
+                                </div>
+                                <div class="body">
+                                    <form>
+
+                                        <label for="nom">Name</label>
+                                        <div class="form-group">
+
+                                            {{ form_widget(form.nom,{'attr':{  'id':'email_address','class':'form-control','placeholder':'Enter your name'}}) }}
+                                        </div>
+                                        <label for="password">Image</label>
+                                        <div class="form-group">
+                                            {{ form_widget(form.imagec) }}
+
+                                        </div>
+
+
+
+                                        {{ form_widget(form.valider,{'attr':{ 'class':'btn btn-raised btn-primary btn-round waves-effect'}})}}
+                                        {{ form_end(form) }}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane in active" id="details" aria-expanded="true">
+                        <div class="card" id="details">
+                            <div class="body">
+
+                                <div class="mt-40"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>Name</th>
+
+
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for c in Cat %}
+                                                <tr>
+
+                                                    <td><img src="{{ asset('uploads/'~c.imagec) }}" width="40"></td>
+                                                    <td>{{c.nom}}</td>
+
+
+                                                </tr>
+                                                {% endfor %}
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

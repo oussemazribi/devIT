@@ -1,0 +1,214 @@
+{% extends 'baseLouay.html.twig' %}
+
+{% block body %}
+
+
+
+    {{ form_start(form) }}
+
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+        <!-- SECTION BANNER -->
+        <div class="section-banner">
+            <!-- SECTION BANNER ICON -->
+            <img class="section-banner-icon" src="{{ asset('template/img/banner/marketplace-icon.png') }}" alt="marketplace-icon">
+            <!-- /SECTION BANNER ICON -->
+
+            <!-- SECTION BANNER TITLE -->
+            <p class="section-banner-title">Marketplace</p>
+            <!-- /SECTION BANNER TITLE -->
+
+            <!-- SECTION BANNER TEXT -->
+            <p class="section-banner-text">The best place to buy and sell!</p>
+            <!-- /SECTION BANNER TEXT -->
+        </div>
+        <!-- /SECTION BANNER -->
+
+        <!-- SECTION HEADER -->
+        <div class="section-header">
+            <!-- SECTION HEADER INFO -->
+            <div class="section-header-info">
+                <!-- SECTION PRETITLE -->
+                <p class="section-pretitle">Edit</p>
+                <!-- /SECTION PRETITLE -->
+
+                <!-- SECTION TITLE -->
+                <h2 class="section-title">advert</h2>
+                <!-- /SECTION TITLE -->
+            </div>
+            <!-- /SECTION HEADER INFO -->
+        </div>
+        <!-- /SECTION HEADER -->
+
+        <!-- GRID -->
+        <div class="grid grid-9-3 small-space">
+            <!-- GRID COLUMN -->
+            <div class="grid-column">
+                <!-- WIDGET BOX -->
+                <div class="widget-box">
+                    <!-- WIDGET BOX TITLE -->
+                    <p class="widget-box-title">Edit information</p>
+                    <!-- /WIDGET BOX TITLE -->
+
+                    <!-- WIDGET BOX CONTENT -->
+                    <div class="widget-box-content">
+                        <!-- FORM -->
+                        <form class="form">
+                            <!-- FORM ROW -->
+
+                            <div class="form-item">
+                                <!-- FORM INPUT -->
+
+                                <div class="form-input small">
+                                    <label for="billing-first-name">Name</label>
+                                    {{ form_widget(form.nom,{'attr':{ 'id':'billing-first-name','name':'billing_first_name'}}) }}
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+
+
+                            <br><br>
+
+
+
+
+                            <!-- FORM ROW -->
+
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="billing-country">Etat</label>
+                                    {{ form_widget(form.etat,{'attr':{ 'id':'billing-country','name':'billing_country'}}) }}
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+
+                            <br><br>
+
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="billing-country">Categorie</label>
+                                    {{ form_widget(form.categorie,{'attr':{ 'id':'billing-country','name':'billing_country'}}) }}
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+
+                            <br><br>
+
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+
+                                <div class="form-group row">
+                                    <label for="example-number-input" class="collapse-sm col-form-label"></label>
+                                    <div class="col-md-12">
+                                        {{ form_widget(form.prix,{'attr':{ 'class':'form-control','id':'example-number-input','placeholder':'prix'}}) }}
+
+                                    </div>
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+
+                            <!-- /FORM ROW -->
+
+
+                            <br>
+
+
+                            <div class="custom-file">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                {{ form_widget(form.file,{'attr':{ 'id':'customFile','class':'custom-file-input'}})}}
+                            </div>
+
+
+
+
+
+                            <br><br> <br>
+
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input small medium-textarea">
+                                        {{ form_widget(form.description,{'attr':{ 'id':'billing-details','name':'billing_details','placeholder':'Write any description here...'}}) }}
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+
+
+
+                            <br>
+
+                            <!-- SIDEBAR BOX ITEMS -->
+                            <div class="sidebar-box-items">
+
+                                <!-- BUTTON -->
+                                <p >
+
+                                    {{ form_widget(form.valider,{'attr':{ 'class':'button primary'}})}}</p>
+                                <!-- /BUTTON -->
+                            </div>
+                            <!-- /SIDEBAR BOX ITEMS -->
+
+
+                        </form>
+                        <!-- /FORM -->
+                    </div>
+                    <!-- WIDGET BOX CONTENT -->
+                </div>
+                <!-- /WIDGET BOX -->
+
+            </div>
+            <!-- /GRID COLUMN -->
+
+            {{ form_end(form) }}
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- /GRID -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
