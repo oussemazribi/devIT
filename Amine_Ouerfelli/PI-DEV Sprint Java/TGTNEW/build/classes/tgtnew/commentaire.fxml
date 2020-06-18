@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<graphic>
+<AnchorPane id="AnchorPane" fx:id="combody" prefHeight="78.0" prefWidth="656.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <ImageView fx:id="userimage" fitHeight="89.0" fitWidth="80.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: border-radius: 50%;; -fx-scale-y: border-radius: 50%;;" />
+      <Label fx:id="commentbody" layoutX="81.0" layoutY="25.0" prefHeight="62.0" prefWidth="497.0" text="Label" />
+      <Button fx:id="delete" layoutX="590.0" layoutY="13.0" mnemonicParsing="false" onAction="#supprimer" text="supp" />
+      <Button fx:id="update" layoutX="590.0" layoutY="56.0" mnemonicParsing="false" onAction="#modifier" text="modif" />
+      <Label fx:id="username" layoutX="81.0" layoutY="5.0" prefHeight="17.0" prefWidth="105.0" text="Label" />
+      <Label fx:id="date" layoutX="496.0" layoutY="5.0" text="Label" />
+   </children>
+</AnchorPane>
+</graphic>
+</fx:root>
