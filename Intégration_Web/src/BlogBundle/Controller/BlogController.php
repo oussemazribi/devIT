@@ -196,6 +196,29 @@ public function modifierBlogAction (Request $request,$id){
 
         return ['parc' => $parc ];
     }
+    public function ModifBlogMAction (Request $request,$id){
+
+        $em=$this->getDoctrine()->getManager();
+        $p= $em->getRepository('BlogBundle:Post')->find($id);
+        $form=$this->createForm(PostType::class,$p);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em = $this->getDoctrine()->getManager();
+            $p->setDateCreation (new \DateTime('now'));
+            $photo = $form['file']->getData();
+            $p->setSujet ($form['sujet']->getData());
+            $p->setContenu($form['contenu']->getData());
+            $p->setPhoto($photo);
+            $p->uploadProfilePicture();
+            $em->persist($p);
+            $em->flush();
+        }
+        return $this->render('@Blog/Blog/Modifier.html.twig', array(
+            "form"=> $form->createView()
+        ));
+        return $this->redirectToRoute('blog_afficheBlog');
+
+    }
 
 
 }
