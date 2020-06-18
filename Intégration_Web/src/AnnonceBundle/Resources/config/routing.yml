@@ -44,3 +44,6 @@ DisplayAll:
   path:     /api/annonce/
   defaults: { _controller: AnnonceBundle:Annonce:displayAnnonce }
 
+item:
+  path:     /item/{id}
+  defaults: { _controller: AnnonceBundle:Annonce:Items }

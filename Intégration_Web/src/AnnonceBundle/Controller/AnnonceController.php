@@ -199,6 +199,18 @@ public function updateAnnonceAction($id , $idcat , $nom , $description  , $prix 
     return new JsonResponse($formatted);
 }
 
+    public function  ItemsAction(Request $request, $id){
+        $em=$this->getDoctrine()->getManager();
+        $cat1= $em->getRepository(Categorie::class)->find( $id);
+        $Cat=$em->getRepository("AnnonceBundle:Categorie")->findAll();
+        $annonce= $em->getRepository(Annonce::class)->findBy(array('categorie' => $cat1));
+
+        return $this->render('@Annonce/Annonce/Items.html.twig',
+            array('annonce'=>$annonce,
+                'Cat'=>$Cat
+                ));
+    }
+
 
 
 }

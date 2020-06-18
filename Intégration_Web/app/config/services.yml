@@ -38,6 +38,13 @@ services:
     AppBundle\Controller\ChangePasswordController:
         arguments:
             $formFactory: '@fos_user.change_password.form.factory'
+    AppBundle\Controller\ProfileController:
+        arguments:
+            $formFactory: '@fos_user.profile.form.factory'
+
+
+
+
 
 
 

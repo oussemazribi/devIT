@@ -1,10 +1,17 @@
+annonce:
+    resource: "@AnnonceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+
 messagerie:
     resource: "@MessagerieBundle/Resources/config/routing.yml"
     prefix:   /
 
 competition:
     resource: "@CompetitionBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /api
 
 publication:
     resource: "@PublicationBundle/Resources/config/routing.yml"
@@ -31,6 +38,7 @@ changePassword:
 
 
 
+
 mgilet_notification:
     resource: "@MgiletNotificationBundle/Controller/"
     prefix: /notifications
@@ -42,4 +50,20 @@ ancarebeca_fullcalendar:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+loginMobile:
+    path:     /loginMobile/{username}/{password}
+    defaults: { _controller: AppBundle:Default:loginMobile }
+
+FindUserId:
+    path:     /FindUserId/{id}
+    defaults: { _controller: AppBundle:Default:FindUserId }
+
+create:
+    path:     /newnew
+    defaults: {_controller: AppBundle:Default:AjoutUser }
+
+find:
+    path:     /finduser/{id}
+    defaults: {_controller: AppBundle:Default:finduser }
 

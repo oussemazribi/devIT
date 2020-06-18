@@ -9,6 +9,9 @@ ajoutercompetition:
 affichercompetition:
     path:     /affichercompetition
     defaults: { _controller: CompetitionBundle:Competition:afficherCompetition }
+affichComp:
+    path:     /affichComp
+    defaults: { _controller: CompetitionBundle:Competition:affichcomp }
 
 affichercomp:
     path:     /affichercomp
@@ -17,6 +20,16 @@ affichercomp:
 supprimercompetition:
     path:     /supprimercompetition/{id}
     defaults: { _controller: CompetitionBundle:Competition:supprimerCompetition }
+
+
+supprimerC:
+    path:     /supprimerC/{id}
+    defaults: { _controller: CompetitionBundle:Competition:supprimerC }
+modif:
+    path:     /modif/{id}
+    defaults: { _controller: CompetitionBundle:Competition:modif }
+
+
 supprimerparticipation:
     path:     /supprimerparticipation/{id}/{id1}
     defaults: { _controller: CompetitionBundle:Participation:supprimerParticipation }
@@ -62,3 +75,37 @@ pie:
 can:
     path:     /can
     defaults: { _controller: CompetitionBundle:Competition:can}
+ajout:
+    path:     /ajout
+    defaults: { _controller: CompetitionBundle:Competition:new}
+
+ajoutParticipation:
+    path:     /ajoutParticipation
+    defaults: { _controller: CompetitionBundle:Participation:new}
+
+suppPmobile:
+    path:     /suppPmobile/{id}/{id1}
+    defaults: { _controller: CompetitionBundle:Participation:supprimerPmobile}
+
+affPmobile:
+    path:     /affPmobile
+    defaults: { _controller: CompetitionBundle:Participation:affichPar}
+FindPar:
+    path:     /FindPar/{id}/{id1}
+    defaults: { _controller: CompetitionBundle:Participation:FindPar}
+
+ajoutTicketMobile:
+    path:     /ajoutTicketMobile
+    defaults: { _controller: CompetitionBundle:Ticket:new}
+
+suppTmobile:
+    path:     /suppTmobile/{id}/{id1}
+    defaults: { _controller: CompetitionBundle:Ticket:supprimerTmobile}
+
+affTmobile:
+    path:     /affTmobile
+    defaults: { _controller: CompetitionBundle:Ticket:affichTic}
+
+mobile:
+    path:     /mobile/{id}/{id1}
+    defaults: { _controller: CompetitionBundle:Participation:mobile}

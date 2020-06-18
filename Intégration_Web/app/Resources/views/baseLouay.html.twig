@@ -78,7 +78,7 @@
     <!-- NAVIGATION WIDGET -->
     <nav id="navigation-widget-small" class="navigation-widget navigation-widget-desktop closed sidebar left delayed">
         <!-- USER AVATAR -->
-        <a class="user-avatar small no-outline online" href="template/profile-timeline.html">
+        <a class="user-avatar small no-outline online" href="{{ path('visit_profile',{id_user:app.user.id}) }}">
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
                 <!-- HEXAGON -->
@@ -112,7 +112,7 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link text-tooltip-tfr" href="newsfeed.html" data-title="Newsfeed">
+                <a class="menu-item-link text-tooltip-tfr" href="{{ path('publication_homepage') }}" data-title="Newsfeed">
                     <!-- MENU ITEM LINK ICON -->
                     <svg class="menu-item-link-icon icon-newsfeed">
                         <use xlink:href="#svg-newsfeed"></use>
@@ -250,7 +250,7 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link text-tooltip-tfr" href="template/marketplace.html" data-title="Marketplace">
+                <a class="menu-item-link text-tooltip-tfr" href="{{ path('afficherannonce') }}" data-title="Marketplace">
                     <!-- MENU ITEM LINK ICON -->
                     <svg class="menu-item-link-icon icon-marketplace">
                         <use xlink:href="#svg-marketplace"></use>
@@ -276,7 +276,7 @@
         <!-- USER SHORT DESCRIPTION -->
         <div class="user-short-description">
             <!-- USER SHORT DESCRIPTION AVATAR -->
-            <a class="user-short-description-avatar user-avatar medium" href="template/profile-timeline.html">
+            <a class="user-short-description-avatar user-avatar medium" href="{{ path('visit_profile',{id_user:app.user.id}) }}">
                 <!-- USER AVATAR BORDER -->
                 <div class="user-avatar-border">
                     <!-- HEXAGON -->
@@ -395,7 +395,7 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="template/newsfeed.html">
+                <a class="menu-item-link" href="{{ path('publication_homepage') }}">
                     <!-- MENU ITEM LINK ICON -->
                     <svg class="menu-item-link-icon icon-newsfeed">
                         <use xlink:href="#svg-newsfeed"></use>
@@ -544,7 +544,7 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="template/marketplace.html">
+                <a class="menu-item-link" href="{{ path('afficherannonce') }}">
                     <!-- MENU ITEM LINK ICON -->
                     <svg class="menu-item-link-icon icon-marketplace">
                         <use xlink:href="#svg-marketplace"></use>
@@ -788,7 +788,7 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
                 <!-- MENU ITEM LINK -->
-                <a class="menu-item-link" href="marketplace.html">
+                <a class="menu-item-link" href="{{ path('afficherannonce') }}">
                     <!-- MENU ITEM LINK ICON -->
                     <svg class="menu-item-link-icon icon-marketplace">
                         <use xlink:href="#svg-marketplace"></use>
@@ -2414,7 +2414,7 @@
                 <!-- DROPDOWN BOX LIST -->
                 <div class="dropdown-box-list small no-scroll">
                     <!-- DROPDOWN BOX LIST ITEM -->
-                    <a class="dropdown-box-list-item" href="marketplace-product.html">
+                    <a class="dropdown-box-list-item" href="{{ path('afficherannonce') }}">
                         <!-- USER STATUS -->
                         <div class="user-status no-padding-top">
                             <!-- USER STATUS AVATAR -->
@@ -4014,7 +4014,7 @@
                         <!-- USER STATUS -->
                         <div class="user-status">
                             <!-- USER STATUS AVATAR -->
-                            <a class="user-status-avatar" href="#">
+                            <a class="user-status-avatar" href="{{ path('visit_profile',{id_user:app.user.id}) }}">
                                 <!-- USER AVATAR -->
                                 <div class="user-avatar small no-outline">
                                     <!-- USER AVATAR CONTENT -->
@@ -4064,11 +4064,11 @@
                     <!-- /DROPDOWN NAVIGATION CATEGORY -->
 
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="#">Profile Info</a>
+                    <a class="dropdown-navigation-link" href="{{ path('publication_homepage') }}">Profile Info</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
 
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="#">Social &amp; Stream</a>
+                    <a class="dropdown-navigation-link" href="{{ path('afficherInvitation') }}">Invitations</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
 
                     <!-- DROPDOWN NAVIGATION LINK -->
@@ -4076,7 +4076,7 @@
                     <!-- /DROPDOWN NAVIGATION LINK -->
 
                     <!-- DROPDOWN NAVIGATION LINK -->
-                    <a class="dropdown-navigation-link" href="#">Messages</a>
+                    <a class="dropdown-navigation-link" href="{{ path('affichC') }}">Messages</a>
                     <!-- /DROPDOWN NAVIGATION LINK -->
 
                     <!-- DROPDOWN NAVIGATION LINK -->
@@ -4117,7 +4117,7 @@
                     <p class="dropdown-navigation-button button small secondary">
                         Logout
 
-                    </p>
+                    </p>s
                     </a>
                     <!-- /DROPDOWN NAVIGATION BUTTON -->
                 </div>

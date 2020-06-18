@@ -31,10 +31,7 @@ class AppKernel extends Kernel
             new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-
-
-
-
+            new AnnonceBundle\AnnonceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

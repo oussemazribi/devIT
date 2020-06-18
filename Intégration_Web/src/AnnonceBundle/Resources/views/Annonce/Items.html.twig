@@ -1,0 +1,185 @@
+{% extends 'baseLouay.html.twig' %}
+
+{% block body %}
+
+    <!-- CONTENT GRID -->
+    <div class="content-grid">
+
+    <!-- SECTION BANNER -->
+    <div class="section-banner">
+        <!-- SECTION BANNER ICON -->
+        <img class="section-banner-icon" src="{{ asset('template/img/banner/marketplace-icon.png') }}" alt="marketplace-icon">
+        <!-- /SECTION BANNER ICON -->
+
+        <!-- SECTION BANNER TITLE -->
+        <p class="section-banner-title">Marketplace</p>
+        <!-- /SECTION BANNER TITLE -->
+
+        <!-- SECTION BANNER TEXT -->
+        <p class="section-banner-text">The best place to buy and sell!</p>
+        <!-- /SECTION BANNER TEXT -->
+    </div>
+    <!-- /SECTION BANNER -->
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">Search what you want!</p>
+            <!-- /SECTION PRETITLE -->
+
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">Market Categories</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+
+    <!-- GRID -->
+    <div class="grid grid-3-3-3-3 centered">
+        {% for c in Cat %}
+            <!-- PRODUCT CATEGORY BOX -->
+            <a class="product-category-box category-digital"  href="{{ path('item', {'id':c.id})  }}">
+
+                <!-- PRODUCT CATEGORY BOX TITLE -->
+                <p class="product-category-box-title">{{c.nom}}</p>
+                <!-- /PRODUCT CATEGORY BOX TITLE -->
+
+                <!-- PRODUCT CATEGORY BOX TAG -->
+                <p class="product-category-box-tag">153 items</p>
+                <!-- /PRODUCT CATEGORY BOX TAG -->
+            </a>
+            <!-- /PRODUCT CATEGORY BOX -->
+        {% endfor %}
+    </div>
+    <!-- /GRID -->
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            {% if annonce|length!=0 %}
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">{{ annonce[0].categorie.nom }}'s Items</p>
+            <!-- /SECTION PRETITLE -->
+            {% endif %}
+
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">{{annonce|length}} Items</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+
+
+    <!-- TABLE -->
+    <div class="table table-forum-category">
+        <!-- TABLE HEADER -->
+        <div class="table-header">
+            <!-- TABLE HEADER COLUMN -->
+            <div class="table-header-column">
+                <!-- TABLE HEADER TITLE -->
+                <p class="table-header-title">Annonce</p>
+                <!-- /TABLE HEADER TITLE -->
+            </div>
+            <!-- /TABLE HEADER COLUMN -->
+
+            <!-- TABLE HEADER COLUMN -->
+            <div class="table-header-column centered padded-medium">
+                <!-- TABLE HEADER TITLE -->
+                <p class="table-header-title">Price</p>
+                <!-- /TABLE HEADER TITLE -->
+            </div>
+            <!-- /TABLE HEADER COLUMN -->
+
+            <!-- TABLE HEADER COLUMN -->
+            <div class="table-header-column centered padded-medium">
+                <!-- TABLE HEADER TITLE -->
+                <p class="table-header-title">availability</p>
+                <!-- /TABLE HEADER TITLE -->
+            </div>
+            <!-- /TABLE HEADER COLUMN -->
+
+            <!-- TABLE HEADER COLUMN -->
+            <div class="table-header-column padded-big-left">
+                <!-- TABLE HEADER TITLE -->
+                <p class="table-header-title">Creation Date</p>
+                <!-- /TABLE HEADER TITLE -->
+            </div>
+            <!-- /TABLE HEADER COLUMN -->
+        </div>
+        <!-- /TABLE HEADER -->
+
+        <!-- TABLE BODY -->
+        <div class="table-body">
+            {% for a in annonce %}
+            <!-- TABLE ROW -->
+            <div class="table-row big">
+                <!-- TABLE COLUMN -->
+                <div class="table-column">
+                    <!-- FORUM CATEGORY -->
+                    <div class="forum-category">
+                        <!-- FORUM CATEGORY IMAGE -->
+                        <a href="forums-category.html">
+                            <img class="forum-category-image" src="{{ asset('uploads/'~a.images ) }}"  height="90" width="80" alt="category-01">
+                        </a>
+                        <!-- /FORUM CATEGORY IMAGE -->
+
+                        <!-- FORUM CATEGORY INFO -->
+                        <div class="forum-category-info">
+                            <!-- FORUM CATEGORY TITLE -->
+                            <p class="forum-category-title"><a href="forums-category.html">{{ a.Nom }}</a></p>
+                            <!-- /FORUM CATEGORY TITLE -->
+
+                            <!-- FORUM CATEGORY TEXT -->
+                            <p class="forum-category-text">{{ a.description }}</p>
+                            <!-- /FORUM CATEGORY TEXT -->
+                        </div>
+                        <!-- /FORUM CATEGORY INFO -->
+                    </div>
+                    <!-- /FORUM CATEGORY -->
+                </div>
+                <!-- /TABLE COLUMN -->
+
+                <!-- TABLE COLUMN -->
+                <div class="table-column centered padded-medium">
+                    <!-- TABLE TITLE -->
+                    <p class="table-title">{{ a.prix }}</p>
+                    <!-- /TABLE TITLE -->
+                </div>
+                <!-- /TABLE COLUMN -->
+
+                <!-- TABLE COLUMN -->
+                <div class="table-column centered padded-medium">
+                    <!-- TABLE TITLE -->
+                    <p class="table-title">{{a.Etat}}</p>
+                    <!-- /TABLE TITLE -->
+                </div>
+                <!-- /TABLE COLUMN -->
+
+                <!-- TABLE COLUMN -->
+                <div class="table-column padded-big-left">
+
+
+                    <!-- TABLE LINK -->
+                    <a class="table-title" href="#">{{a.dateCreation|date}}</a>
+                    <!-- /TABLE LINK -->
+                </div>
+                <!-- /TABLE COLUMN -->
+            </div>
+            <!-- /TABLE ROW -->
+{% endfor %}
+
+        </div>
+        <!-- /TABLE BODY -->
+    </div>
+    <!-- /TABLE -->
+    </div>
+
+
+
+
+{% endblock %}
