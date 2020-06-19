@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pidev.GUI.Profile_userController">
+   <children>
+      <Label fx:id="Nom" layoutX="766.0" layoutY="35.0" prefHeight="17.0" prefWidth="184.0" text="Nom" textFill="#c44569">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="Prenom" layoutX="766.0" layoutY="110.0" text="Prenom" textFill="#c44569">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="Email" layoutX="335.0" layoutY="412.0" prefHeight="17.0" prefWidth="93.0" text="Email" textFill="#c44569">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="Num" layoutX="333.0" layoutY="484.0" prefHeight="39.0" prefWidth="200.0" text="Num telephone" textFill="#c44569">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="Talent" layoutX="335.0" layoutY="561.0" prefHeight="39.0" prefWidth="200.0" text="Type Talent" textFill="#c44569">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ImageU" fitHeight="358.0" fitWidth="507.0" layoutX="209.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="262.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/icons8-email-80.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="262.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/phone.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="45.0" layoutX="262.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/reward.png" />
+         </image>
+      </ImageView>
+      <FontAwesomeIcon fill="#c44569" iconName="ENVELOPE" layoutX="843.0" layoutY="535.0" onMouseClicked="#communiquer" size="5em" styleClass="sidebar-btn-icon" wrappingWidth="69.99998152256012" />
+      <Label fx:id="idloula" layoutX="864.0" layoutY="553.0" />
+      <Label fx:id="idRecup" layoutX="196.0" layoutY="14.0" prefHeight="17.0" prefWidth="14.0" text="Label" />
+      <Pane prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #C44569;" styleClass="side-bar">
+         <children>
+            <Circle fill="WHITE" layoutX="74.0" layoutY="67.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <effect>
+                  <DropShadow color="#c6c4c4" />
+               </effect>
+            </Circle>
+            <ImageView fx:id="UserImage" fitHeight="58.0" fitWidth="59.0" layoutX="45.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="UserName" layoutX="29.0" layoutY="117.0" text="Rana Chaabane" textFill="#404040">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" layoutX="-4.0" layoutY="146.0" prefHeight="35.0" prefWidth="154.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" iconName="HOME" size="1.3em" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#acceuil" prefHeight="17.0" prefWidth="70.0" styleClass="sidebar-btn-text" text="ACCEUIL" textFill="#f5f6f8">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="181.0" onMouseClicked="#chat1" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="#fefeff" iconName="ENVELOPE" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#chat1" styleClass="sidebar-btn-text" text="CHAT" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="216.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="#f7f8fb" iconName="CALENDAR" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#competition" styleClass="sidebar-btn-text" text="COMPETITION" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="251.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" iconName="FILE" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#annonce" prefHeight="17.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="ANNONCES" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="2.0" layoutY="290.0" prefHeight="35.0" prefWidth="148.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" iconName="GEAR" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#reclamation" styleClass="sidebar-btn-text" text="RECLAMATION" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="TOP_CENTER" layoutX="40.0" layoutY="365.0" onMouseClicked="#logout" prefHeight="17.0" prefWidth="59.0" styleClass="sidebar-btn-text" text="LOGOUT" textFill="#2e2929">
+               <font>
+                  <Font name="Calibri Bold" size="13.0" />
+               </font>
+            </Label>
+            <Separator layoutX="201.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="608.0" prefWidth="1.0" />
+            <HBox alignment="CENTER_LEFT" layoutX="4.0" layoutY="325.0" prefHeight="35.0" prefWidth="164.0" styleClass="sidebar-btn">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" iconName="FILE" styleClass="sidebar-btn-icon">
+                     <HBox.margin>
+                        <Insets left="10.0" right="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIcon>
+                  <Label onMouseClicked="#amis" prefHeight="17.0" prefWidth="93.0" styleClass="sidebar-btn-text" text="AMIS" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
