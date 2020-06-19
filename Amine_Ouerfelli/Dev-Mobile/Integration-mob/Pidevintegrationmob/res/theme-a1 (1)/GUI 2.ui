@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="GUI 2" cloudDestinationProperty="GUI 2" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Label" name="ListLabel" cloudDestinationProperty="Label" uiid="ListLabel" focusable="false" enabled="true" rtl="false" scrollVisible="true" text="Liste des r&#xe9;clamations" icon="icons8-complaint-48.png" gap="5" verticalAlignment="4" textPosition="3" >
+  </component>
+  <component type="Container" name="Container" cloudDestinationProperty="Container" >
+    <component type="List" name="List" cloudDestinationProperty="List" itemGap="0" fixedSelection="0" orientation="1" hint="" >
+      <stringItem value="ID" />
+      <stringItem value="Sujet" />
+      <stringItem value="Description" />
+      <stringItem value="Photo" />
+      <stringItem value="Date" />
+      <stringItem value="Statut" />
+    </component>
+  </component>
+</component>

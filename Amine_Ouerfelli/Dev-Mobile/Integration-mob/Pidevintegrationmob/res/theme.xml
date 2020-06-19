@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="9" useXmlUI="false">
+    <image name="+.png"  />
+    <image name="background toolbar.png"  />
+    <image name="background.jpg"  />
+    <image name="background.png"  />
+    <image name="BG copy.png" type="multi"  />
+    <image name="BG.png"  />
+    <image name="bla.jpg"  />
+    <image name="bridge.jpg"  />
+    <image name="calendar-background.jpg"  />
+    <image name="calendar-separator.png"  />
+    <image name="camera.png"  />
+    <image name="card-bottom.png"  />
+    <image name="card.png"  />
+    <image name="comment_icon.png"  />
+    <image name="contact-a.png"  />
+    <image name="contact-b.png"  />
+    <image name="contact-c.png"  />
+    <image name="dark-rect.png"  />
+    <image name="dis.png"  />
+    <image name="Ellipse 4.png"  />
+    <image name="griffith.jpg"  />
+    <image name="group-first.png"  />
+    <image name="group-last.png"  />
+    <image name="group-only.png"  />
+    <image name="group.png"  />
+    <image name="heart.png"  />
+    <image name="heart_icon.png"  />
+    <image name="icons8-dossier-de-photos-60.png"  />
+    <image name="icons8-effacer-50.png"  />
+    <image name="icons8-modifier-50.png"  />
+    <image name="label_round-selected.png"  />
+    <image name="label_round.png"  />
+    <image name="learn-codename-one.jpg"  />
+    <image name="like1.png"  />
+    <image name="logo.png"  />
+    <image name="menu.png"  />
+    <ui name="post" />
+    <image name="postmenu.png"  />
+    <image name="profile_image.png"  />
+    <image name="progress.png"  />
+    <image name="selection-in-sidemenu.png"  />
+    <image name="Shape 1.png"  />
+    <image name="Shape 2.png"  />
+    <image name="sidemenu-background.jpg"  />
+    <image name="skate-park.jpg"  />
+    <image name="slide1.png"  />
+    <image name="submit.png"  />
+    <image name="test.png"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+        <val key="contenuettexte.bgColor" value="ffffff" />
+        <val key="contenuettexte.transparency" value="255" />
+        <val key="postbody.bgColor" value="ffffff" />
+        <val key="postbody.transparency" value="255" />
+    </theme>
+    <image name="toolbar-profile-pic.png"  />
+    <image name="walthru-radio-selected.png"  />
+    <image name="walthru-radio-unselected.png"  />
+    <image name="welcome-background.jpg"  />
+    <image name="welcome-image-mask.png"  />
+    <image name="welcome-separator.png"  />
+</resource>

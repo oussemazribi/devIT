@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="10" useXmlUI="false">
+    <image name="background.jpg"  />
+    <ui name="GUI 1" />
+    <ui name="GUI 2" />
+    <image name="icons8-add-image-40.png"  />
+    <image name="icons8-button-50.png"  />
+    <image name="icons8-complaint-48.png"  />
+    <image name="icons8-google-web-search-48.png"  />
+    <image name="icons8-send-48.png"  />
+    <theme name="Theme 1">
+        <val key="@includeNativeBool" value="true" />
+        <val key="Button.bgColor" value="ff4a83" />
+        <val key="Button.fgColor" value="ffffff" />
+        <val key="Button.marUnit" value="2,2,2,2" />
+        <val key="Button.margin" value="0.0,15.0,6.0,0.0" />
+        <val key="Button.padUnit" value="2,2,2,2" />
+        <val key="Button.padding" value="0.0,0.0,0.0,0.0" />
+        <val key="Button.sel#bgColor" value="ffff" />
+        <val key="Button.sel#fgColor" value="000000" />
+        <val key="Button.sel#transparency" value="255" />
+        <val key="Button.transparency" value="255" />
+        <val key="ListLabel.align" value="4" />
+        <val key="ListLabel.fgColor" value="649fff" />
+        <val key="SendBtn.align" value="4" />
+        <val key="SendBtn.bgColor" value="ff4a83" />
+        <val key="SendBtn.fgColor" value="ffffff" />
+        <val key="SendBtn.transparency" value="255" />
+        <val key="TextArea.marUnit" value="2,2,2,2" />
+        <val key="TextArea.margin" value="2.0,4.0,1.0,5.0" />
+        <val key="all.bgColor" value="ffffff" />
+        <val key="all.transparency" value="255" />
+    </theme>
+</resource>

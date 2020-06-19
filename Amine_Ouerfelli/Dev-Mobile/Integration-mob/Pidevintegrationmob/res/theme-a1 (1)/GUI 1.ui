@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="GUI 1" cloudDestinationProperty="GUI 1" uiid="all" layout="BoxLayout" boxLayoutAxis="Y" >
+  <component type="Label" name="SelectionLabel" cloudDestinationProperty="Label" text="Veuillez s&#xe9;lectionner le sujet de votre r&#xe9;clamation :" >
+  </component>
+  <component type="Container" name="Container" cloudDestinationProperty="Container" uiid="Sujets" >
+    <component type="Label" name="SujetLabel" cloudDestinationProperty="Label2" uiid="SujetLabel" text="Sujet :" >
+    </component>
+    <component type="Button" name="ViolenceBtn" cloudDestinationProperty="Button" uiid="ButtonGroupOnly" text="Violence" >
+    </component>
+    <component type="Button" name="HarcelementBtn" cloudDestinationProperty="Button1" uiid="ButtonGroupOnly" text="Harc&#xe9;lement" >
+    </component>
+    <component type="Button" name="NuditeBtn" cloudDestinationProperty="Button2" uiid="ButtonGroupOnly" text="Nudit&#xe9;" >
+    </component>
+    <component type="Button" name="TerrorismeBtn" cloudDestinationProperty="Button3" uiid="ButtonGroupOnly" text="Terrorisme" >
+    </component>
+    <component type="Button" name="FiBtn" cloudDestinationProperty="Button4" uiid="ButtonGroupOnly" text="Fausse information" >
+    </component>
+    <component type="Button" name="AutreBtn" cloudDestinationProperty="Button5" uiid="ButtonGroupOnly" text="Autre chose" icon="icons8-google-web-search-48.png" >
+    </component>
+  </component>
+  <component type="Container" name="Container1" cloudDestinationProperty="Container1" layout="BoxLayout" boxLayoutAxis="X" >
+    <component type="Label" name="DescriptionLabel" cloudDestinationProperty="Label1" text="Description :" >
+    </component>
+    <component type="TextArea" name="DescriptionText" cloudBoundProperty="text" cloudDestinationProperty="TextArea" scrollVisible="false" text="" >
+    </component>
+  </component>
+  <component type="Button" name="AddImageBtn" cloudDestinationProperty="Button6" uiid="ButtonGroupOnly" rtl="false" scrollVisible="true" text="Ajouter image" icon="icons8-add-image-40.png" gap="5" verticalAlignment="4" textPosition="3" >
+  </component>
+  <component type="Button" name="SendBtn" cloudDestinationProperty="Button7" uiid="SendBtn" text="Envoyer" icon="icons8-send-48.png" gap="5" textPosition="3" >
+  </component>
+</component>
