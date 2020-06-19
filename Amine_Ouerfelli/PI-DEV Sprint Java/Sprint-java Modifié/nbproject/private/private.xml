@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/Mediacell.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/TGTNEW.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/PublicationCell.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/PostsStaticsController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/entities/Commentaire.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/MainController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/CommentCell.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/commentaire.fxml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/Home.fxml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/CommentsFactory.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServiceCommentaire.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/interfaceservice/IServices.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/interfaceservice/ISERPub.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServiceReaction.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServiceMedia.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/media.fxml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/MediaFactory.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/HomeController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/AjoutPubController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/ModifierPubController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServicePublication.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServicePCVR.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/entities/Medias.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/Services/ServiceVote.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/Publication.fxml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/tgtnew/PublicationCellFactory.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/entities/Publication.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/tgott/src/entities/Reaction.java</file>
+        </group>
+    </open-files>
+</project-private>

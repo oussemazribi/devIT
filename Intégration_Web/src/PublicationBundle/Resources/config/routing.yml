@@ -1,9 +1,6 @@
-publication_show:
-    path:     /show
-    defaults: { _controller: PublicationBundle:Post:affichagePost }
 publication_homepage:
     path:     /newsfeed
-    defaults: { _controller: PublicationBundle:Post:AjouterPostVI }
+    defaults: { _controller: PublicationBundle:Post:affichagePost}
 publication_edit:
     path:    /{id_post}/edit
     defaults: { _controller: PublicationBundle:Post:ModifierPost }
@@ -13,7 +10,6 @@ publication_delete:
 publication_show_one1:
     path:    /{id_post}/show1
     defaults: { _controller: PublicationBundle:Post:showone }
-
 commentaire_add:
     path:     /new/{post_id}
     defaults: { _controller: PublicationBundle:commentaire:AjouterComment }
@@ -41,21 +37,21 @@ visit_profile:
 
 publication_share_one:
     path:     /{id_post}/share
-    defaults: { _controller: PublicationBundle:Post:shareone }
+    defaults:  { _controller: PublicationBundle:Post:shareone }
 share:
-     path:    /sharenow
-     defaults: {_controller:PublicationBundle:Post:addpostaj}
+    path:     /sharenow
+    defaults: {_controller:PublicationBundle:Post:addpostaj}
 show_one_post:
-    path:    /showonepost/{id_post}
+    path:     /showonepost/{id_post}
     defaults: {_controller:PublicationBundle:Post:showPost1}
 
 show_Admin_posts:
-        path:    /showpostsadmin
-        defaults: {_controller:PublicationBundle:Post:showPostforadmin}
+    path:     /showpostsadmin
+    defaults: { _controller:PublicationBundle:Post:showPostforadmin}
 
 show_Admin_post:
-            path:    /showonepostadmin/{id_post}
-            defaults: {_controller:PublicationBundle:Post:showPost1Adimin}
+    path:    /showonepostadmin/{id_post}
+    defaults: {_controller:PublicationBundle:Post:showPost1Adimin}
 
 commentaire_supprimera:
     path:     /supprimercommentairea/{id_com}
@@ -76,3 +72,63 @@ chatbotcomp:
 chatbotcomp23:
     path:     /{id_user}/evens
     defaults: { _controller: PublicationBundle:Post:chatbotcomp }
+
+Publication_add_new_post:
+    path:     /addnewpost
+    defaults: { _controller: PublicationBundle:Post:newaddMixedPost}
+    methods:   [POST,GET]
+Media_edit:
+    path:     /editMedia/{id_media}
+    defaults: {_controller: PunblicationBundle:Media:editMedia}
+
+Media_Delete:
+    path:     /DeleteMedia/{id_media}
+    defaults: {_controller: PublicationBundle:Media:Deletemedia}
+post_affiche_mobile:
+    path:     /showformobile/
+    defaults: {_controller: PublicationBundle:Post:showallforphone}
+
+post_afficheMedia_mobile:
+    path:     /showMediaformobile/
+    defaults: {_controller: PublicationBundle:Post:showMediaofpostsformobile}
+
+
+post_delete_from_phone:
+    path:    /Deletefrommobile/{id_post}
+    defaults: {_controller: PublicationBundle:Post:deleteformphone}
+
+
+post_add_phone:
+    path :   /addpost/
+    defaults: {_controller: PublicationBundle:Post:addpostthroughphone}
+post_vote_phone:
+    path:      /votephone/{slug}/{id_post}
+    defaults: { _controller: PublicationBundle:Post:Votefromphone }
+
+
+commentaire_phone_add:
+    path:     /newcom/{idpost}/{contenue}/{iduser}
+    defaults: { _controller: PublicationBundle:commentaire:addcommentfromphone}
+
+
+commentaire_phone_modif:
+    path:     /{idcom}/edcom/{contenue}
+    defaults: { _controller: PublicationBundle:commentaire:editcommfromphone }
+
+commentaire_phone_supprimer:
+    path:     /supcommentaire/{idcom}
+    defaults: { _controller: PublicationBundle:commentaire:deletecomfromphone }
+
+react_phone_with:
+    path:     /react/{type}/{id_post}
+    defaults: { _controller: PublicationBundle:Post:Reactfromphone }
+
+User_for_phone:
+    path:      /user
+    defaults: {_controller:PublicationBundle:Post:getusers}
+
+
+Shared_phone:
+    path:     /partager/{id}/{iduser}
+    defaults: {_controller:PublicationBundle:Post:shar0epost}
+
